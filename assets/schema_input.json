@@ -15,7 +15,7 @@
             },
             "fastx": {
                 "type": "string",
-                "pattern": "^\\S+\\.f(ast)?[aq](\\.gz)?$",
+                "pattern": "^\\S+\\.f(ast|n)?[aq](\\.gz)?$",
                 "errorMessage": "FASTA/FASTQ file for reads must be provided, cannot contain spaces and must have extension '.fq', '.fastq', '.fa' or '.fasta' with optional '.gz' afterwards."
             }
         },
