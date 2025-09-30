@@ -37,7 +37,13 @@ process PYRODIGAL {
         -a ${prefix}.faa \\
         -s ${prefix}.score
 
-    pigz -nmf ${prefix}*
+    for fp in ${prefix}* ; do
+      if [[ \$fp =~ \\.gz\$ ]]; then
+        echo "\$fp already gzipped"
+      else
+        pigz -nmf \$fp
+      fi
+    done
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
