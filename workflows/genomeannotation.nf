@@ -43,7 +43,8 @@ workflow GENOMEANNOTATION {
     // Get CDSs from contigs
     SEQSTATS(genome_contigs)
     genome_contig_split = SEQSTATS.out.stats
-        .join(genome_contigs)
+        .join(genome_contigs, remainder: true)
+        .filter { _meta, stats, seqs -> (! ( stats==null | seqs==null )) }
         .map { meta, stats, fasta ->
             def json = new groovy.json.JsonSlurper().parseText(stats.text)
             def meta_ = [
