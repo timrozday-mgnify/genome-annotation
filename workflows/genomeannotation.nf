@@ -6,12 +6,18 @@
 include { samplesheetToList } from 'plugin/nf-schema'
 include { softwareVersionsToYAML } from '../subworkflows/nf-core/utils_nfcore_pipeline'
 include { SEQSTATS } from  '../modules/local/seqstats/main'
-include { CHUNKFASTX } from  '../modules/local/chunkfastx/main'
-include { CONCATENATE } from  '../modules/local/concatenate/main'
 include { PYRODIGAL as PYRODIGAL_SMALL } from '../modules/nf-core/pyrodigal/main'
 include { PYRODIGAL as PYRODIGAL_LARGE } from '../modules/nf-core/pyrodigal/main'
 include { HMMER_HMMSEARCH } from '../modules/nf-core/hmmer/hmmsearch/main'
-include { FETCHDB } from '../subworkflows/local/fetchdb/main'
+include { RUNDBCAN_CAZYMEANNOTATION } from '../modules/nf-core/rundbcan/cazymeannotation/main'
+include { KOFAMSCAN } from '../modules/nf-core/kofamscan/main'
+include { CONCATENATE as PFAM_CONCATENATE } from  '../modules/local/concatenate/main'
+include { CONCATENATE as DBCAN_OVERVIEW_CONCATENATE } from  '../modules/local/concatenate/main'
+include { CONCATENATE as DBCAN_CAZYME_CONCATENATE } from  '../modules/local/concatenate/main'
+include { CONCATENATE as DBCAN_SUBSTRATE_CONCATENATE } from  '../modules/local/concatenate/main'
+include { CONCATENATE as DBCAN_DIAMOND_CONCATENATE } from  '../modules/local/concatenate/main'
+include { CONCATENATE as KOFAM_TSV_CONCATENATE } from  '../modules/local/concatenate/main'
+include { CONCATENATE as KOFAM_TXT_CONCATENATE } from  '../modules/local/concatenate/main'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -22,27 +28,6 @@ include { FETCHDB } from '../subworkflows/local/fetchdb/main'
 workflow GENOMEANNOTATION {
     main:
     ch_versions = Channel.empty()
-
-    // Fetch databases
-    db_ch = Channel
-        .from(
-            params.databases.collect { k, v ->
-                if ((v instanceof Map) && v.containsKey('base_dir')) {
-                    return [id: k] + v
-                }
-            }
-        )
-        .filter { it }
-
-    FETCHDB(db_ch, "${projectDir}/${params.databases.cache_path}")
-    dbs_path_ch = FETCHDB.out.dbs
-
-    dbs_path_ch
-        .branch { meta, _fp ->
-            pfam: meta.id == 'pfam'
-        }
-        .set { dbs }
-
 
     // Parse samplesheet and fetch reads
     samplesheet = Channel.fromList(samplesheetToList(params.samplesheet, "${workflow.projectDir}/assets/schema_input.json"))
@@ -77,38 +62,152 @@ workflow GENOMEANNOTATION {
 
     cdss = PYRODIGAL_SMALL.out.faa
         .mix(PYRODIGAL_LARGE.out.faa)
+
     // Annotate CDSs
-    CHUNKFASTX(cdss)
-    chunked_cdss = CHUNKFASTX.out.chunked_reads.flatMap {
-        meta, chunks ->
-        def chunks_ = chunks instanceof Collection ? chunks : [chunks]
-        return chunks_.collect {
-            chunk ->
-            tuple(groupKey(meta, chunks_.size()), chunk)
-        }
-    }
 
-    pfam_db = dbs.pfam
-        .map { meta, fp ->
-            file("${fp}/${meta.base_dir}/${meta.files.hmm}")
+    // Pfam
+    // split, comine with db, group/count then flatten again, and do a final map
+    chunked_cdss_pfam_in = cdss
+        .splitFasta(
+            size: params.pfam_chunksize,
+            elem: 1,
+            file: true
+        )
+        .groupTuple()
+        .flatMap {
+            meta, chunks ->
+            def chunks_ = chunks instanceof Collection ? chunks : [chunks]
+            def chunksize = chunks_.size()
+            return chunks_.collect {
+                chunk ->
+                tuple(groupKey(meta, chunksize), chunk)
+            }
         }
-        .first()
-
-    chunked_cdss_pfam_in = chunked_cdss
-        .combine(pfam_db)
-        .map { meta, seqs, db -> tuple(meta, db, seqs, false, true, true) }
+        .map { meta, seqs ->
+            return [
+                meta, 
+                file(params.databases.pfam.files.profiles), 
+                params.databases.pfam.n_profiles, 
+                seqs, 
+                false, true, true
+            ] 
+        }
 
     HMMER_HMMSEARCH(chunked_cdss_pfam_in)
 
-    CONCATENATE(
+    PFAM_CONCATENATE(
         HMMER_HMMSEARCH.out.domain_summary
         .groupTuple()
-        .map{ meta, results -> tuple(meta, "${meta.id}.domtbl.gz", results) }
+        .map{ meta, results -> tuple(meta, "${meta.id}_${meta.db_id}.domtbl.gz", results) }
+    )
+
+    // dbCAN3
+    // split, comine with db, group/count then flatten again, and do a final map
+    chunked_cdss_dbcan_in = cdss
+        .splitFasta(
+            size: params.dbcan_chunksize,
+            elem: 1,
+            file: true
+        )
+        .groupTuple()
+        .flatMap {
+            meta, chunks ->
+            def chunks_ = chunks instanceof Collection ? chunks : [chunks]
+            def chunksize = chunks_.size()
+            return chunks_.collect {
+                chunk ->
+                tuple(groupKey(meta, chunksize), chunk)
+            }
+        }
+
+    RUNDBCAN_CAZYMEANNOTATION(chunked_cdss_dbcan_in, file(params.databases.dbcan.files.db))
+
+    DBCAN_OVERVIEW_CONCATENATE(
+        RUNDBCAN_CAZYMEANNOTATION.out.cazyme_annotation
+        .groupTuple()
+        .map{ meta, results -> tuple(meta, "${meta.id}_dbcan_overview.tsv", results) }
+    )
+    DBCAN_CAZYME_CONCATENATE(
+        RUNDBCAN_CAZYMEANNOTATION.out.dbcanhmm_results
+        .groupTuple()
+        .map{ meta, results -> tuple(meta, "${meta.id}_dbcan_cazyme.tsv", results) }
+    )
+    DBCAN_SUBSTRATE_CONCATENATE(
+        RUNDBCAN_CAZYMEANNOTATION.out.dbcansub_results
+        .groupTuple()
+        .map{ meta, results -> tuple(meta, "${meta.id}_dbcan_substrate.tsv", results) }
+    )
+    DBCAN_DIAMOND_CONCATENATE(
+        RUNDBCAN_CAZYMEANNOTATION.out.dbcandiamond_results
+        .groupTuple()
+        .map{ meta, results -> tuple(meta, "${meta.id}_dbcan_diamond.tsv", results) }
+    )
+
+    // KOfam
+    // split, comine with db, group/count then flatten again, and do a final map
+    chunked_cdss_kofam_in = cdss
+        .splitFasta(
+            size: params.kofam_chunksize,
+            elem: 1,
+            file: true
+        )
+
+    kofam_chunked_db_ch = Channel
+        .from(
+            params.databases.kofam_chunked.collect { k, v ->
+                if (v instanceof Map) {
+                    if (v.containsKey('files')) {
+                        return [id: k] + v
+                    }
+                }
+            }
+        )
+
+    kofam_seqs_dbs_ch = chunked_cdss_kofam_in
+        .combine(kofam_chunked_db_ch)
+        .map { meta, seqs, db_meta -> [meta, [seqs, db_meta]] }
+        .groupTuple()
+        .flatMap {
+            meta, chunks ->
+            def chunks_ = chunks instanceof Collection ? chunks : [chunks]
+            def chunksize = chunks_.size()
+            return chunks_.collect {
+                chunk ->
+                tuple(groupKey(meta, chunksize), chunk)
+            }
+        }
+        .multiMap { meta, v ->
+            def (seqs, db_meta) = v
+            seqs: [meta, seqs]
+            profiles: file(db_meta.files.profiles)
+            ko_list: file(db_meta.files.ko_list)
+        }
+    
+    KOFAMSCAN(
+        kofam_seqs_dbs_ch.seqs,
+        kofam_seqs_dbs_ch.profiles,
+        kofam_seqs_dbs_ch.ko_list,
+    )
+    KOFAM_TSV_CONCATENATE(
+        KOFAMSCAN.out.tsv
+        .groupTuple()
+        .map{ meta, results -> tuple(meta, "${meta.id}_kofam.tsv", results) }
+    )
+    KOFAM_TXT_CONCATENATE(
+        KOFAMSCAN.out.txt
+        .groupTuple()
+        .map{ meta, results -> tuple(meta, "${meta.id}_kofam.txt", results) }
     )
 
     emit:
     cds_locations = cdss
-    functional_annotations = CONCATENATE.out.concatenated_file
+    pfam_annotations = PFAM_CONCATENATE.out.concatenated_file
+    dbcan_overview_annotations = DBCAN_OVERVIEW_CONCATENATE.out.concatenated_file
+    dbcan_cazyme_annotations = DBCAN_CAZYME_CONCATENATE.out.concatenated_file
+    dbcan_substrate_annotations = DBCAN_SUBSTRATE_CONCATENATE.out.concatenated_file
+    dbcan_diamond_annotations = DBCAN_DIAMOND_CONCATENATE.out.concatenated_file
+    kofam_tsv_annotations = KOFAM_TSV_CONCATENATE.out.concatenated_file
+    kofam_txt_annotations = KOFAM_TXT_CONCATENATE.out.concatenated_file
     versions = ch_versions                 // channel: [ path(versions.yml) ]
 }
 
