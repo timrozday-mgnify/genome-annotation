@@ -31,6 +31,7 @@ workflow GENOMEANNOTATION {
 
     // Parse samplesheet and fetch reads
     samplesheet = Channel.fromList(samplesheetToList(params.samplesheet, "${workflow.projectDir}/assets/schema_input.json"))
+    samplesheet.view {"samplesheet - ${it}"}
 
     genome_contigs = samplesheet.map {
         sample, fasta ->
@@ -44,7 +45,7 @@ workflow GENOMEANNOTATION {
     SEQSTATS(genome_contigs)
     genome_contig_split = SEQSTATS.out.stats
         .join(genome_contigs, remainder: true)
-        .filter { _meta, stats, seqs -> (! ( stats==null | seqs==null )) }
+        .filter { _meta, stats, fasta -> (! ( stats==null | fasta==null )) }
         .map { meta, stats, fasta ->
             def json = new groovy.json.JsonSlurper().parseText(stats.text)
             def meta_ = [
