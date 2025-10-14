@@ -16,7 +16,7 @@ include { CONCATENATE as DBCAN_OVERVIEW_CONCATENATE } from  '../modules/local/co
 include { CONCATENATE as DBCAN_CAZYME_CONCATENATE } from  '../modules/local/concatenate/main'
 include { CONCATENATE as DBCAN_SUBSTRATE_CONCATENATE } from  '../modules/local/concatenate/main'
 include { CONCATENATE as DBCAN_DIAMOND_CONCATENATE } from  '../modules/local/concatenate/main'
-include { CONCATENATE as KOFAM_TSV_CONCATENATE } from  '../modules/local/concatenate/main'
+// include { CONCATENATE as KOFAM_TSV_CONCATENATE } from  '../modules/local/concatenate/main'
 include { CONCATENATE as KOFAM_TXT_CONCATENATE } from  '../modules/local/concatenate/main'
 
 /*
@@ -194,11 +194,11 @@ workflow GENOMEANNOTATION {
         kofam_seqs_dbs_ch.profiles,
         kofam_seqs_dbs_ch.ko_list,
     )
-    KOFAM_TSV_CONCATENATE(
-        KOFAMSCAN.out.tsv
-        .groupTuple()
-        .map{ meta, results -> tuple(meta, "${meta.id}_kofam.tsv", results) }
-    )
+    // KOFAM_TSV_CONCATENATE(
+    //     KOFAMSCAN.out.tsv
+    //     .groupTuple()
+    //     .map{ meta, results -> tuple(meta, "${meta.id}_kofam.tsv", results) }
+    // )
     KOFAM_TXT_CONCATENATE(
         KOFAMSCAN.out.txt
         .groupTuple()
@@ -212,7 +212,7 @@ workflow GENOMEANNOTATION {
     dbcan_cazyme_annotations = DBCAN_CAZYME_CONCATENATE.out.concatenated_file
     dbcan_substrate_annotations = DBCAN_SUBSTRATE_CONCATENATE.out.concatenated_file
     dbcan_diamond_annotations = DBCAN_DIAMOND_CONCATENATE.out.concatenated_file
-    kofam_tsv_annotations = KOFAM_TSV_CONCATENATE.out.concatenated_file
+    // kofam_tsv_annotations = KOFAM_TSV_CONCATENATE.out.concatenated_file
     kofam_txt_annotations = KOFAM_TXT_CONCATENATE.out.concatenated_file
     versions = ch_versions                 // channel: [ path(versions.yml) ]
 }
