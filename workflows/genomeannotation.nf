@@ -42,10 +42,6 @@ workflow GENOMEANNOTATION {
 
     // Get CDSs from contigs
     SEQSTATS(genome_contigs)
-    SEQSTATS.out.stats
-        .join(genome_contigs, remainder: true)
-        .filter { _meta, stats, fasta -> (! ( stats==null | fasta==null )) }
-        .view { "joined_ch - ${it}" }
 
     genome_contig_split = SEQSTATS.out.stats
         .join(genome_contigs, remainder: true)
