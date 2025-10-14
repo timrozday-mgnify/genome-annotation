@@ -31,7 +31,6 @@ workflow GENOMEANNOTATION {
 
     // Parse samplesheet and fetch reads
     samplesheet = Channel.fromList(samplesheetToList(params.samplesheet, "${workflow.projectDir}/assets/schema_input.json"))
-    samplesheet.view {"samplesheet - ${it}"}
 
     genome_contigs = samplesheet.map {
         sample, fasta ->
@@ -40,12 +39,12 @@ workflow GENOMEANNOTATION {
             file(fasta)
         ]
     }
-    genome_contigs.view { "genome_contigs - ${it}" }
 
     // Get CDSs from contigs
     SEQSTATS(genome_contigs)
     SEQSTATS.out.stats
         .join(genome_contigs, remainder: true)
+        .filter { _meta, stats, fasta -> (! ( stats==null | fasta==null )) }
         .view { "joined_ch - ${it}" }
 
     genome_contig_split = SEQSTATS.out.stats
