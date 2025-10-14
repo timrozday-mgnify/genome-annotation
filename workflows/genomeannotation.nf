@@ -37,12 +37,17 @@ workflow GENOMEANNOTATION {
         sample, fasta ->
         [
             ['id': sample],
-            fasta,
+            file(fasta)
         ]
     }
+    genome_contigs.view { "genome_contigs - ${it}" }
 
     // Get CDSs from contigs
     SEQSTATS(genome_contigs)
+    SEQSTATS.out.stats
+        .join(genome_contigs, remainder: true)
+        .view { "joined_ch - ${it}" }
+
     genome_contig_split = SEQSTATS.out.stats
         .join(genome_contigs, remainder: true)
         .filter { _meta, stats, fasta -> (! ( stats==null | fasta==null )) }
