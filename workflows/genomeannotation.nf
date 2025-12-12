@@ -59,12 +59,21 @@ workflow GENOMEANNOTATION {
             small: meta.base_count < 100000
         }
 
-    PYRODIGAL_SMALL(genome_contig_split.small, 'gff')
-    PYRODIGAL_LARGE(genome_contig_split.large, 'gff')
+    if (params.prodigal_meta) {
+        PYRODIGAL_SMALL(
+            genome_contig_split.small
+                .mix(genome_contig_split.large), 
+            'gff'
+        )
 
-    cdss = PYRODIGAL_SMALL.out.faa
-        .mix(PYRODIGAL_LARGE.out.faa)
+        cdss = PYRODIGAL_SMALL.out.faa
+    } else {
+        PYRODIGAL_SMALL(genome_contig_split.small, 'gff')
+        PYRODIGAL_LARGE(genome_contig_split.large, 'gff')
 
+        cdss = PYRODIGAL_SMALL.out.faa
+            .mix(PYRODIGAL_LARGE.out.faa)
+    }
     // Annotate CDSs
 
     // Pfam
