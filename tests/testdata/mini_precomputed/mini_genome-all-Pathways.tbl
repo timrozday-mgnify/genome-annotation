@@ -1,0 +1,75 @@
+# gapseq version: 2.0.0 26f5af1
+# Sequence DB version: 1.4 (Bacteria, 2025-12-01)
+# genome_format=nucl;taxonomy=Bacteria;ORF_coverage=3.89;gram=neg;translation_md5=24abdf0;translation_table=11
+ID	Name	Prediction	Completeness	Status	NrReaction	NrSpontaneous	NrVague	NrKeyReaction	NrReactionFound	NrKeyReactionFound	ReactionsFound	SpontaneousReactions	KeyReactions
+ALANINE-SYN2-PWY	L-alanine biosynthesis II	FALSE	0		1	0	1	0	0	0			
+ALANINE-VALINESYN-PWY	L-alanine biosynthesis I	FALSE	0		2	0	2	0	0	0			
+ARGASEDEG-PWY	L-arginine degradation I (arginase pathway)	FALSE	0		3	0	3	0	0	0			
+ARGSYN-PWY	L-arginine biosynthesis I (via L-ornithine)	FALSE	0		9	0	9	0	0	0			ACETYLORNDEACET-RXN
+ARGSYN-SUCC-PWY	L-arginine biosynthesis via citrulline and succinylated intermediates	FALSE	0		7	0	7	0	0	0			RXN-9778
+ARGSYNBSUB-PWY	L-arginine biosynthesis II (acetyl cycle)	FALSE	0		9	0	9	0	0	0			GLUTAMATE-N-ACETYLTRANSFERASE-RXN N-ACETYLTRANSFER-RXN
+ASPARAGINE-BIOSYNTHESIS	L-asparagine biosynthesis I	FALSE	0		1	0	1	0	0	0			
+ASPARAGINESYN-PWY	L-asparagine biosynthesis II	FALSE	0		1	0	1	0	0	0			
+ASPARTATESYN-PWY	L-aspartate biosynthesis	FALSE	0		1	0	1	0	0	0			
+CYSTSYN-PWY	L-cysteine biosynthesis I	FALSE	0		2	0	2	0	0	0			
+DAPLYSINESYN-PWY	L-lysine biosynthesis I	FALSE	22.2222222222222		9	0	7	0	2	0	ASPARTATEKIN-RXN DIAMINOPIMDECARB-RXN		TETHYDPICSUCC-RXN
+GLNSYN-PWY	L-glutamine biosynthesis I	FALSE	0		1	0	1	0	0	0			
+GLUTAMATE-SYN2-PWY	L-glutamate biosynthesis II	FALSE	0		1	0	1	0	0	0			
+GLUTORN-PWY	L-ornithine biosynthesis I	FALSE	0		5	0	5	0	0	0			ACETYLORNDEACET-RXN
+GLUTSYN-PWY	L-glutamate biosynthesis I	FALSE	50		2	0	1	0	1	0	GLUTAMIN-RXN		
+GLUTSYNIII-PWY	L-glutamate biosynthesis III	FALSE	0		1	0	1	0	0	0			
+GLYSYN-ALA-PWY	glycine biosynthesis III	FALSE	0		1	0	1	0	0	0			
+GLYSYN-PWY	glycine biosynthesis I	FALSE	0		1	0	1	0	0	0			
+GLYSYN-THR-PWY	glycine biosynthesis IV	FALSE	0		1	0	1	0	0	0			
+HISTSYN-PWY	L-histidine biosynthesis	FALSE	40		10	0	4	0	4	0	GLUTAMIDOTRANS-RXN HISTCYCLOHYD-RXN HISTPRATPHYD-RXN PRIBFAICARPISOM-RXN		
+HOMOCYSDEGR-PWY	L-cysteine biosynthesis III (from L-homocysteine)	FALSE	0		2	0	2	0	0	0			
+HOMOSER-METSYN-PWY	L-methionine biosynthesis I	FALSE	0		5	0	5	0	0	0			HOMSUCTRAN-RXN O-SUCCHOMOSERLYASE-RXN
+HOMOSER-THRESYN-PWY	L-threonine biosynthesis	FALSE	0		2	0	2	0	0	0			
+HOMOSERSYN-PWY	L-homoserine biosynthesis	FALSE	33.3333333333333		3	0	2	0	1	0	ASPARTATEKIN-RXN		
+ILEUSYN-PWY	L-isoleucine biosynthesis I (from threonine)	FALSE	0		7	2	5	0	0	0		RXN-15121 RXN-15123	RXN-15122
+LEUSYN-PWY	L-leucine biosynthesis	FALSE	0		6	1	5	0	0	0		RXN-7800	
+ORN-AMINOPENTANOATE-CAT-PWY	L-ornithine degradation I (L-proline biosynthesis)	FALSE	0		1	0	1	0	0	0			
+PHESYN	L-phenylalanine biosynthesis I	FALSE	0		3	0	2	0	0	0			PREPHENATEDEHYDRAT-RXN
+PROSYN-PWY	L-proline biosynthesis I (from L-glutamate)	FALSE	0		4	1	3	0	0	0		SPONTPRO-RXN	
+PWY-2941	L-lysine biosynthesis II	FALSE	22.2222222222222		9	0	7	0	2	0	ASPARTATEKIN-RXN DIAMINOPIMDECARB-RXN		2.3.1.89-RXN
+PWY-2942	L-lysine biosynthesis III	FALSE	33.3333333333333		7	1	4	0	2	0	ASPARTATEKIN-RXN DIAMINOPIMDECARB-RXN	RXN-4821	DIAMINOPIMELATE-DEHYDROGENASE-RXN
+PWY-3081	L-lysine biosynthesis V	FALSE	0		10	1	9	0	0	0		RXN3O-1983	RXN-15002 RXN-5182 RXN-5183
+PWY-3461	L-tyrosine biosynthesis II	FALSE	0		4	0	3	0	0	0			RXN-5682
+PWY-3462	L-phenylalanine biosynthesis II	FALSE	0		4	0	3	0	0	0			CARBOXYCYCLOHEXADIENYL-DEHYDRATASE-RXN
+PWY-3941	&beta;-alanine biosynthesis II	FALSE	0		6	0	6	0	0	0			2.6.1.18-RXN
+PWY-3982	uracil degradation I (reductive)	FALSE	0		3	0	3	0	0	0			
+PWY-4341	L-glutamate biosynthesis V	FALSE	0		1	0	1	0	0	0			
+PWY-4361	S-methyl-5-thio-&alpha;-D-ribose 1-phosphate degradation I	FALSE	0		7	0	7	0	0	0			R147-RXN
+PWY-4921	protein citrullination	FALSE	0		1	0	1	0	0	0			
+PWY-4981	L-proline biosynthesis II (from arginine)	FALSE	0		2	0	2	0	0	0			
+PWY-5029	3-(imidazol-5-yl)lactate salvage	FALSE	0		2	0	2	0	0	0			
+PWY-5097	L-lysine biosynthesis VI	FALSE	28.5714285714286		7	0	5	0	2	0	ASPARTATEKIN-RXN DIAMINOPIMDECARB-RXN		DIAMINOPIMEPIM-RXN RXN-7737
+PWY-5101	L-isoleucine biosynthesis II	FALSE	0		8	0	8	0	0	0			RXN-7743
+PWY-5103	L-isoleucine biosynthesis III	FALSE	0		7	0	7	0	0	0			METHYLASPARTATE-MUTASE-RXN
+PWY-5104	L-isoleucine biosynthesis IV	FALSE	0		6	0	6	0	0	0			2-OXOBUTYRATE-SYNTHASE-RXN
+PWY-5108	L-isoleucine biosynthesis V	FALSE	0		3	0	3	0	0	0			RXN-19503
+PWY-5154	L-arginine biosynthesis III (via N-acetyl-L-citrulline)	FALSE	0		9	0	9	0	0	0			2.1.3.9-RXN
+PWY-5155	&beta;-alanine biosynthesis III	FALSE	0		1	0	1	0	0	0			
+PWY-5344	L-homocysteine biosynthesis	FALSE	0		2	0	2	0	0	0			
+PWY-6120	L-tyrosine biosynthesis III	FALSE	0		4	0	3	0	0	0			CYCLOHEXADIENYL-DEHYDROGENASE-RXN
+PWY-6151-GS	S-adenosyl-L-methionine cycle I	FALSE	0		5	0	5	0	0	0			ADENOSYLHOMOCYSTEINE-NUCLEOSIDASE-RXN RIBOSYLHOMOCYSTEINASE-RXN
+PWY-6994	L-pyrrolysine biosynthesis	FALSE	0		3	0	3	0	0	0			
+PWY-7174	S-methyl-5-thio-&alpha;-D-ribose 1-phosphate degradation II	FALSE	0		5	0	5	0	0	0			RXN-21333
+PWY-7275	L-homophenylalanine biosynthesis	FALSE	0		6	1	5	0	0	0		RXN-14465	
+PWY-7289	L-cysteine biosynthesis V (mycobacteria)	FALSE	0		4	0	4	0	0	0			
+PWY-7400	L-arginine biosynthesis IV (archaea)	FALSE	0		9	0	9	0	0	0			RXN-15003 RXN-15004
+PWY-7870	L-cysteine biosynthesis VII (from S-sulfo-L-cysteine)	FALSE	0		4	1	3	0	0	0		PRODISULFREDUCT-A-RXN	SULFOCYS-RXN
+PWY-7977	L-methionine biosynthesis IV	FALSE	25		4	0	2	1	1	0	ASPARTATEKIN-RXN		RXN-19380
+PWY-8072	alanine racemization	FALSE	0		1	0	1	0	0	0			
+PWY-8132	S-methyl-5-thio-&alpha;-D-ribose 1-phosphate degradation III	FALSE	0		5	0	5	0	0	0			RXN-21318
+PWY-8140	serine racemization	FALSE	0		1	0	1	0	0	0			
+PWY-8353	3-thia-L-glutamate biosynthesis	FALSE	0		4	0	4	0	0	0			
+PWY0-1021	L-alanine biosynthesis III	FALSE	0		1	0	1	0	0	0			
+PWY0-901	L-selenocysteine biosynthesis I (bacteria)	FALSE	0		3	0	3	0	0	0			2.9.1.1-RXN
+PWY490-4	L-asparagine biosynthesis III (tRNA-dependent)	FALSE	25		4	0	3	0	1	0	GLUTAMIN-RXN		RXN-20080 RXN-20081
+SERSYN-PWY	L-serine biosynthesis I	FALSE	0		3	0	3	0	0	0			
+THRBIOSYN-GS	Threonine biosynthesis from aspartate via homoserine (gapseq)	FALSE	20		5	0	4	0	1	0	ASPARTATEKIN-RXN		
+TRPSYN-PWY	L-tryptophan biosynthesis	FALSE	0		6	0	6	0	0	0			
+TRPSYN-PWY2	L-tryptophan biosynthesis (complex)	FALSE	0		5	0	5	0	0	0			TRYPSYN-RXN
+TYRSYN	L-tyrosine biosynthesis I	FALSE	0		3	0	1	1	0	0			PREPHENATEDEHYDROG-RXN
+VALSYN-PWY	L-valine biosynthesis	FALSE	0		4	0	4	0	0	0			

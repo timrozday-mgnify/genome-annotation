@@ -1,0 +1,55 @@
+name: carveme_carve
+description: >
+  Reconstruct a genome-scale metabolic model (SBML) using CarVeME.
+  Accepts protein FASTA (default), DNA FASTA (--dna), or eggNOG-mapper
+  output (--egg). Universe models and media database are bundled in the
+  container; an optional custom media database can be supplied.
+keywords:
+  - carveme
+  - metabolic modelling
+  - genome-scale model
+  - SBML
+tools:
+  - carveme:
+      description: >
+        Genome-scale metabolic model reconstruction using
+        the CarVeME framework.
+      homepage: https://github.com/cdanielmachado/carveme
+      documentation: https://carveme.readthedocs.io/
+      tool_dev_url: https://github.com/cdanielmachado/carveme
+      doi: "10.1093/nar/gky537"
+      licence: ["Apache-2.0"]
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information.
+          e.g. [ id:'sample_id' ]
+    - fasta:
+        type: file
+        description: |
+          Input file. Protein FASTA by default; use --dna in ext.args for
+          nucleotide FASTA or --egg for eggNOG-mapper output TSV.
+        pattern: "*.{faa,faa.gz,fa,fna,tsv}"
+  - - mediadb:
+        type: file
+        description: |
+          Optional custom media database TSV (columns: medium, description,
+          compound, name). Pass [] to use the bundled media database.
+        pattern: "*.tsv"
+output:
+  - model:
+      - meta:
+          type: map
+          description: Groovy Map containing sample information.
+      - "*.xml":
+          type: file
+          description: Genome-scale metabolic model in SBML format.
+          pattern: "*.xml"
+  - versions:
+      - "versions.yml":
+          type: file
+          description: File containing software versions.
+          pattern: "versions.yml"
+authors:
+  - "@timrozday"

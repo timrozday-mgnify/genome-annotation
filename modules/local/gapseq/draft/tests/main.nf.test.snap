@@ -1,0 +1,30 @@
+{
+    "mini genome - pre-computed reactions and transporters - stub": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,023790c0b6172b2c560c8a498d181f04"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T08:13:04.84212",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    },
+    "mini genome - pre-computed reactions and transporters": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,023790c0b6172b2c560c8a498d181f04"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T08:13:00.336625",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+name: gapseq_download
+description: Download the gapseq reference sequence database from Zenodo using `gapseq update-sequences`.
+keywords:
+  - gapseq
+  - metabolic modelling
+  - database
+tools:
+  - gapseq:
+      description: >
+        Informed prediction of bacterial metabolic pathways and reconstruction
+        of accurate metabolic models.
+      homepage: https://github.com/jotech/gapseq
+      licence: ["GPL-3.0"]
+input: []
+output:
+  - db:
+      type: directory
+      description: gapseq reference sequence database directory (contains Bacteria/ and/or Archaea/ subdirectories with rev/, unrev/, rxn/, user/ sequence files)
+      pattern: "gapseq_db"
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: "versions.yml"
+authors:
+  - "@timrozday"

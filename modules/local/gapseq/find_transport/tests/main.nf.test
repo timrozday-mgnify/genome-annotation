@@ -1,0 +1,55 @@
+nextflow_process {
+    name "Test Process GAPSEQ_FIND_TRANSPORT"
+    config "./nextflow.config"
+    script "../main.nf"
+    process "GAPSEQ_FIND_TRANSPORT"
+
+    tag "modules"
+    tag "gapseq"
+    tag "gapseq_find_transport"
+
+    test("mini genome - nucleotide fasta") {
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'test' ],
+                    file("${projectDir}/tests/testdata/mini_genome.fa", checkIfExists: true)
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert process.out.transporters.size() == 1 },
+                { assert process.out.transporters.get(0).get(1) ==~ /.*-Transporter\.tbl$/ },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+
+    test("mini genome - nucleotide fasta - stub") {
+        options "-stub"
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'test' ],
+                    file("${projectDir}/tests/testdata/mini_genome.fa", checkIfExists: true)
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+}

@@ -1,0 +1,101 @@
+name: "gapseq_doall"
+description: Run the complete gapseq pipeline (find, find-transport, draft, medium prediction, fill) in a single step.
+keywords:
+  - metabolic modelling
+  - pathway prediction
+  - genome annotation
+  - gapseq
+tools:
+  - "gapseq":
+      description: "Informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models."
+      homepage: "https://github.com/jotech/gapseq"
+      documentation: "https://gapseq.readthedocs.io/"
+      tool_dev_url: "https://github.com/jotech/gapseq"
+      doi: "10.1186/s13059-021-02295-1"
+      licence: ["GPL v3"]
+input:
+  - - meta:
+        type: map
+        description: Groovy Map containing sample information e.g. [ id:'test' ]
+    - genome:
+        type: file
+        description: Genomic FASTA file (nucleotide or protein, optionally gzipped)
+        pattern: "*.{fa,fasta,fna,faa,fa.gz,fasta.gz,fna.gz,faa.gz}"
+    - db:
+        type: directory
+        description: gapseq sequence database directory (parent of Bacteria/ and/or Archaea/ subdirectories)
+    - medium:
+        type: file
+        description: Culture medium CSV file. Pass [] to let gapseq auto-predict the medium.
+        pattern: "*.csv"
+        optional: true
+output:
+  reactions:
+    - - meta:
+          type: map
+      - "*-Reactions.tbl":
+          type: file
+          description: Tab-separated table of predicted reactions
+  pathways:
+    - - meta:
+          type: map
+      - "*-Pathways.tbl":
+          type: file
+          description: Tab-separated table of predicted pathway completeness
+  transporters:
+    - - meta:
+          type: map
+      - "*-Transporter.tbl":
+          type: file
+          description: Tab-separated table of predicted transporters
+  draft_rds:
+    - - meta:
+          type: map
+      - "*-draft.RDS":
+          type: file
+          description: Draft metabolic model as R serialised object
+  draft_xml:
+    - - meta:
+          type: map
+      - "*-draft.xml":
+          type: file
+          description: Draft metabolic model in SBML format
+  medium:
+    - - meta:
+          type: map
+      - "*-medium.csv":
+          type: file
+          description: Growth medium used for gap-filling (auto-predicted or provided)
+  model_rds:
+    - - meta:
+          type: map
+      - "*.RDS":
+          type: file
+          description: Final gap-filled metabolic model as R serialised object
+  model_xml:
+    - - meta:
+          type: map
+      - "*.xml":
+          type: file
+          description: Final gap-filled metabolic model in SBML format
+  faa:
+    - - meta:
+          type: map
+      - "*.faa.gz":
+          type: file
+          optional: true
+          description: Predicted protein sequences (only produced for nucleotide input)
+  gff:
+    - - meta:
+          type: map
+      - "*.gff":
+          type: file
+          optional: true
+          description: Gene predictions in GFF format (only produced for nucleotide input)
+  versions:
+    - "versions.yml":
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+authors:
+  - "@timrozday"

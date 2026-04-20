@@ -1,0 +1,54 @@
+name: "gapseq_find_transport"
+description: Predict transporter proteins from a genome using gapseq's built-in TCDB and transporter reference databases.
+keywords:
+  - metabolic modelling
+  - transporter prediction
+  - genome annotation
+  - gapseq
+tools:
+  - "gapseq":
+      description: "Informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models."
+      homepage: "https://github.com/jotech/gapseq"
+      documentation: "https://gapseq.readthedocs.io/"
+      tool_dev_url: "https://github.com/jotech/gapseq"
+      doi: "10.1186/s13059-021-02295-1"
+      licence: ["GPL v3"]
+input:
+  - - meta:
+        type: map
+        description: Groovy Map containing sample information e.g. [ id:'test' ]
+    - genome:
+        type: file
+        description: Genomic FASTA file (nucleotide or protein, optionally gzipped)
+        pattern: "*.{fa,fasta,fna,faa,fa.gz,fasta.gz,fna.gz,faa.gz}"
+output:
+  transporters:
+    - - meta:
+          type: map
+      - "*-Transporter.tbl":
+          type: file
+          description: Tab-separated table of predicted transporters with blast evidence
+          pattern: "*-Transporter.tbl"
+  faa:
+    - - meta:
+          type: map
+      - "*.faa.gz":
+          type: file
+          description: Predicted protein sequences (only produced for nucleotide input)
+          pattern: "*.faa.gz"
+          optional: true
+  gff:
+    - - meta:
+          type: map
+      - "*.gff":
+          type: file
+          description: Gene predictions in GFF format (only produced for nucleotide input)
+          pattern: "*.gff"
+          optional: true
+  versions:
+    - "versions.yml":
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+authors:
+  - "@timrozday"

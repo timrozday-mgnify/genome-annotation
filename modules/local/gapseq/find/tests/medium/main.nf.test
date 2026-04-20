@@ -1,0 +1,61 @@
+nextflow_process {
+    name "Test Process GAPSEQ_FIND (medium)"
+    config "./nextflow.config"
+    script "../../main.nf"
+    process "GAPSEQ_FIND"
+
+    tag "modules"
+    tag "gapseq"
+    tag "gapseq_find"
+
+    test("medium genome - nucleotide fasta") {
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'medium' ],
+                    file("${projectDir}/tests/testdata/medium_genome.fa",  checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_gapseq_db",    checkIfExists: true)
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert process.out.reactions.size() == 1 },
+                { assert process.out.pathways.size()  == 1 },
+                { assert process.out.faa.size()       == 1 },
+                { assert process.out.reactions.get(0).get(1) ==~ /.*-Reactions\.tbl$/ },
+                { assert process.out.pathways.get(0).get(1)  ==~ /.*-Pathways\.tbl$/ },
+                { assert process.out.faa.get(0).get(1)       ==~ /.*\.faa\.gz$/ },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+
+    test("medium genome - nucleotide fasta - stub") {
+        options "-stub"
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'medium' ],
+                    file("${projectDir}/tests/testdata/medium_genome.fa",  checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_gapseq_db",    checkIfExists: true)
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "mini genome - pre-computed draft model and medium - stub": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,e4ec7e2c2099e2d2ee27821d889e029f"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T08:15:34.519046",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    },
+    "mini genome - pre-computed draft model and medium": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,e4ec7e2c2099e2d2ee27821d889e029f"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T08:15:29.854265",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    }
+}

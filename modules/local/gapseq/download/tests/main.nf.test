@@ -1,0 +1,22 @@
+nextflow_process {
+    name "Test Process GAPSEQ_DOWNLOAD"
+    config "./nextflow.config"
+    script "../main.nf"
+    process "GAPSEQ_DOWNLOAD"
+
+    tag "modules"
+    tag "gapseq"
+    tag "gapseq_download"
+
+    test("stub") {
+        options "-stub"
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+}

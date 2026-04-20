@@ -1,0 +1,49 @@
+name: "gapseq_fill"
+description: Gap-fill a draft metabolic model to enable growth on a specified culture medium.
+keywords:
+  - metabolic modelling
+  - gap-filling
+  - genome annotation
+  - gapseq
+tools:
+  - "gapseq":
+      description: "Informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models."
+      homepage: "https://github.com/jotech/gapseq"
+      documentation: "https://gapseq.readthedocs.io/"
+      tool_dev_url: "https://github.com/jotech/gapseq"
+      doi: "10.1186/s13059-021-02295-1"
+      licence: ["GPL v3"]
+input:
+  - - meta:
+        type: map
+        description: Groovy Map containing sample information e.g. [ id:'test' ]
+    - draft_model:
+        type: file
+        description: Draft metabolic model RDS from GAPSEQ_DRAFT
+        pattern: "*-draft.RDS"
+    - medium:
+        type: file
+        description: Culture medium CSV file (columns: metabolite ID, name, max flux)
+        pattern: "*.csv"
+output:
+  model_rds:
+    - - meta:
+          type: map
+      - "*.RDS":
+          type: file
+          description: Gap-filled metabolic model as R serialised object
+          pattern: "*.RDS"
+  model_xml:
+    - - meta:
+          type: map
+      - "*.xml":
+          type: file
+          description: Gap-filled metabolic model in SBML format
+          pattern: "*.xml"
+  versions:
+    - "versions.yml":
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+authors:
+  - "@timrozday"

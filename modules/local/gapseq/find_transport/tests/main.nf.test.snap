@@ -1,0 +1,30 @@
+{
+    "mini genome - nucleotide fasta": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,c2e48fea04452c482278385d3ba2da41"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T08:17:33.453428",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    },
+    "mini genome - nucleotide fasta - stub": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,c2e48fea04452c482278385d3ba2da41"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T08:17:38.00928",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    }
+}

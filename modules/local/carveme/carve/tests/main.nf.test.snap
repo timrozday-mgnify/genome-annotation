@@ -1,0 +1,30 @@
+{
+    "medium genome - E. coli K-12 protein fasta": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,4a3c4b3d8595ab800b63dc7f6f772cf9"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T10:32:28.040093",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    },
+    "medium genome - E. coli K-12 protein fasta - stub": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,4a3c4b3d8595ab800b63dc7f6f772cf9"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T09:50:33.697687",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    }
+}

@@ -1,0 +1,341 @@
+# gapseq version: 2.0.0 26f5af1
+# Sequence DB version: 1.4 (Bacteria, 2025-12-01)
+# genome_format=nucl;taxonomy=Bacteria;ORF_coverage=3.89;gram=neg;translation_md5=24abdf0;translation_table=11
+pathway	rxn	name	ec	keyrea	is_complex	subunit_count	subunits	complex	file	dbhit	spont	type	src	qseqid	pident	evalue	bitscore	qcovs	stitle	sstart	send	exception	status	subunits_found	subunit_undefined_found	complex.status	pathway.status
+ALANINE-SYN2-PWY	ALANINE-AMINOTRANSFERASE-RXN	alanine aminotransferase	2.6.1.2	FALSE	FALSE					rxn00191 rxn33940	FALSE											0	no_seq_data				
+ALANINE-VALINESYN-PWY	BRANCHED-CHAINAMINOTRANSFERVAL-RXN	valine transaminase	2.6.1.42	FALSE	FALSE					rxn00806 rxn00903 rxn01575 rxn31232 rxn33935 rxn33936	FALSE											0	no_seq_data				
+ALANINE-VALINESYN-PWY	VALINE-PYRUVATE-AMINOTRANSFER-RXN	valine-pyruvate aminotransferase	2.6.1.66	FALSE	FALSE					rxn00904 rxn33939	FALSE											0	no_seq_data				
+ARGASEDEG-PWY	ARGINASE-RXN	arginase	3.5.3.1	FALSE	FALSE					rxn00394 rxn23849	FALSE											0	no_seq_data				
+ARGASEDEG-PWY	ORNITHINE-GLU-AMINOTRANSFERASE-RXN	Ornithine--oxo-glutarate aminotransferase	2.6.1.13	FALSE	FALSE					rxn00467 rxn00468 rxn05886 rxn05981 rxn15055 rxn20494 rxn29001 rxn38905 rxn38906 rxn38907 rxn38908	FALSE											0	no_seq_data				
+ARGASEDEG-PWY	RXN-14116	1-pyrroline-5-carboxylate dehydrogenase	1.2.1.88	FALSE	FALSE					rxn00183 rxn00503 rxn00504 rxn03071 rxn03072 rxn03424 rxn06840 rxn22005 rxn28336 rxn28900 rxn31682 rxn31683 rxn32266 rxn33493 rxn33582	FALSE											0	no_seq_data				
+ARGSYN-PWY	ACETYLGLUTKIN-RXN	acetylglutamate kinase	2.7.2.8	FALSE	FALSE					rxn01917 rxn33986 rxn33990	FALSE											0	no_seq_data				
+ARGSYN-PWY	ACETYLORNDEACET-RXN	acetylornithine deacetylase	3.5.1.16	TRUE	FALSE					rxn00469 rxn15972 rxn29983 rxn33990	FALSE											0	no_seq_data				
+ARGSYN-PWY	ACETYLORNTRANSAM-RXN	N-acetylornithine aminotransferase	2.6.1.11	FALSE	FALSE					rxn01637 rxn30059 rxn33986 rxn33990	FALSE											0	no_seq_data				
+ARGSYN-PWY	ARGSUCCINLYA-RXN	argininosuccinate lyase	4.3.2.1	FALSE	FALSE					rxn00802 rxn23778 rxn29990 rxn33989	FALSE											0	no_seq_data				
+ARGSYN-PWY	ARGSUCCINSYN-RXN	ARGSUCCINSYN-RXN	6.3.4.5	FALSE	FALSE					rxn01434 rxn20795 rxn29991 rxn33988	FALSE											0	no_seq_data				
+ARGSYN-PWY	CARBPSYN-RXN	carbamoyl phosphate synthetase	6.3.5.5	FALSE	FALSE					rxn00414 rxn07456 rxn31726 rxn33987 rxn34026	FALSE											0	no_seq_data				
+ARGSYN-PWY	N-ACETYLGLUTPREDUCT-RXN	N-acetylglutamylphosphate reductase	1.2.1.38	FALSE	FALSE					rxn02465 rxn33986 rxn33990	FALSE											0	no_seq_data				
+ARGSYN-PWY	N-ACETYLTRANSFER-RXN	N-acetylglutamate synthase	2.3.1.1	FALSE	FALSE					rxn00192 rxn33986	FALSE											0	no_seq_data				
+ARGSYN-PWY	ORNCARBAMTRANSFER-RXN	ornithine carbamoyltransferase	2.1.3.3	FALSE	FALSE					rxn01019 rxn25283 rxn30043 rxn33987	FALSE											0	no_seq_data				
+ARGSYN-SUCC-PWY	ARGSUCCINLYA-RXN	argininosuccinase	4.3.2.1	FALSE	FALSE					rxn00802 rxn23778 rxn29990 rxn33989	FALSE											0	no_seq_data				
+ARGSYN-SUCC-PWY	ARGSUCCINSYN-RXN	arginosuccinate synthetase	6.3.4.5	FALSE	FALSE					rxn01434 rxn20795 rxn29991 rxn33988	FALSE											0	no_seq_data				
+ARGSYN-SUCC-PWY	CARBPSYN-RXN	carbamoyl-phosphate synthase (glutamine-hydrolysing)	6.3.5.5	FALSE	FALSE					rxn00414 rxn07456 rxn31726 rxn33987 rxn34026	FALSE											0	no_seq_data				
+ARGSYN-SUCC-PWY	NSUCCCITRULLINE-DESUCC	N-succinylcitrulline desuccinylase		FALSE	FALSE					rxn90126	FALSE											0	no_seq_data				
+ARGSYN-SUCC-PWY	NSUCCGLU-SYNKIN-NSUCCGLUP-REDUCTASE	aggregated reaction N-succinylglutamate synthase,N-succinylglutamate kinase, and N-succinylglutamylphosphate reductase		FALSE	FALSE					rxn90125	FALSE											0	no_seq_data				
+ARGSYN-SUCC-PWY	RXN-9778	N-succinylornithine carbamoyltransferase	2.1.3.11	TRUE	FALSE					rxn14372	FALSE											0	no_seq_data				
+ARGSYN-SUCC-PWY	SUCCORNTRANSAM-RXN	succinylornithine transaminase	2.6.1.81	FALSE	FALSE					rxn02944	FALSE											0	no_seq_data				
+ARGSYNBSUB-PWY	ACETYLGLUTKIN-RXN	acetylglutamate kinase	2.7.2.8	FALSE	FALSE					rxn01917 rxn33986 rxn33990	FALSE											0	no_seq_data				
+ARGSYNBSUB-PWY	ACETYLORNTRANSAM-RXN	acetylornithine aminotransferase	2.6.1.11	FALSE	FALSE					rxn01637 rxn30059 rxn33986 rxn33990	FALSE											0	no_seq_data				
+ARGSYNBSUB-PWY	ARGSUCCINLYA-RXN	argininosuccinase	4.3.2.1	FALSE	FALSE					rxn00802 rxn23778 rxn29990 rxn33989	FALSE											0	no_seq_data				
+ARGSYNBSUB-PWY	ARGSUCCINSYN-RXN	arginosuccinate synthetase	6.3.4.5	FALSE	FALSE					rxn01434 rxn20795 rxn29991 rxn33988	FALSE											0	no_seq_data				
+ARGSYNBSUB-PWY	CARBPSYN-RXN	carbamoyl-phosphate synthetase	6.3.5.5	FALSE	FALSE					rxn00414 rxn07456 rxn31726 rxn33987 rxn34026	FALSE											0	no_seq_data				
+ARGSYNBSUB-PWY	GLUTAMATE-N-ACETYLTRANSFERASE-RXN	acetylornithine acetyltransferase	2.3.1.35	TRUE	FALSE					rxn01636	FALSE											0	no_seq_data				
+ARGSYNBSUB-PWY	N-ACETYLGLUTPREDUCT-RXN	N-acetylglutamylphosphate reductase	1.2.1.38	FALSE	FALSE					rxn02465 rxn33986 rxn33990	FALSE											0	no_seq_data				
+ARGSYNBSUB-PWY	N-ACETYLTRANSFER-RXN	acetylglutamate synthase	2.3.1.1	TRUE	FALSE					rxn00192 rxn33986	FALSE											0	no_seq_data				
+ARGSYNBSUB-PWY	ORNCARBAMTRANSFER-RXN	ornithine carbamoyltransferase	2.1.3.3	FALSE	FALSE					rxn01019 rxn25283 rxn30043 rxn33987	FALSE											0	no_seq_data				
+ASPARAGINE-BIOSYNTHESIS	ASNSYNB-RXN	asparagine synthetase	6.3.5.4	FALSE	FALSE					rxn00340 rxn00416 rxn11214 rxn33951	FALSE											0	no_seq_data				
+ASPARAGINESYN-PWY	ASNSYNA-RXN	L-aspartate:ammonia ligase (AMP-forming)	6.3.1.1	FALSE	FALSE					rxn00340 rxn29993	FALSE											0	no_seq_data				
+ASPARTATESYN-PWY	ASPAMINOTRANS-RXN	aspartate transaminase	2.6.1.1	FALSE	FALSE					rxn00260 rxn00493 rxn00527 rxn00647 rxn01757 rxn01906 rxn15507 rxn31662 rxn31663 rxn33947 rxn33948	FALSE											0	no_seq_data				
+CYSTSYN-PWY	ACSERLY-RXN	cysteine synthase	2.5.1.47	FALSE	FALSE					rxn00649 rxn02246 rxn02571 rxn05733 rxn09886 rxn19041 rxn23132 rxn33959 rxn34662	FALSE											0	no_seq_data				
+CYSTSYN-PWY	SERINE-O-ACETTRAN-RXN	serine acetyltransferase	2.3.1.30	FALSE	FALSE					rxn00423 rxn33958	FALSE											0	no_seq_data				
+DAPLYSINESYN-PWY	ASPARTATE-SEMIALDEHYDE-DEHYDROGENASE-RXN	aspartate-semialdehyde dehydrogenase	1.2.1.11	FALSE	FALSE					rxn01643 rxn33374 rxn33956	FALSE											0	no_seq_data				
+DAPLYSINESYN-PWY	ASPARTATEKIN-RXN	aspartokinase	2.7.2.4	FALSE	FALSE		NA		rev/2.7.2.4.fasta	rxn00337 rxn33955	FALSE	EC	rev	UniRef90_P08660	32.438	2.85e-73	230	99	contig_1_114 # 120968 # 122287 # -1 # ID=1_114;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=13bp;gc_cont=0.430	3	436	0	good_blast				
+DAPLYSINESYN-PWY	DIAMINOPIMDECARB-RXN	diaminopimelate decarboxylase	4.1.1.20	FALSE	FALSE		NA		rev/4.1.1.20.fasta	rxn00313 rxn33985	FALSE	EC	rev	UniRef90_Q8A800	82.383	0	677	100	contig_1_113 # 119700 # 120860 # -1 # ID=1_113;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=12bp;gc_cont=0.459	1	386	0	good_blast				
+DAPLYSINESYN-PWY	DIAMINOPIMEPIM-RXN	diaminopimelate epimerase	5.1.1.7	FALSE	FALSE					rxn01974	FALSE											0	no_seq_data				
+DAPLYSINESYN-PWY	DIHYDRODIPICSYN-RXN	4-hydroxy-tetrahydrodipicolinate synthase	4.3.3.7	FALSE	FALSE					rxn01644 rxn33984	FALSE											0	no_seq_data				
+DAPLYSINESYN-PWY	RXN-14014	4-hydroxy-tetrahydrodipicolinate reductase	1.17.1.8	FALSE	FALSE					rxn02928 rxn02929 rxn19543	FALSE											0	no_seq_data				
+DAPLYSINESYN-PWY	SUCCDIAMINOPIMDESUCC-RXN	N-succinyl-L,L-diaminopimelate desuccinylase	3.5.1.18	FALSE	FALSE					rxn01973	FALSE											0	no_seq_data				
+DAPLYSINESYN-PWY	SUCCINYLDIAMINOPIMTRANS-RXN	N-succinyldiaminopimelate-aminotransferase	2.6.1.17	FALSE	FALSE					rxn03087	FALSE											0	no_seq_data				
+DAPLYSINESYN-PWY	TETHYDPICSUCC-RXN	tetrahydrodipicolinate succinylase	2.3.1.117	TRUE	FALSE					rxn03031	FALSE											0	no_seq_data				
+GLNSYN-PWY	GLUTAMINESYN-RXN	glutamine synthetase	6.3.1.2	FALSE	FALSE					rxn00187 rxn30022 rxn31278 rxn31279 rxn33952	FALSE											0	no_seq_data				
+GLUTAMATE-SYN2-PWY	GLUTAMATE-DEHYDROGENASE-NADP+-RXN	glutamate dehydrogenase	1.4.1.3	FALSE	FALSE					rxn00182 rxn00184 rxn19826 rxn27885 rxn27886 rxn33943	FALSE											0	no_seq_data				
+GLUTORN-PWY	ACETYLGLUTKIN-RXN	acetylglutamate kinase	2.7.2.8	FALSE	FALSE					rxn01917 rxn33986 rxn33990	FALSE											0	no_seq_data				
+GLUTORN-PWY	ACETYLORNDEACET-RXN	acetylornithine deacetylase	3.5.1.16	TRUE	FALSE					rxn00469 rxn15972 rxn29983 rxn33990	FALSE											0	no_seq_data				
+GLUTORN-PWY	ACETYLORNTRANSAM-RXN	N-acetylornithine aminotransferase	2.6.1.11	FALSE	FALSE					rxn01637 rxn30059 rxn33986 rxn33990	FALSE											0	no_seq_data				
+GLUTORN-PWY	N-ACETYLGLUTPREDUCT-RXN	N-acetylglutamylphosphate reductase	1.2.1.38	FALSE	FALSE					rxn02465 rxn33986 rxn33990	FALSE											0	no_seq_data				
+GLUTORN-PWY	N-ACETYLTRANSFER-RXN	N-acetylglutamate synthase	2.3.1.1	FALSE	FALSE					rxn00192 rxn33986	FALSE											0	no_seq_data				
+GLUTSYN-PWY	GLUTAMIN-RXN	GLUTAMIN-RXN	3.5.1.38/3.5.1.2	FALSE	FALSE		NA		rev/3.5.1.2.fasta	rxn00189 rxn00342 rxn00347 rxn01153 rxn29962	FALSE	EC	rev	UniRef90_Q5LBD5	78.571	2.34e-123	340	100	contig_1_119 # 125457 # 126047 # -1 # ID=1_119;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.460	1	196	0	good_blast				
+GLUTSYN-PWY	RXN-20084	glutamate synthase		FALSE	FALSE					rxn00184	FALSE											0	no_seq_data				
+GLUTSYNIII-PWY	GLUTDEHYD-RXN	glutamate dehydrogenase 2 (NADP-dependent)	1.4.1.4	FALSE	FALSE					rxn00184 rxn30023	FALSE											0	no_seq_data				
+GLYSYN-ALA-PWY	ALANINE--GLYOXYLATE-AMINOTRANSFERASE-RXN	alanine-glyoxylate transaminase	2.6.1.44	FALSE	FALSE					rxn00272 rxn33941	FALSE											0	no_seq_data				
+GLYSYN-PWY	GLYOHMETRANS-RXN	serine hydroxymethyltransferase	2.1.2.1	FALSE	FALSE					rxn00692 rxn15964 rxn19870 rxn33976 rxn33977	FALSE											0	no_seq_data				
+GLYSYN-THR-PWY	THREONINE-ALDOLASE-RXN	L-threonine aldolase	4.1.2.48/4.1.2.5	FALSE	FALSE					rxn00541 rxn04142 rxn28676	FALSE											0	no_seq_data				
+HISTSYN-PWY	ATPPHOSPHORIBOSYLTRANS-RXN	ATP phosphoribosyltransferase	2.4.2.17	FALSE	FALSE		NA		user/2.4.2.17.fasta	rxn00789 rxn33996	FALSE	EC	user	UniRef50_A0A3D4B6M0	23.596	0.051	24.6	83	contig_1_95 # 98640 # 100871 # -1 # ID=1_95;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=14bp;gc_cont=0.466	173	249	0	bad_blast				
+HISTSYN-PWY	ATPPHOSPHORIBOSYLTRANS-RXN	ATP phosphoribosyltransferase	2.4.2.17	FALSE	FALSE		NA		user/2.4.2.17.fasta	rxn00789 rxn33996	FALSE	EC	user	UniRef90_B5EDS0	23.699	0.6	23.1	77	contig_1_111 # 117767 # 118924 # -1 # ID=1_111;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=11bp;gc_cont=0.440	182	350	0	bad_blast				
+HISTSYN-PWY	ATPPHOSPHORIBOSYLTRANS-RXN	ATP phosphoribosyltransferase	2.4.2.17	FALSE	FALSE		NA		user/2.4.2.17.fasta	rxn00789 rxn33996	FALSE	EC	user	UniRef50_A0A356K7T2	21.705	0.56	21.9	83	contig_1_102 # 109525 # 110499 # -1 # ID=1_102;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=11bp;gc_cont=0.469	163	285	0	bad_blast				
+HISTSYN-PWY	ATPPHOSPHORIBOSYLTRANS-RXN	ATP phosphoribosyltransferase	2.4.2.17	FALSE	FALSE		NA		user/2.4.2.17.fasta	rxn00789 rxn33996	FALSE	EC	user	UniRef50_A0A836VU52	29.213	0.41	21.9	86	contig_1_142 # 138855 # 140492 # 1 # ID=1_142;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=13bp;gc_cont=0.438	337	419	0	bad_blast				
+HISTSYN-PWY	ATPPHOSPHORIBOSYLTRANS-RXN	ATP phosphoribosyltransferase	2.4.2.17	FALSE	FALSE		NA		user/2.4.2.17.fasta	rxn00789 rxn33996	FALSE	EC	user	UniRef50_A0A519HA97	22.523	0.57	21.9	95	contig_1_94 # 97003 # 98469 # -1 # ID=1_94;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=12bp;gc_cont=0.424	44	150	0	bad_blast				
+HISTSYN-PWY	ATPPHOSPHORIBOSYLTRANS-RXN	ATP phosphoribosyltransferase	2.4.2.17	FALSE	FALSE		NA		user/2.4.2.17.fasta	rxn00789 rxn33996	FALSE	EC	user	UniRef50_A0A2W5EXM6	24.419	1.9	20	83	contig_1_101 # 107690 # 109348 # -1 # ID=1_101;partial=00;start_type=ATG;rbs_motif=AAAA;rbs_spacer=11bp;gc_cont=0.445	409	479	0	bad_blast				
+HISTSYN-PWY	ATPPHOSPHORIBOSYLTRANS-RXN	ATP phosphoribosyltransferase	2.4.2.17	FALSE	FALSE		NA		user/2.4.2.17.fasta	rxn00789 rxn33996	FALSE	EC	user	UniRef50_A0A2N3CD03	25.62	2.3	20	92	contig_1_49 # 53747 # 54358 # -1 # ID=1_49;partial=00;start_type=ATG;rbs_motif=AAA;rbs_spacer=15bp;gc_cont=0.520	9	123	0	bad_blast				
+HISTSYN-PWY	ATPPHOSPHORIBOSYLTRANS-RXN	ATP phosphoribosyltransferase	2.4.2.17	FALSE	FALSE		NA		user/2.4.2.17.fasta	rxn00789 rxn33996	FALSE	EC	user	UniRef50_A0A847H519	25.263	5	19.2	75	contig_1_38 # 36935 # 40207 # 1 # ID=1_38;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=5bp;gc_cont=0.429	39	132	0	bad_blast				
+HISTSYN-PWY	GLUTAMIDOTRANS-RXN	imidazole-glycerol-phosphate synthase	4.3.2.10	FALSE	TRUE	2	Subunit HisF,Subunit HisH,Subunit undefined	Subunit HisF	rev/4.3.2.10.fasta	rxn03135	FALSE	EC	rev	UniRef90_A6L6Z2	100	0	518	100	contig_1_117 # 123931 # 124686 # -1 # ID=1_117;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=9bp;gc_cont=0.475	1	251	0	good_blast	2	TRUE	1	
+HISTSYN-PWY	GLUTAMIDOTRANS-RXN	imidazole-glycerol-phosphate synthase	4.3.2.10	FALSE	TRUE	2	Subunit HisF,Subunit HisH,Subunit undefined	Subunit HisF	rev/4.3.2.10.fasta	rxn03135	FALSE	EC	rev	UniRef90_A6L6Z2	23.967	1.33e-21	83.2	95	contig_1_118 # 124696 # 125415 # -1 # ID=1_118;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=12bp;gc_cont=0.439	3	239	0	bad_blast	2	TRUE	1	
+HISTSYN-PWY	GLUTAMIDOTRANS-RXN	imidazole-glycerol-phosphate synthase	4.3.2.10	FALSE	TRUE	2	Subunit HisF,Subunit HisH,Subunit undefined	Subunit HisH	rev/4.3.2.10.fasta	rxn03135	FALSE	EC	rev	UniRef90_Q5LBD5	78.571	2.34e-123	340	100	contig_1_119 # 125457 # 126047 # -1 # ID=1_119;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.460	1	196	0	good_blast	2	TRUE	1	
+HISTSYN-PWY	GLUTAMIDOTRANS-RXN	imidazole-glycerol-phosphate synthase	4.3.2.10	FALSE	TRUE	2	Subunit HisF,Subunit HisH,Subunit undefined	Subunit undefined	rev/4.3.2.10.fasta	rxn03135	FALSE	EC	rev	UniRef90_Q9HU44	53.543	1.27e-94	271	99	contig_1_117 # 123931 # 124686 # -1 # ID=1_117;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=9bp;gc_cont=0.475	2	250	0	good_blast	2	TRUE	1	
+HISTSYN-PWY	GLUTAMIDOTRANS-RXN	imidazole-glycerol-phosphate synthase	4.3.2.10	FALSE	TRUE	2	Subunit HisF,Subunit HisH,Subunit undefined	Subunit undefined	rev/4.3.2.10.fasta	rxn03135	FALSE	EC	rev	UniRef90_Q9HU44	21.687	6.9e-17	70.5	95	contig_1_118 # 124696 # 125415 # -1 # ID=1_118;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=12bp;gc_cont=0.439	3	239	0	bad_blast	2	TRUE	1	
+HISTSYN-PWY	HISTALDEHYD-RXN	histidinol dehydrogenase	1.1.1.23	FALSE	FALSE					rxn00859 rxn00863 rxn02159 rxn05934 rxn34001	FALSE											0	no_seq_data				
+HISTSYN-PWY	HISTAMINOTRANS-RXN	histidinol phosphate aminotransferase	2.6.1.9	FALSE	FALSE					rxn02320 rxn27926 rxn33999	FALSE											0	no_seq_data				
+HISTSYN-PWY	HISTCYCLOHYD-RXN	phosphoribosyl-AMP cyclohydrolase	3.5.4.19	FALSE	FALSE		NA		rev/3.5.4.19.fasta	rxn02835	FALSE	EC	rev	UniRef90_Q8A7Z7	87.685	1.95e-138	378	100	contig_1_116 # 123155 # 123766 # -1 # ID=1_116;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=11bp;gc_cont=0.448	1	203	0	good_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A357WVK1	22.222	0.009	26.2	78	contig_1_60 # 65582 # 68653 # 1 # ID=1_60;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.569	574	645	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A350T1K3	28.333	0.052	25.8	75	contig_1_96 # 101002 # 102192 # -1 # ID=1_96;partial=00;start_type=ATG;rbs_motif=AACAA;rbs_spacer=4bp;gc_cont=0.429	213	330	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A7C2DJP7	22.222	0.15	25	85	contig_1_71 # 82356 # 83198 # -1 # ID=1_71;partial=00;start_type=ATG;rbs_motif=AAAA;rbs_spacer=11bp;gc_cont=0.547	35	216	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A2I0MZI1	23.009	0.25	24.6	80	contig_1_97 # 102224 # 103822 # -1 # ID=1_97;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=13bp;gc_cont=0.463	305	499	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A3N9N1X2	24.402	0.54	23.5	79	contig_1_153 # 148363 # 149556 # 1 # ID=1_153;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=12bp;gc_cont=0.447	43	220	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A1F9L6M8	23.77	1.6	22.3	86	contig_1_101 # 107690 # 109348 # -1 # ID=1_101;partial=00;start_type=ATG;rbs_motif=AAAA;rbs_spacer=11bp;gc_cont=0.445	300	532	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A090QQE1	26.923	1.1	21.2	79	contig_1_55 # 59977 # 61233 # 1 # ID=1_55;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.573	138	203	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A1G9W2Q7	26.804	0.76	20.8	90	contig_1_50 # 54804 # 55607 # 1 # ID=1_50;partial=00;start_type=ATG;rbs_motif=AAA;rbs_spacer=14bp;gc_cont=0.428	142	227	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_E0MYT2	22.566	5.6	20.4	78	contig_1_146 # 141671 # 142459 # 1 # ID=1_146;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=14bp;gc_cont=0.433	32	244	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef90_P58291	20.673	7.7	20	78	contig_1_11 # 11029 # 12420 # 1 # ID=1_11;partial=00;start_type=ATG;rbs_motif=AACAA;rbs_spacer=11bp;gc_cont=0.517	278	454	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_W1U774	24.545	3.6	19.6	86	contig_1_2 # 112 # 1548 # -1 # ID=1_2;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=11bp;gc_cont=0.425	355	460	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A3D5WJ62	23.729	4.3	19.2	87	contig_1_117 # 123931 # 124686 # -1 # ID=1_117;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=9bp;gc_cont=0.475	25	141	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_W4V6J2	26.582	4.3	18.9	76	contig_1_114 # 120968 # 122287 # -1 # ID=1_114;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=13bp;gc_cont=0.430	27	103	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A7X8WXX9	25	4.2	18.5	79	contig_1_138 # 136135 # 136416 # -1 # ID=1_138;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=9bp;gc_cont=0.387	19	90	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_A0A5N7ZB57	21.127	9.9	17.7	78	contig_1_39 # 40224 # 42041 # 1 # ID=1_39;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=14bp;gc_cont=0.458	155	219	0	bad_blast				
+HISTSYN-PWY	HISTIDPHOS-RXN	histidinol phosphate phosphatase	3.1.3.15	FALSE	FALSE		NA		user/3.1.3.15.fasta	rxn02160 rxn34000	FALSE	EC	user	UniRef50_C9MUM3	22.989	9	17.7	91	contig_1_49 # 53747 # 54358 # -1 # ID=1_49;partial=00;start_type=ATG;rbs_motif=AAA;rbs_spacer=15bp;gc_cont=0.520	36	110	0	bad_blast				
+HISTSYN-PWY	HISTOLDEHYD-RXN	histidinol dehydrogenase	1.1.1.23	FALSE	FALSE					rxn00859 rxn00863 rxn02159 rxn05934 rxn34001	FALSE											0	no_seq_data				
+HISTSYN-PWY	HISTPRATPHYD-RXN	phosphoribosyl-ATP pyrophosphatase	3.6.1.31	FALSE	FALSE		NA		rev/3.6.1.31.fasta	rxn02834 rxn33997	FALSE	EC	rev	UniRef90_Q8A7Z7	87.685	1.95e-138	378	100	contig_1_116 # 123155 # 123766 # -1 # ID=1_116;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=11bp;gc_cont=0.448	1	203	0	good_blast				
+HISTSYN-PWY	IMIDPHOSDEHYD-RXN	imidazoleglycerolphosphate dehydratase	4.2.1.19	FALSE	FALSE					rxn02473 rxn33998	FALSE											0	no_seq_data				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef90_A6L6Z1	100	0	489	100	contig_1_118 # 124696 # 125415 # -1 # ID=1_118;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=12bp;gc_cont=0.439	1	239	0	good_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef90_A0LCF2	34.286	1.34e-33	115	82	contig_1_117 # 123931 # 124686 # -1 # ID=1_117;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=9bp;gc_cont=0.475	5	211	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A1Z8WUR2	22.749	0.001	32	81	contig_1_102 # 109525 # 110499 # -1 # ID=1_102;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=11bp;gc_cont=0.469	15	201	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A7X9CIB1	25.786	0.11	25.4	85	contig_1_95 # 98640 # 100871 # -1 # ID=1_95;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=14bp;gc_cont=0.466	339	473	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_F5RJZ9	24.731	0.14	25	77	contig_1_115 # 122395 # 123150 # -1 # ID=1_115;partial=00;start_type=ATG;rbs_motif=AAAA;rbs_spacer=12bp;gc_cont=0.463	36	194	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A972TGH0	23.585	0.57	23.5	78	contig_1_122 # 127667 # 128806 # 1 # ID=1_122;partial=00;start_type=ATG;rbs_motif=AAAA;rbs_spacer=11bp;gc_cont=0.367	41	234	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef90_Q4A048	26.923	0.72	23.1	76	contig_1_19 # 17994 # 20333 # 1 # ID=1_19;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=11bp;gc_cont=0.536	87	248	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A524GR56	33.333	0.14	23.1	76	contig_1_66 # 73214 # 76363 # 1 # ID=1_66;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=15bp;gc_cont=0.469	801	865	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef90_B8D8Q6	21.32	1.1	22.7	79	contig_1_70 # 80677 # 82134 # -1 # ID=1_70;partial=00;start_type=ATG;rbs_motif=AACAA;rbs_spacer=12bp;gc_cont=0.556	194	377	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A1M3L324	19.502	1.2	22.3	89	contig_1_142 # 138855 # 140492 # 1 # ID=1_142;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=13bp;gc_cont=0.438	233	466	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A661GRB3	24.706	0.67	21.6	78	contig_1_106 # 113194 # 114396 # 1 # ID=1_106;partial=00;start_type=ATG;rbs_motif=AATAA;rbs_spacer=13bp;gc_cont=0.505	196	273	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A7X4DFJ0	21.622	0.72	21.2	76	contig_1_62 # 68943 # 70106 # -1 # ID=1_62;partial=00;start_type=ATG;rbs_motif=AAA;rbs_spacer=12bp;gc_cont=0.532	81	154	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A661GRB3	23.457	1.2	20.8	76	contig_1_149 # 144433 # 145998 # -1 # ID=1_149;partial=00;start_type=TTG;rbs_motif=TAAAA;rbs_spacer=15bp;gc_cont=0.411	255	333	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A7X8W887	27.723	2	20.4	78	contig_1_111 # 117767 # 118924 # -1 # ID=1_111;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=11bp;gc_cont=0.440	152	233	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A960EDK5	23.711	1	20.4	95	contig_1_3 # 1696 # 4464 # -1 # ID=1_3;partial=00;start_type=GTG;rbs_motif=TAAAA;rbs_spacer=15bp;gc_cont=0.514	620	716	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A142YIY2	18.782	7.3	20	77	contig_1_125 # 129852 # 130934 # -1 # ID=1_125;partial=00;start_type=ATG;rbs_motif=AAA;rbs_spacer=12bp;gc_cont=0.373	76	262	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A7X0A5D0	21.311	3.9	20	78	contig_1_67 # 76469 # 77755 # 1 # ID=1_67;partial=00;start_type=GTG;rbs_motif=TAAA;rbs_spacer=9bp;gc_cont=0.489	190	293	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A7W0J1X1	24.638	1.5	19.6	78	contig_1_104 # 111215 # 111697 # -1 # ID=1_104;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=12bp;gc_cont=0.470	58	111	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A350CYQ3	28.846	5.4	18.9	86	contig_1_114 # 120968 # 122287 # -1 # ID=1_114;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=13bp;gc_cont=0.430	113	208	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A2X2IPX1	22.807	8.5	18.9	75	contig_1_43 # 46301 # 47443 # -1 # ID=1_43;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=11bp;gc_cont=0.378	24	134	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A961A231	17.6	8.2	18.5	96	contig_1_69 # 79151 # 80623 # -1 # ID=1_69;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=11bp;gc_cont=0.550	111	234	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A2S8K3K3	20.408	9.2	17.7	99	contig_1_119 # 125457 # 126047 # -1 # ID=1_119;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.460	42	139	0	bad_blast				
+HISTSYN-PWY	PRIBFAICARPISOM-RXN	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase	5.3.1.16	FALSE	FALSE		NA		user/5.3.1.16.fasta	rxn03175	FALSE	EC	user	UniRef50_A0A7C4AJM9	28.395	7.5	17.7	79	contig_1_6 # 5991 # 6785 # -1 # ID=1_6;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=12bp;gc_cont=0.542	164	241	0	bad_blast				
+HOMOCYSDEGR-PWY	CYSTATHIONINE-BETA-SYNTHASE-RXN	cystathionine beta-synthase	4.2.1.22	FALSE	FALSE					rxn00953 rxn03380 rxn05909 rxn15167 rxn32860	FALSE											0	no_seq_data				
+HOMOCYSDEGR-PWY	RXN-15130	cystathionine gamma-lyase	4.4.1.1	FALSE	FALSE					rxn00566 rxn00742 rxn01735 rxn03263 rxn03374 rxn14167 rxn14190 rxn19903	FALSE											0	no_seq_data				
+HOMOSER-METSYN-PWY	CYSTATHIONINE-BETA-LYASE-RXN	cystathionine beta-lyase	4.4.1.13	FALSE	FALSE					rxn00566 rxn00950 rxn01735 rxn03379 rxn06282 rxn06404 rxn15166 rxn19349 rxn27095 rxn30001 rxn33072 rxn33983	FALSE											0	no_seq_data				
+HOMOSER-METSYN-PWY	HOMOCYSMET-RXN	cobalamin-independent homocysteine transmethylase	2.1.1.14	FALSE	FALSE					rxn03052 rxn16206 rxn19900 rxn23136	FALSE											0	no_seq_data				
+HOMOSER-METSYN-PWY	HOMOCYSMETB12-RXN	cobalamin-dependent methionine synthase	2.1.1.13	FALSE	FALSE					rxn00693 rxn16206 rxn33979	FALSE											0	no_seq_data				
+HOMOSER-METSYN-PWY	HOMSUCTRAN-RXN	homoserine O-succinyltransferase	2.3.1.46	TRUE	FALSE					rxn01304	FALSE											0	no_seq_data				
+HOMOSER-METSYN-PWY	O-SUCCHOMOSERLYASE-RXN	O-succinylhomoserine(thiol)-lyase	2.5.1.48	TRUE	FALSE					rxn01816 rxn02302 rxn03382 rxn03383 rxn05957 rxn06820 rxn09948 rxn15395 rxn15500 rxn31264 rxn31265 rxn31266 rxn31686 rxn31687 rxn32907 rxn33982	FALSE											0	no_seq_data				
+HOMOSER-THRESYN-PWY	HOMOSERKIN-RXN	homoserine kinase	2.7.1.39	FALSE	FALSE					rxn01300 rxn38151	FALSE											0	no_seq_data				
+HOMOSER-THRESYN-PWY	THRESYN-RXN	threonine synthase	4.2.3.1	FALSE	FALSE					rxn01069 rxn03446	FALSE											0	no_seq_data				
+HOMOSERSYN-PWY	ASPARTATE-SEMIALDEHYDE-DEHYDROGENASE-RXN	aspartate-semialdehyde dehydrogenase	1.2.1.11	FALSE	FALSE					rxn01643 rxn33374 rxn33956	FALSE											0	no_seq_data				
+HOMOSERSYN-PWY	ASPARTATEKIN-RXN	aspartate kinase	2.7.2.4	FALSE	FALSE		NA		rev/2.7.2.4.fasta	rxn00337 rxn33955	FALSE	EC	rev	UniRef90_P08660	32.438	2.85e-73	230	99	contig_1_114 # 120968 # 122287 # -1 # ID=1_114;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=13bp;gc_cont=0.430	3	436	0	good_blast				
+HOMOSERSYN-PWY	HOMOSERDEHYDROG-RXN	homoserine dehydrogenase	1.1.1.3	FALSE	FALSE					rxn01301 rxn01302 rxn19904 rxn33957	FALSE											0	no_seq_data				
+ILEUSYN-PWY	ACETOOHBUTREDUCTOISOM-RXN	(R)-2,3-dihydroxy-3-methylpentanoate:NADP+ oxidoreductase (isomerizing)	1.1.1.86	FALSE	FALSE					rxn02186 rxn03068 rxn03435 rxn03436 rxn08764 rxn15466 rxn15511 rxn19027 rxn19029 rxn33934 rxn33937	FALSE											0	no_seq_data				
+ILEUSYN-PWY	ACETOOHBUTSYN-RXN	2-aceto-2-hydroxy-butyrate synthase	2.2.1.6	FALSE	FALSE					rxn00003 rxn00011 rxn02185 rxn03194 rxn08043 rxn15021 rxn15491 rxn27664 rxn32060 rxn33164 rxn33391 rxn33933	FALSE											0	no_seq_data				
+ILEUSYN-PWY	BRANCHED-CHAINAMINOTRANSFERILEU-RXN	isoleucine transaminase	2.6.1.42	FALSE	FALSE					rxn00806 rxn00903 rxn01575 rxn31232 rxn33935 rxn33936	FALSE											0	no_seq_data				
+ILEUSYN-PWY	DIHYDROXYMETVALDEHYDRAT-RXN	2,3-Dihydroxy-3-methylvalerate dehydratase	4.2.1.9	FALSE	FALSE					rxn00898 rxn03437 rxn09889 rxn15467 rxn19544 rxn33934 rxn33937	FALSE											0	no_seq_data				
+ILEUSYN-PWY	RXN-15121	RXN-15121		FALSE	FALSE						TRUE											0	spontaneous				
+ILEUSYN-PWY	RXN-15122	threonine deaminase	4.3.1.19	TRUE	FALSE					rxn00165 rxn00737 rxn07054	FALSE											0	no_seq_data				
+ILEUSYN-PWY	RXN-15123	2-iminobutanoate deaminase	3.5.99.10	FALSE	FALSE					rxn44493	TRUE											0	spontaneous				
+LEUSYN-PWY	2-ISOPROPYLMALATESYN-RXN	2-isopropylmalate synthase	2.3.3.13	FALSE	FALSE					rxn00902 rxn27497	FALSE											0	no_seq_data				
+LEUSYN-PWY	3-ISOPROPYLMALDEHYDROG-RXN	D-malate/3-isopropylmalate dehydrogenase (decarboxylating)	1.1.1.85	FALSE	FALSE					rxn00735 rxn03062 rxn11245 rxn32091 rxn33936	FALSE											0	no_seq_data				
+LEUSYN-PWY	3-ISOPROPYLMALISOM-RXN	3-isopropylmalate dehydratase	4.2.1.33	FALSE	FALSE					rxn02789 rxn02811 rxn12193 rxn33936	FALSE											0	no_seq_data				
+LEUSYN-PWY	BRANCHED-CHAINAMINOTRANSFERLEU-RXN	leucine aminotransferase	2.6.1.6/2.6.1.42	FALSE	FALSE					rxn00806 rxn00903 rxn01575 rxn31232 rxn33935 rxn33936	FALSE											0	no_seq_data				
+LEUSYN-PWY	RXN-7800	RXN-7800	1.1.1.85	FALSE	FALSE					rxn00735 rxn01208 rxn03062 rxn11245 rxn32091 rxn33936	TRUE											0	spontaneous				
+LEUSYN-PWY	RXN-8991	3-isopropylmalate dehydratase	4.2.1.33	FALSE	FALSE					rxn02789 rxn02811 rxn12193 rxn33936	FALSE											0	no_seq_data				
+ORN-AMINOPENTANOATE-CAT-PWY	ORNITHINE-CYCLODEAMINASE-RXN	ornithine cyclodeaminase	4.3.1.12	FALSE	FALSE					rxn00471 rxn11040 rxn20495	FALSE											0	no_seq_data				
+PHESYN	CHORISMATEMUT-RXN	chorismate mutase	5.4.99.5	FALSE	FALSE		NA		user/5.4.99.5.fasta	rxn01256	FALSE	EC	user	tr|A4XBF0|A4XBF0_SALTO	25	0.021	25.8	86	contig_1_48 # 52793 # 53614 # -1 # ID=1_48;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=11bp;gc_cont=0.572	172	269	0	bad_blast				
+PHESYN	PREPHENATEDEHYDRAT-RXN	prephenate dehydratase	4.2.1.51	TRUE	FALSE					rxn00490 rxn01000 rxn33962	FALSE											0	no_seq_data				
+PHESYN	RXN-10814	phenylalanine aminotransferase	2.6.1.1/2.6.1.57/2.6.1.27	FALSE	FALSE					rxn00260 rxn00483 rxn00493 rxn00527 rxn00647 rxn01270 rxn01757 rxn01906 rxn01947 rxn02236 rxn05108 rxn06810 rxn15507 rxn17654 rxn27523 rxn31662 rxn31663 rxn33947 rxn33948 rxn33963 rxn33964 rxn38254	FALSE											0	no_seq_data				
+PROSYN-PWY	GLUTKIN-RXN	glutamate 5-kinase	2.7.2.11	FALSE	FALSE					rxn00179 rxn33944	FALSE											0	no_seq_data				
+PROSYN-PWY	GLUTSEMIALDEHYDROG-RXN	glutamate-5-semialdehyde dehydrogenase	1.2.1.41	FALSE	FALSE					rxn02373 rxn02990 rxn32479 rxn33945	FALSE											0	no_seq_data				
+PROSYN-PWY	PYRROLINECARBREDUCT-RXN	pyrroline-5-carboxylate reductase	1.5.1.2	FALSE	FALSE					rxn00929 rxn00931 rxn02356 rxn02358 rxn13741 rxn20650 rxn28110 rxn31762 rxn32054 rxn33946	FALSE											0	no_seq_data				
+PROSYN-PWY	SPONTPRO-RXN	SPONTPRO-RXN		FALSE	FALSE					rxn02374 rxn11220	TRUE											0	spontaneous				
+PWY-2941	2.3.1.89-RXN	tetrahydrodipicolinate acetyltransferase	2.3.1.89	TRUE	FALSE					rxn03030	FALSE											0	no_seq_data				
+PWY-2941	ASPARTATE-SEMIALDEHYDE-DEHYDROGENASE-RXN	aspartate semialdehyde dehydrogenase	1.2.1.11	FALSE	FALSE					rxn01643 rxn33374 rxn33956	FALSE											0	no_seq_data				
+PWY-2941	ASPARTATEKIN-RXN	aspartate kinase I	2.7.2.4	FALSE	FALSE		NA		rev/2.7.2.4.fasta	rxn00337 rxn33955	FALSE	EC	rev	UniRef90_P08660	32.438	2.85e-73	230	99	contig_1_114 # 120968 # 122287 # -1 # ID=1_114;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=13bp;gc_cont=0.430	3	436	0	good_blast				
+PWY-2941	DIAMINOPIMDECARB-RXN	diaminopimelate decarboxylase	4.1.1.20	FALSE	FALSE		NA		rev/4.1.1.20.fasta	rxn00313 rxn33985	FALSE	EC	rev	UniRef90_Q8A800	82.383	0	677	100	contig_1_113 # 119700 # 120860 # -1 # ID=1_113;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=12bp;gc_cont=0.459	1	386	0	good_blast				
+PWY-2941	DIAMINOPIMEPIM-RXN	diaminopimelate epimerase	5.1.1.7	FALSE	FALSE					rxn01974	FALSE											0	no_seq_data				
+PWY-2941	DIHYDRODIPICSYN-RXN	4-hydroxy-tetrahydrodipicolinate synthase	4.3.3.7	FALSE	FALSE					rxn01644 rxn33984	FALSE											0	no_seq_data				
+PWY-2941	N-ACETYLDIAMINOPIMELATE-DEACETYLASE-RXN	N-acetyl-diaminopimelate deacetylase	3.5.1.47	FALSE	FALSE					rxn01972	FALSE											0	no_seq_data				
+PWY-2941	RXN-14014	4-hydroxy-tetrahydrodipicolinate reductase	1.17.1.8	FALSE	FALSE					rxn02928 rxn02929 rxn19543	FALSE											0	no_seq_data				
+PWY-2941	RXN-4822	acetyl-diaminopimelate aminotransferase		FALSE	FALSE					rxn03086	FALSE											0	no_seq_data				
+PWY-2942	ASPARTATE-SEMIALDEHYDE-DEHYDROGENASE-RXN	ASPARTATE-SEMIALDEHYDE-DEHYDROGENASE-RXN	1.2.1.11	FALSE	FALSE					rxn01643 rxn33374 rxn33956	FALSE											0	no_seq_data				
+PWY-2942	ASPARTATEKIN-RXN	ASPARTATEKIN-RXN	2.7.2.4	FALSE	FALSE		NA		rev/2.7.2.4.fasta	rxn00337 rxn33955	FALSE	EC	rev	UniRef90_P08660	32.438	2.85e-73	230	99	contig_1_114 # 120968 # 122287 # -1 # ID=1_114;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=13bp;gc_cont=0.430	3	436	0	good_blast				
+PWY-2942	DIAMINOPIMDECARB-RXN	DIAMINOPIMDECARB-RXN	4.1.1.20	FALSE	FALSE		NA		rev/4.1.1.20.fasta	rxn00313 rxn33985	FALSE	EC	rev	UniRef90_Q8A800	82.383	0	677	100	contig_1_113 # 119700 # 120860 # -1 # ID=1_113;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=12bp;gc_cont=0.459	1	386	0	good_blast				
+PWY-2942	DIAMINOPIMELATE-DEHYDROGENASE-RXN	meso-diaminopimelate dehydrogenase	1.4.1.16	TRUE	FALSE					rxn01991	FALSE											0	no_seq_data				
+PWY-2942	DIHYDRODIPICSYN-RXN	4-hydroxy-tetrahydrodipicolinate synthase	4.3.3.7	FALSE	FALSE					rxn01644 rxn33984	FALSE											0	no_seq_data				
+PWY-2942	RXN-14014	4-hydroxy-tetrahydrodipicolinate reductase	1.17.1.8	FALSE	FALSE					rxn02928 rxn02929 rxn19543	FALSE											0	no_seq_data				
+PWY-2942	RXN-4821	RXN-4821	3.5.99	FALSE	FALSE					rxn03012	TRUE											0	spontaneous				
+PWY-3081	2-AMINOADIPATE-AMINOTRANSFERASE-RXN	L-2-aminoadipate aminotransferase	2.6.1.39	FALSE	FALSE					rxn01423 rxn33144	FALSE											0	no_seq_data				
+PWY-3081	HOMOACONITATE-HYDRATASE-RXN	homoaconitate hydratase	4.2.1.36	FALSE	FALSE					rxn03034	FALSE											0	no_seq_data				
+PWY-3081	HOMOCITRATE-SYNTHASE-RXN	homocitrate synthase	2.3.3.14	FALSE	FALSE					rxn00202	FALSE											0	no_seq_data				
+PWY-3081	RXN-15002	[amino-group carrier protein]-L-2-aminoadipate ligase	6.3.2.43	TRUE	FALSE					rxn16617	FALSE											0	no_seq_data				
+PWY-3081	RXN-5182	[LysW]-L-2aminoadipate 6-kinase	2.7.2.17	TRUE	FALSE					rxn16618	FALSE											0	no_seq_data				
+PWY-3081	RXN-5183	[amino-group carrier protein]-L-2-aminoadipate 6-phosphate reductase	1.2.1.103	TRUE	FALSE					rxn16619	FALSE											0	no_seq_data				
+PWY-3081	RXN-5184	[LysW]-L-2-aminoadipate semialdehyde transaminase	2.6.1.118	FALSE	FALSE					rxn16620	FALSE											0	no_seq_data				
+PWY-3081	RXN-5185	L-2-aminoadipate carrier protein]-L-lysine lysine-hydrolase	3.5.1.130	FALSE	FALSE					rxn16621	FALSE											0	no_seq_data				
+PWY-3081	RXN-7970	homoisocitrate dehydrogenase	1.1.1.87/1.1.1.286	FALSE	FALSE					rxn00505 rxn01419 rxn01420 rxn03324 rxn15056 rxn15057	FALSE											0	no_seq_data				
+PWY-3081	RXN3O-1983	RXN3O-1983	4.2.1.114	FALSE	FALSE					rxn02466 rxn03034 rxn10468 rxn10469 rxn10595 rxn10596 rxn16566	TRUE											0	spontaneous				
+PWY-3461	CHORISMATEMUT-RXN	chorismate mutase	5.4.99.5	FALSE	FALSE		NA		user/5.4.99.5.fasta	rxn01256	FALSE	EC	user	tr|A4XBF0|A4XBF0_SALTO	25	0.021	25.8	86	contig_1_48 # 52793 # 53614 # -1 # ID=1_48;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=11bp;gc_cont=0.572	172	269	0	bad_blast				
+PWY-3461	PREPHENATE-ASP-TRANSAMINE-RXN	glutamate-prephenate aminotransferase	2.6.1.78	FALSE	FALSE					rxn01270	FALSE											0	no_seq_data				
+PWY-3461	PREPHENATE-TRANSAMINE-RXN	aspartate-prephenate aminotransferase	2.6.1.79	FALSE	FALSE					rxn05036 rxn28083	FALSE											0	no_seq_data				
+PWY-3461	RXN-5682	arogenate dehydrogenase	1.3.1.78	TRUE	FALSE					rxn00526	FALSE											0	no_seq_data				
+PWY-3462	CARBOXYCYCLOHEXADIENYL-DEHYDRATASE-RXN	arogenate dehydratase	4.2.1.91	TRUE	FALSE					rxn00490 rxn01000 rxn33965	FALSE											0	no_seq_data				
+PWY-3462	CHORISMATEMUT-RXN	chorismate mutase	5.4.99.5	FALSE	FALSE		NA		user/5.4.99.5.fasta	rxn01256	FALSE	EC	user	tr|A4XBF0|A4XBF0_SALTO	25	0.021	25.8	86	contig_1_48 # 52793 # 53614 # -1 # ID=1_48;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=11bp;gc_cont=0.572	172	269	0	bad_blast				
+PWY-3462	PREPHENATE-ASP-TRANSAMINE-RXN	glutamate-prephenate aminotransferase	2.6.1.78	FALSE	FALSE					rxn01270	FALSE											0	no_seq_data				
+PWY-3462	PREPHENATE-TRANSAMINE-RXN	aspartate-prephenate aminotransferase	2.6.1.79	FALSE	FALSE					rxn05036 rxn28083	FALSE											0	no_seq_data				
+PWY-3941	2.6.1.18-RXN	beta-alanine aminotransferase	2.6.1.18	TRUE	FALSE					rxn00656 rxn02925	FALSE											0	no_seq_data				
+PWY-3941	3-HYDROXYPROPIONATE-DEHYDROGENASE-RXN	3-HYDROXYPROPIONATE-DEHYDROGENASE-RXN	1.1.1.59	FALSE	FALSE					rxn01174	FALSE											0	no_seq_data				
+PWY-3941	PROPCOASYN-RXN	PROPCOASYN-RXN	1.3.8.1	FALSE	FALSE					rxn00673 rxn00872 rxn01923 rxn02268 rxn03251 rxn05936 rxn06334 rxn14277 rxn19247 rxn28137 rxn37728	FALSE											0	no_seq_data				
+PWY-3941	PROPIONATE--COA-LIGASE-RXN	PROPIONATE--COA-LIGASE-RXN	6.2.1.17	FALSE	FALSE					rxn00674 rxn00675 rxn00986 rxn31220 rxn31224	FALSE											0	no_seq_data				
+PWY-3941	RXN-6383	RXN-6383	4.2.1.116	FALSE	FALSE					rxn02181	FALSE											0	no_seq_data				
+PWY-3941	RXN-6384	RXN-6384	3.1.2.4	FALSE	FALSE					rxn02261 rxn02406 rxn03433 rxn15401 rxn17759 rxn28324	FALSE											0	no_seq_data				
+PWY-3982	1.3.1.2-RXN	dihydrouracil dehydrogenase	1.3.1.2	FALSE	FALSE					rxn00720 rxn01028 rxn11754	FALSE											0	no_seq_data				
+PWY-3982	BETA-UREIDOPROPIONASE-RXN	beta-alanine synthase	3.5.1.6	FALSE	FALSE					rxn00654 rxn03188 rxn11756 rxn15489 rxn15490	FALSE											0	no_seq_data				
+PWY-3982	DIHYDROPYRIMIDINASE-RXN	dihydropyrimidinase	3.5.2.2	FALSE	FALSE					rxn01626 rxn02190 rxn11755 rxn21498	FALSE											0	no_seq_data				
+PWY-4341	GLUTAMATE-SYNTHASE-FERREDOXIN-RXN	ferredoxin-dependent glutamate synthase	1.4.7.1	FALSE	FALSE					rxn05760 rxn12822 rxn19828 rxn31206 rxn33968	FALSE											0	no_seq_data				
+PWY-4361	5.3.1.23-RXN	5-methylthioribose-1-phosphate isomerase	5.3.1.23	FALSE	FALSE					rxn03057 rxn30037 rxn39251	FALSE											0	no_seq_data				
+PWY-4361	R145-RXN	5-methylthioribulose-1-phosphate dehydratase	4.2.1.109	FALSE	FALSE					rxn05104	FALSE											0	no_seq_data				
+PWY-4361	R147-RXN	1,2-dihydroxy-5-(methylthio)pent-1-en-3-one:oxygen oxidoreductase (formate-forming)	1.13.11.54	TRUE	FALSE					rxn05092	FALSE											0	no_seq_data				
+PWY-4361	R82-RXN	2,3-diketo-5-methylthio-1-phosphopentane enolase	5.3.2.5	FALSE	FALSE					rxn05105	FALSE											0	no_seq_data				
+PWY-4361	R83-RXN	2-hydroxy-3-keto-5-methylthio-phosphopentene phosphatase	3.1.3.87	FALSE	FALSE					rxn05106 rxn05107 rxn11033	FALSE											0	no_seq_data				
+PWY-4361	RXN-13072	2-oxoglutaramate amidase	3.5.1.3/3.5.1.111	FALSE	FALSE					rxn00200 rxn00254 rxn06489 rxn20492	FALSE											0	no_seq_data				
+PWY-4361	RXN-15650	2-oxo-4-methylthiobutanoate aminotransferase	2.6.1.117	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-4921	PROTEIN-ARGININE-DEIMINASE-RXN	peptidylarginine deiminase	3.5.3.15	FALSE	FALSE					rxn06193 rxn20621	FALSE											0	no_seq_data				
+PWY-4981	ORNITHINE-CYCLODEAMINASE-RXN	ornithine cyclodeaminase	4.3.1.12	FALSE	FALSE					rxn00471 rxn11040 rxn20495	FALSE											0	no_seq_data				
+PWY-4981	RXN-21710	arginine dihydrolase	3.5.3.M1	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-5029	HISTTRANSAM-RXN	histidine-2-oxooglutarate aminotransferase	2.6.1.38	FALSE	FALSE					rxn00862	FALSE											0	no_seq_data				
+PWY-5029	IMILACTDEHYDROG-RXN	imidazole-lactate oxidase	1.1.1.111	FALSE	FALSE					rxn02923 rxn02924 rxn19925 rxn36748 rxn36750	FALSE											0	no_seq_data				
+PWY-5097	ASPARTATE-SEMIALDEHYDE-DEHYDROGENASE-RXN	aspartate semialdehyde dehydrogenase	1.2.1.11	FALSE	FALSE					rxn01643 rxn33374 rxn33956	FALSE											0	no_seq_data				
+PWY-5097	ASPARTATEKIN-RXN	aspartate kinase	2.7.2.4	FALSE	FALSE		NA		rev/2.7.2.4.fasta	rxn00337 rxn33955	FALSE	EC	rev	UniRef90_P08660	32.438	2.85e-73	230	99	contig_1_114 # 120968 # 122287 # -1 # ID=1_114;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=13bp;gc_cont=0.430	3	436	0	good_blast				
+PWY-5097	DIAMINOPIMDECARB-RXN	diaminopimelate decarboxylase	4.1.1.20	FALSE	FALSE		NA		rev/4.1.1.20.fasta	rxn00313 rxn33985	FALSE	EC	rev	UniRef90_Q8A800	82.383	0	677	100	contig_1_113 # 119700 # 120860 # -1 # ID=1_113;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=12bp;gc_cont=0.459	1	386	0	good_blast				
+PWY-5097	DIAMINOPIMEPIM-RXN	diaminopimelate epimerase	5.1.1.7	TRUE	FALSE					rxn01974	FALSE											0	no_seq_data				
+PWY-5097	DIHYDRODIPICSYN-RXN	4-hydroxy-tetrahydrodipicolinate synthase	4.3.3.7	FALSE	FALSE					rxn01644 rxn33984	FALSE											0	no_seq_data				
+PWY-5097	RXN-14014	4-hydroxy-tetrahydrodipicolinate reductase	1.17.1.8	FALSE	FALSE					rxn02928 rxn02929 rxn19543	FALSE											0	no_seq_data				
+PWY-5097	RXN-7737	L,L-diaminopimelate aminotransferase	2.6.1.83	TRUE	FALSE					rxn07441	FALSE											0	no_seq_data				
+PWY-5101	ACETOOHBUTSYN-RXN	2-aceto-2-hydroxy-butyrate synthase	2.2.1.6	FALSE	FALSE					rxn00003 rxn00011 rxn02185 rxn03194 rxn08043 rxn15021 rxn15491 rxn27664 rxn32060 rxn33164 rxn33391 rxn33933	FALSE											0	no_seq_data				
+PWY-5101	BRANCHED-CHAINAMINOTRANSFERILEU-RXN	branched-chain-amino-acid aminotransferase	2.6.1.42	FALSE	FALSE					rxn00806 rxn00903 rxn01575 rxn31232 rxn33935 rxn33936	FALSE											0	no_seq_data				
+PWY-5101	DIHYDROXYMETVALDEHYDRAT-RXN	2,3-Dihydroxy-3-methylvalerate dehydratase	4.2.1.9	FALSE	FALSE					rxn00898 rxn03437 rxn09889 rxn15467 rxn19544 rxn33934 rxn33937	FALSE											0	no_seq_data				
+PWY-5101	R-2-METHYLMALATE-DEHYDRATASE-RXN	(R)-2-methylmalate hydro-lyase (2-methylmaleate-forming)	4.2.1.35	FALSE	FALSE					rxn02749	FALSE											0	no_seq_data				
+PWY-5101	RXN-16062	2-aceto-2-hydroxy-butanoate:NADP+ oxidoreductase (isomerizing)	1.1.1.383	FALSE	FALSE					rxn08764 rxn19029	FALSE											0	no_seq_data				
+PWY-5101	RXN-7743	(R)-citramalate synthase	2.3.3.21	TRUE	FALSE					rxn05109	FALSE											0	no_seq_data				
+PWY-5101	RXN-7744	beta-methyl-D-malate hydro-lyase (2-methylmaleate-forming)		FALSE	FALSE					rxn02751	FALSE											0	no_seq_data				
+PWY-5101	RXN-7745	beta-methyl-D-malate dehydrogenase	1.1.1	FALSE	FALSE					rxn00735	FALSE											0	no_seq_data				
+PWY-5103	ACETOOHBUTREDUCTOISOM-RXN	ACETOOHBUTREDUCTOISOM-RXN	1.1.1.86	FALSE	FALSE					rxn02186 rxn03068 rxn03435 rxn03436 rxn08764 rxn15466 rxn15511 rxn19027 rxn19029 rxn33934 rxn33937	FALSE											0	no_seq_data				
+PWY-5103	ACETOOHBUTSYN-RXN	2-aceto-2-hydroxy-butyrate synthase	2.2.1.6	FALSE	FALSE					rxn00003 rxn00011 rxn02185 rxn03194 rxn08043 rxn15021 rxn15491 rxn27664 rxn32060 rxn33164 rxn33391 rxn33933	FALSE											0	no_seq_data				
+PWY-5103	BRANCHED-CHAINAMINOTRANSFERILEU-RXN	BRANCHED-CHAINAMINOTRANSFERILEU-RXN	2.6.1.42	FALSE	FALSE					rxn00806 rxn00903 rxn01575 rxn31232 rxn33935 rxn33936	FALSE											0	no_seq_data				
+PWY-5103	DIHYDROXYMETVALDEHYDRAT-RXN	2,3-Dihydroxy-3-methylvalerate dehydratase	4.2.1.9	FALSE	FALSE					rxn00898 rxn03437 rxn09889 rxn15467 rxn19544 rxn33934 rxn33937	FALSE											0	no_seq_data				
+PWY-5103	METHYLASPARTATE-MUTASE-RXN	glutamate mutase	5.4.99.1	TRUE	FALSE					rxn00195	FALSE											0	no_seq_data				
+PWY-5103	RXN-7746	RXN-7746		FALSE	FALSE					rxn00736	FALSE											0	no_seq_data				
+PWY-5103	RXN-7751	beta-methylaspartate aminotransferase	2.6.1	FALSE	FALSE					rxn02976	FALSE											0	no_seq_data				
+PWY-5104	2-OXOBUTYRATE-SYNTHASE-RXN	alpha-ketobutyrate synthase	1.2.7.7	TRUE	FALSE					rxn05940 rxn13962 rxn14109 rxn14152 rxn14178 rxn17212	FALSE											0	no_seq_data				
+PWY-5104	ACETOOHBUTSYN-RXN	2-aceto-2-hydroxy-butyrate synthase	2.2.1.6	FALSE	FALSE					rxn00003 rxn00011 rxn02185 rxn03194 rxn08043 rxn15021 rxn15491 rxn27664 rxn32060 rxn33164 rxn33391 rxn33933	FALSE											0	no_seq_data				
+PWY-5104	BRANCHED-CHAINAMINOTRANSFERILEU-RXN	branched-chain-amino-acid aminotransferase	2.6.1.42	FALSE	FALSE					rxn00806 rxn00903 rxn01575 rxn31232 rxn33935 rxn33936	FALSE											0	no_seq_data				
+PWY-5104	DIHYDROXYMETVALDEHYDRAT-RXN	2,3-Dihydroxy-3-methylvalerate dehydratase	4.2.1.9	FALSE	FALSE					rxn00898 rxn03437 rxn09889 rxn15467 rxn19544 rxn33934 rxn33937	FALSE											0	no_seq_data				
+PWY-5104	PROPIONATE--COA-LIGASE-RXN	PROPIONATE--COA-LIGASE-RXN	6.2.1.17	FALSE	FALSE					rxn00674 rxn00675 rxn00986 rxn31220 rxn31224	FALSE											0	no_seq_data				
+PWY-5104	RXN-16062	2-aceto-2-hydroxy-butanoate isomeroreductase	1.1.1.383	FALSE	FALSE					rxn08764 rxn19029	FALSE											0	no_seq_data				
+PWY-5108	BRANCHED-CHAINAMINOTRANSFERILEU-RXN	BRANCHED-CHAINAMINOTRANSFERILEU-RXN	2.6.1.42	FALSE	FALSE					rxn00806 rxn00903 rxn01575 rxn31232 rxn33935 rxn33936	FALSE											0	no_seq_data				
+PWY-5108	RXN-18448	2-methylbutanoate--CoA ligase	6.2.1.1	FALSE	FALSE					rxn00175 rxn00176 rxn00226 rxn33879	FALSE											0	no_seq_data				
+PWY-5108	RXN-19503	RXN-19503	1.2.7.7	TRUE	FALSE					rxn05940 rxn13962 rxn14109 rxn14152 rxn17212	FALSE											0	no_seq_data				
+PWY-5154	2.1.3.9-RXN	acetylornithine transcarbamylase	2.1.3.9	TRUE	FALSE					rxn05012	FALSE											0	no_seq_data				
+PWY-5154	ACETYLGLUTKIN-RXN	ACETYLGLUTKIN-RXN	2.7.2.8	FALSE	FALSE					rxn01917 rxn33986 rxn33990	FALSE											0	no_seq_data				
+PWY-5154	ACETYLORNTRANSAM-RXN	ACETYLORNTRANSAM-RXN	2.6.1.11	FALSE	FALSE					rxn01637 rxn30059 rxn33986 rxn33990	FALSE											0	no_seq_data				
+PWY-5154	ARGSUCCINLYA-RXN	ARGSUCCINLYA-RXN	4.3.2.1	FALSE	FALSE					rxn00802 rxn23778 rxn29990 rxn33989	FALSE											0	no_seq_data				
+PWY-5154	ARGSUCCINSYN-RXN	ARGSUCCINSYN-RXN	6.3.4.5	FALSE	FALSE					rxn01434 rxn20795 rxn29991 rxn33988	FALSE											0	no_seq_data				
+PWY-5154	CARBPSYN-RXN	CARBPSYN-RXN	6.3.5.5	FALSE	FALSE					rxn00414 rxn07456 rxn31726 rxn33987 rxn34026	FALSE											0	no_seq_data				
+PWY-5154	N-ACETYLGLUTPREDUCT-RXN	N-ACETYLGLUTPREDUCT-RXN	1.2.1.38	FALSE	FALSE					rxn02465 rxn33986 rxn33990	FALSE											0	no_seq_data				
+PWY-5154	N-ACETYLTRANSFER-RXN	N-ACETYLTRANSFER-RXN	2.3.1.1	FALSE	FALSE					rxn00192 rxn33986	FALSE											0	no_seq_data				
+PWY-5154	RXN-7933	acetylcitrulline deacetylase	3.5.1.16	FALSE	FALSE					rxn00469 rxn15972 rxn29983 rxn33990	FALSE											0	no_seq_data				
+PWY-5155	ASPDECARBOX-RXN	aspartate 1-decarboxylase	4.1.1.11	FALSE	FALSE					rxn00346	FALSE											0	no_seq_data				
+PWY-5344	ACETYLHOMOSER-CYS-RXN	O-acetylhomoserine sulfhydrylase	2.5.1.49	FALSE	FALSE					rxn00453 rxn00952 rxn05733 rxn33980	FALSE											0	no_seq_data				
+PWY-5344	HOMOSERINE-O-ACETYLTRANSFERASE-RXN	homoserine O-acetyltransferase	2.3.1.31	FALSE	FALSE					rxn01303	FALSE											1	no_seq_data				
+PWY-6120	CHORISMATEMUT-RXN	CHORISMATEMUT-RXN	5.4.99.5	FALSE	FALSE		NA		user/5.4.99.5.fasta	rxn01256	FALSE	EC	user	tr|A4XBF0|A4XBF0_SALTO	25	0.021	25.8	86	contig_1_48 # 52793 # 53614 # -1 # ID=1_48;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=11bp;gc_cont=0.572	172	269	0	bad_blast				
+PWY-6120	CYCLOHEXADIENYL-DEHYDROGENASE-RXN	arogenate dehydrogenase	1.3.1.43	TRUE	FALSE					rxn00525 rxn33966	FALSE											0	no_seq_data				
+PWY-6120	PREPHENATE-ASP-TRANSAMINE-RXN	glutamate-prephenate aminotransferase	2.6.1.78	FALSE	FALSE					rxn01270	FALSE											0	no_seq_data				
+PWY-6120	PREPHENATE-TRANSAMINE-RXN	aspartate-prephenate aminotransferase	2.6.1.79	FALSE	FALSE					rxn05036 rxn28083	FALSE											0	no_seq_data				
+PWY-6151-GS	ADENOSYLHOMOCYSTEINE-NUCLEOSIDASE-RXN	S-adenosylhomocysteine nucleosidase	3.2.2.9	TRUE	FALSE					rxn00143 rxn01021 rxn08013 rxn13649	FALSE											0	no_seq_data				
+PWY-6151-GS	HOMOCYSMET-RXN	cobalamin-independent homocysteine transmethylase	2.1.1.14	FALSE	FALSE					rxn03052 rxn16206 rxn19900 rxn23136	FALSE											0	no_seq_data				
+PWY-6151-GS	RIBOSYLHOMOCYSTEINASE-RXN	S-ribosylhomocysteine lyase	4.4.1.21	TRUE	FALSE					rxn00955 rxn05958 rxn14169	FALSE											0	no_seq_data				
+PWY-6151-GS	RXN-7605	RXN-7605	2.1.1	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-6151-GS	S-ADENMETSYN-RXN	S-adenosylmethionine synthetase	2.5.1.6	FALSE	FALSE					rxn00126 rxn03264 rxn28979	FALSE											0	no_seq_data				
+PWY-6994	RXN-13074	(2R,3R)-3-methylornithine synthase	5.4.99.58	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-6994	RXN-13080	(2R,3R)-3-methylornithyl-N6-lysine synthase	6.3.2.59	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-6994	RXN-13084	(3R)-3-methyl-D-glutamyl-semialdehyde-Nepsilon-L-lysine synthase	1.4.1	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-7174	5.3.1.23-RXN	methylthioribose-1-phosphate isomerase	5.3.1.23	FALSE	FALSE					rxn03057 rxn30037 rxn39251	FALSE											0	no_seq_data				
+PWY-7174	O-ACETYLHOMOSERINE-THIOL-LYASE-RXN	O-acetylhomoserine aminocarboxypropyltransferase	2.5.1.49	FALSE	FALSE					rxn00453 rxn00952 rxn05733 rxn33980	FALSE											0	no_seq_data				
+PWY-7174	RXN-14006	5-methylthioribulose-1-phosphate isomerase	5.3.3.23	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-7174	RXN-21333	1-methylthio-D-xylulose 5-phosphate methylsulfurylase	2.8.4.6	TRUE	FALSE						FALSE											0	no_seq_data				
+PWY-7174	RXN-21334	RXN-21334		FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-7275	2.6.1.58-RXN	2.6.1.58-RXN	2.6.1.58	FALSE	FALSE					rxn00491 rxn00493 rxn16114 rxn24313	FALSE											0	no_seq_data				
+PWY-7275	RXN-14462	2-benzylmalate synthase	2.3.3	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-7275	RXN-14463	benzylmalate isomerase	4.2.1	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-7275	RXN-14464	2-benzyl-3-hydroxybutanedioate dehydrogenase	1.1.1	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-7275	RXN-14465	RXN-14465	1.1.1	FALSE	FALSE						TRUE											0	spontaneous				
+PWY-7275	RXN-14467	RXN-14467	2.6.1.58	FALSE	FALSE					rxn00491 rxn00493 rxn16114 rxn24313	FALSE											0	no_seq_data				
+PWY-7289	RXN-14564	[sulfur-carrier protein CysO]--sulfur ligase	6.2.1	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-7289	RXN-14565	[sulfur-carrier protein CysO]--sulfur ligase	6.2.1	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-7289	RXN-14566	CysO-thiocarboxylate-dependent cysteine synthase	2.5.1.113	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-7289	RXN-14567	[CysO sulfur-carrier protein]-S-L-cysteine hydrolase	3.13.1.6	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-7400	ARGSUCCINLYA-RXN	ARGSUCCINLYA-RXN	4.3.2.1	FALSE	FALSE					rxn00802 rxn23778 rxn29990 rxn33989	FALSE											0	no_seq_data				
+PWY-7400	ARGSUCCINSYN-RXN	ARGSUCCINSYN-RXN	6.3.4.5	FALSE	FALSE					rxn01434 rxn20795 rxn29991 rxn33988	FALSE											0	no_seq_data				
+PWY-7400	CARBPSYN-RXN	CARBPSYN-RXN	6.3.5.5	FALSE	FALSE					rxn00414 rxn07456 rxn31726 rxn33987 rxn34026	FALSE											0	no_seq_data				
+PWY-7400	ORNCARBAMTRANSFER-RXN	L-ornithine carbamoyltransferase	2.1.3.3	FALSE	FALSE					rxn01019 rxn25283 rxn30043 rxn33987	FALSE											0	no_seq_data				
+PWY-7400	RXN-15003	glutamate--[amino group carrier protein] ligase	6.3.2.60	TRUE	FALSE					rxn41791	FALSE											0	no_seq_data				
+PWY-7400	RXN-15004	L-2-aminoadipate carrier protein]-L-ornithine ornithine-hydrolase	3.5.1.132	TRUE	FALSE					rxn47731	FALSE											0	no_seq_data				
+PWY-7400	RXN-15005	[LysW]-L-glutamate 5-kinase	2.7.2.19	FALSE	FALSE					rxn46460	FALSE											0	no_seq_data				
+PWY-7400	RXN-15006	[amino-group carrier protein]-L-glutamate 5-phosphate reductase	1.2.1.106	FALSE	FALSE					rxn44270	FALSE											0	no_seq_data				
+PWY-7400	RXN-15007	[LysW]-L-glutamate 5-semialdehyde transaminase	2.6.1.124	FALSE	FALSE					rxn43092	FALSE											0	no_seq_data				
+PWY-7870	PRODISULFREDUCT-A-RXN	PRODISULFREDUCT-A-RXN		FALSE	FALSE						TRUE											0	spontaneous				
+PWY-7870	RXN-18586	reduced glutaredoxin 1	1.8.4.2	FALSE	FALSE					rxn06256 rxn06527 rxn08670 rxn11967 rxn20612 rxn20613	FALSE											0	no_seq_data				
+PWY-7870	SERINE-O-ACETTRAN-RXN	serine acetyltransferase	2.3.1.30	FALSE	FALSE					rxn00423 rxn33958	FALSE											0	no_seq_data				
+PWY-7870	SULFOCYS-RXN	S-sulfo-L-cysteine synthase	2.5.1.144	TRUE	FALSE					rxn02246	FALSE											0	no_seq_data				
+PWY-7977	ASPARTATE-SEMIALDEHYDE-DEHYDROGENASE-RXN	aspartate-semialdehyde dehydrogenase	1.2.1.11	FALSE	FALSE					rxn01643 rxn33374 rxn33956	FALSE											0	no_seq_data				
+PWY-7977	ASPARTATEKIN-RXN	aspartate kinase	2.7.2.4	FALSE	FALSE		NA		rev/2.7.2.4.fasta	rxn00337 rxn33955	FALSE	EC	rev	UniRef90_P08660	32.438	2.85e-73	230	99	contig_1_114 # 120968 # 122287 # -1 # ID=1_114;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=13bp;gc_cont=0.430	3	436	0	good_blast				
+PWY-7977	RXN-19380	L-aspartate semialdehyde sulfurtransferase	2.8.1.16	TRUE	FALSE		NA		user/2.8.1.16.fasta	rxn41427	FALSE	EC	user	UniRef50_A0A849ETT6	22.314	0.076	25	77	contig_1_59 # 64498 # 65556 # 1 # ID=1_59;partial=00;start_type=ATG;rbs_motif=AACAA;rbs_spacer=4bp;gc_cont=0.563	14	124	0	bad_blast				
+PWY-7977	RXN-21955	MtrA-dependent methionine synthase	2.1.1.M84	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-8072	ALARACECAT-RXN	alanine racemase	5.1.1.10/5.1.1.1	FALSE	FALSE					rxn00283 rxn00417 rxn00425 rxn00472 rxn00652 rxn05955 rxn19158	FALSE											0	no_seq_data				
+PWY-8132	5.3.1.23-RXN	methylthioribose-1-phosphate isomerase	5.3.1.23	FALSE	FALSE					rxn03057 rxn30037 rxn39251	FALSE											0	no_seq_data				
+PWY-8132	O-ACETYLHOMOSERINE-THIOL-LYASE-RXN	O-acetylhomoserine aminocarboxypropyltransferase	2.5.1.49	FALSE	FALSE					rxn00453 rxn00952 rxn05733 rxn33980	FALSE											0	no_seq_data				
+PWY-8132	RXN-21318	5-(methyltsulfanyl)ribulose-1-phosphate aldolase	4.1.2.62	TRUE	FALSE					rxn39252	FALSE											0	no_seq_data				
+PWY-8132	RXN-21319	RXN-21319	1.1.1	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-8132	RXN-21320	(2-methylsulfanyl)ethanol reductase	1.18.98.M1	FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-8140	5.1.1.18-RXN	serine racemase	5.1.1.10/5.1.1.18	FALSE	FALSE					rxn00417 rxn00425 rxn00472 rxn00652 rxn05955 rxn19158	FALSE											0	no_seq_data				
+PWY-8353	RXN-22982	TglA-cysteinyl-tRNACys ligase		FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-8353	RXN-22983	C-terminal-L-cysteine oxidase (formate-forming)		FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-8353	RXN-22984	[protein]-(2S)-2-amino-2-sulfanylacetate carboxymethyltransferase		FALSE	FALSE						FALSE											0	no_seq_data				
+PWY-8353	RXN-22985	TglA-thiaGlu peptidase		FALSE	FALSE						FALSE											0	no_seq_data				
+PWY0-1021	RXN-12588	cysteine desulfurase	2.8.1.7	FALSE	FALSE					rxn07292 rxn23023 rxn25837 rxn25838 rxn26037 rxn28193 rxn31336 rxn38508	FALSE											0	no_seq_data				
+PWY0-901	2.7.9.3-RXN	selenide, water dikinase	2.7.9.3	FALSE	FALSE					rxn02569 rxn17725	FALSE											0	no_seq_data				
+PWY0-901	2.9.1.1-RXN	selenocysteine synthase	2.9.1.1	TRUE	FALSE					rxn06765 rxn09244 rxn17739	FALSE											0	no_seq_data				
+PWY0-901	RXN0-2161	L-serine:tRNASec ligase (AMP-forming)	6.1.1.11	FALSE	FALSE					rxn06446 rxn09249 rxn11747 rxn26009 rxn27105 rxn31730 rxn38524 rxn38707	FALSE											0	no_seq_data				
+PWY490-4	GLUTAMIN-RXN	GLUTAMIN-RXN	3.5.1.38/3.5.1.2	FALSE	FALSE		NA		rev/3.5.1.2.fasta	rxn00189 rxn00342 rxn00347 rxn01153 rxn29962	FALSE	EC	rev	UniRef90_Q5LBD5	78.571	2.34e-123	340	100	contig_1_119 # 125457 # 126047 # -1 # ID=1_119;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.460	1	196	0	good_blast				
+PWY490-4	RXN-20080	aspartyl-tRNAAsn amidotransferase [multifunctional]	6.3.5.6	TRUE	FALSE					rxn06619 rxn11595 rxn19013 rxn90115	FALSE											0	no_seq_data				
+PWY490-4	RXN-20081	aspartyl-tRNAAsn amidotransferase [multifunctional]	6.3.5.6	TRUE	FALSE					rxn06619 rxn11595 rxn19013 rxn90115	FALSE											0	no_seq_data				
+PWY490-4	RXN490-3616	Aspartate--tRNA ligase	6.1.1.23	FALSE	FALSE					rxn06433 rxn06936 rxn18994	FALSE											0	no_seq_data				
+SERSYN-PWY	PGLYCDEHYDROG-RXN	3-phosphoglycerate dehydrogenase	1.1.1.95	FALSE	FALSE					rxn01101	FALSE											0	no_seq_data				
+SERSYN-PWY	PSERTRANSAM-RXN	phosphoserine aminotransferase	2.6.1.52	FALSE	FALSE					rxn02914 rxn03445 rxn20631	FALSE											0	no_seq_data				
+SERSYN-PWY	RXN0-5114	L-3-phosphoserine phosphatase	3.1.3.3	FALSE	FALSE					rxn00420 rxn02046 rxn20629 rxn28102 rxn33954	FALSE											0	no_seq_data				
+THRBIOSYN-GS	ASPARTATE-SEMIALDEHYDE-DEHYDROGENASE-RXN	aspartate-semialdehyde dehydrogenase	1.2.1.11	FALSE	FALSE					rxn01643 rxn33374 rxn33956	FALSE											0	no_seq_data				
+THRBIOSYN-GS	ASPARTATEKIN-RXN	aspartate kinase	2.7.2.4	FALSE	FALSE		NA		rev/2.7.2.4.fasta	rxn00337 rxn33955	FALSE	EC	rev	UniRef90_P08660	32.438	2.85e-73	230	99	contig_1_114 # 120968 # 122287 # -1 # ID=1_114;partial=00;start_type=ATG;rbs_motif=TAAAA;rbs_spacer=13bp;gc_cont=0.430	3	436	0	good_blast				
+THRBIOSYN-GS	HOMOSERDEHYDROG-RXN	homoserine dehydrogenase	1.1.1.3	FALSE	FALSE					rxn01301 rxn01302 rxn19904 rxn33957	FALSE											0	no_seq_data				
+THRBIOSYN-GS	HOMOSERKIN-RXN	homoserine kinase	2.7.1.39	FALSE	FALSE					rxn01300 rxn38151	FALSE											0	no_seq_data				
+THRBIOSYN-GS	THRESYN-RXN	threonine synthase	4.2.3.1	FALSE	FALSE					rxn01069 rxn03446	FALSE											0	no_seq_data				
+TRPSYN-PWY	ANTHRANSYN-RXN	anthranilate synthase	4.1.3.27	FALSE	FALSE					rxn00726 rxn00727 rxn33991	FALSE											0	no_seq_data				
+TRPSYN-PWY	IGPSYN-RXN	indole-3-glycerol phosphate synthase	4.1.1.48	FALSE	FALSE					rxn02507 rxn30035 rxn33993	FALSE											0	no_seq_data				
+TRPSYN-PWY	PRAISOM-RXN	phosphoribosylanthranilate isomerase	5.3.1.24	FALSE	FALSE					rxn02508 rxn33992	FALSE											0	no_seq_data				
+TRPSYN-PWY	PRTRANS-RXN	anthranilate phosphoribosyltransferase	2.4.2.18	FALSE	FALSE					rxn00791 rxn33991	FALSE											0	no_seq_data				
+TRPSYN-PWY	RXN0-2381	indoleglycerol phosphate aldolase	4.1.2.8	FALSE	FALSE					rxn01682	FALSE											0	no_seq_data				
+TRPSYN-PWY	RXN0-2382	tryptophan synthase beta subunit dimer	4.2.1.122	FALSE	FALSE					rxn00474	FALSE											0	no_seq_data				
+TRPSYN-PWY2	ANTHRANSYN-RXN	anthranilate synthase	4.1.3.27	FALSE	FALSE					rxn00726 rxn00727 rxn33991	FALSE											0	no_seq_data				
+TRPSYN-PWY2	IGPSYN-RXN	indole-3-glycerol phosphate synthase	4.1.1.48	FALSE	FALSE					rxn02507 rxn30035 rxn33993	FALSE											0	no_seq_data				
+TRPSYN-PWY2	PRAISOM-RXN	phosphoribosylanthranilate isomerase	5.3.1.24	FALSE	FALSE					rxn02508 rxn33992	FALSE											0	no_seq_data				
+TRPSYN-PWY2	PRTRANS-RXN	anthranilate phosphoribosyltransferase	2.4.2.18	FALSE	FALSE					rxn00791 rxn33991	FALSE											0	no_seq_data				
+TRPSYN-PWY2	TRYPSYN-RXN	tryptophan synthase	4.2.1.20	TRUE	FALSE					rxn00474 rxn01682 rxn01964	FALSE											0	no_seq_data				
+TYRSYN	CHORISMATEMUT-RXN	chorismate mutase	5.4.99.5	FALSE	FALSE		NA		user/5.4.99.5.fasta	rxn01256	FALSE	EC	user	tr|A4XBF0|A4XBF0_SALTO	25	0.021	25.8	86	contig_1_48 # 52793 # 53614 # -1 # ID=1_48;partial=00;start_type=ATG;rbs_motif=TAAA;rbs_spacer=11bp;gc_cont=0.572	172	269	0	bad_blast				
+TYRSYN	PREPHENATEDEHYDROG-RXN	prephenate dehydrogenase	1.3.1.12	TRUE	FALSE		NA		user/1.3.1.12.fasta	rxn01268	FALSE	EC	user									0	no_blast				
+TYRSYN	TYROSINE-AMINOTRANSFERASE-RXN	tyrosine aminotransferase	2.6.1.1/2.6.1.57/2.6.1.5/2.6.1.27	FALSE	FALSE					rxn00260 rxn00483 rxn00493 rxn00527 rxn00647 rxn01270 rxn01757 rxn01906 rxn01947 rxn02236 rxn05108 rxn06810 rxn11208 rxn15507 rxn17654 rxn27523 rxn28133 rxn31662 rxn31663 rxn33947 rxn33948 rxn33963 rxn33964 rxn38254	FALSE											0	no_seq_data				
+VALSYN-PWY	ACETOLACTREDUCTOISOM-RXN	(2R)-2,3-dihydroxy-3-methylbutanoate:NADP+ oxidoreductase (isomerizing)	1.1.1.86	FALSE	FALSE					rxn02186 rxn03068 rxn03435 rxn03436 rxn08764 rxn15466 rxn15511 rxn19027 rxn19029 rxn33934 rxn33937	FALSE											0	no_seq_data				
+VALSYN-PWY	ACETOLACTSYN-RXN	acetolactate synthase	2.2.1.6	FALSE	FALSE					rxn00003 rxn00011 rxn02185 rxn03194 rxn08043 rxn15021 rxn15491 rxn27664 rxn32060 rxn33164 rxn33391 rxn33933	FALSE											0	no_seq_data				
+VALSYN-PWY	BRANCHED-CHAINAMINOTRANSFERVAL-RXN	valine transaminase	2.6.1.42	FALSE	FALSE					rxn00806 rxn00903 rxn01575 rxn31232 rxn33935 rxn33936	FALSE											0	no_seq_data				
+VALSYN-PWY	DIHYDROXYISOVALDEHYDRAT-RXN	2,3-dihydroxy-isovalerate dehydratase	4.2.1.9	FALSE	FALSE					rxn00898 rxn03437 rxn09889 rxn15467 rxn19544 rxn33934 rxn33937	FALSE											0	no_seq_data				

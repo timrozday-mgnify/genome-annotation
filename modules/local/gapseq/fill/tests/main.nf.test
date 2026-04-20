@@ -1,0 +1,59 @@
+nextflow_process {
+    name "Test Process GAPSEQ_FILL"
+    config "./nextflow.config"
+    script "../main.nf"
+    process "GAPSEQ_FILL"
+
+    tag "modules"
+    tag "gapseq"
+    tag "gapseq_fill"
+
+    test("mini genome - pre-computed draft model and medium") {
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'test' ],
+                    file("${projectDir}/assets/mini_genome-draft.RDS",  checkIfExists: true),
+                    file("${projectDir}/assets/mini_genome-medium.csv", checkIfExists: true)
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert process.out.model_rds.size() == 1 },
+                { assert process.out.model_xml.size() == 1 },
+                { assert process.out.model_rds.get(0).get(1) ==~ /.*\.RDS$/ },
+                { assert process.out.model_xml.get(0).get(1) ==~ /.*\.xml$/ },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+
+    test("mini genome - pre-computed draft model and medium - stub") {
+        options "-stub"
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'test' ],
+                    file("${projectDir}/assets/mini_genome-draft.RDS",  checkIfExists: true),
+                    file("${projectDir}/assets/mini_genome-medium.csv", checkIfExists: true)
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+}

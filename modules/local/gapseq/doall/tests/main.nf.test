@@ -1,0 +1,86 @@
+nextflow_process {
+    name "Test Process GAPSEQ_DOALL"
+    config "./nextflow.config"
+    script "../main.nf"
+    process "GAPSEQ_DOALL"
+
+    tag "modules"
+    tag "gapseq"
+    tag "gapseq_doall"
+
+    test("mini genome - nucleotide fasta with auto medium") {
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'test' ],
+                    file("${projectDir}/tests/testdata/mini_genome.fa",  checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_gapseq_db",  checkIfExists: true),
+                    []
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert process.out.reactions.size()    == 1 },
+                { assert process.out.pathways.size()     == 1 },
+                { assert process.out.transporters.size() == 1 },
+                { assert process.out.draft_rds.size()    == 1 },
+                { assert process.out.model_rds.size()    == 1 },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+
+    test("mini genome - nucleotide fasta with explicit medium") {
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'test' ],
+                    file("${projectDir}/tests/testdata/mini_genome.fa",   checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_gapseq_db",   checkIfExists: true),
+                    file("${projectDir}/assets/mini_genome-medium.csv",   checkIfExists: true)
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert process.out.model_rds.size() == 1 },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+
+    test("mini genome - nucleotide fasta - stub") {
+        options "-stub"
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'test' ],
+                    file("${projectDir}/tests/testdata/mini_genome.fa",  checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_gapseq_db",  checkIfExists: true),
+                    []
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+}

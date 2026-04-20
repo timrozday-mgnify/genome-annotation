@@ -1,0 +1,61 @@
+nextflow_process {
+    name "Test Process GAPSEQ_DRAFT"
+    config "./nextflow.config"
+    script "../main.nf"
+    process "GAPSEQ_DRAFT"
+
+    tag "modules"
+    tag "gapseq"
+    tag "gapseq_draft"
+
+    test("mini genome - pre-computed reactions and transporters") {
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'test' ],
+                    file("${projectDir}/assets/mini_genome-all-Reactions.tbl",  checkIfExists: true),
+                    file("${projectDir}/assets/mini_genome-Transporter.tbl",     checkIfExists: true),
+                    file("${projectDir}/assets/mini_genome-all-Pathways.tbl",    checkIfExists: true)
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert process.out.draft_rds.size() == 1 },
+                { assert process.out.draft_xml.size() == 1 },
+                { assert process.out.draft_rds.get(0).get(1) ==~ /.*-draft\.RDS$/ },
+                { assert process.out.draft_xml.get(0).get(1) ==~ /.*-draft\.xml$/ },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+
+    test("mini genome - pre-computed reactions and transporters - stub") {
+        options "-stub"
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'test' ],
+                    file("${projectDir}/assets/mini_genome-all-Reactions.tbl",  checkIfExists: true),
+                    file("${projectDir}/assets/mini_genome-Transporter.tbl",     checkIfExists: true),
+                    file("${projectDir}/assets/mini_genome-all-Pathways.tbl",    checkIfExists: true)
+                ]
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+}

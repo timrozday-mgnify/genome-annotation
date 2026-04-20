@@ -1,0 +1,53 @@
+name: "gapseq_draft"
+description: Build a draft genome-scale metabolic model from gapseq reaction and transporter prediction tables.
+keywords:
+  - metabolic modelling
+  - draft model
+  - genome annotation
+  - gapseq
+tools:
+  - "gapseq":
+      description: "Informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models."
+      homepage: "https://github.com/jotech/gapseq"
+      documentation: "https://gapseq.readthedocs.io/"
+      tool_dev_url: "https://github.com/jotech/gapseq"
+      doi: "10.1186/s13059-021-02295-1"
+      licence: ["GPL v3"]
+input:
+  - - meta:
+        type: map
+        description: Groovy Map containing sample information e.g. [ id:'test' ]
+    - reactions:
+        type: file
+        description: Reactions table from GAPSEQ_FIND
+        pattern: "*-Reactions.tbl"
+    - transporters:
+        type: file
+        description: Transporter table from GAPSEQ_FIND_TRANSPORT
+        pattern: "*-Transporter.tbl"
+    - pathways:
+        type: file
+        description: Pathways table from GAPSEQ_FIND
+        pattern: "*-Pathways.tbl"
+output:
+  draft_rds:
+    - - meta:
+          type: map
+      - "*-draft.RDS":
+          type: file
+          description: Draft metabolic model as R serialised object
+          pattern: "*-draft.RDS"
+  draft_xml:
+    - - meta:
+          type: map
+      - "*-draft.xml":
+          type: file
+          description: Draft metabolic model in SBML format
+          pattern: "*-draft.xml"
+  versions:
+    - "versions.yml":
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+authors:
+  - "@timrozday"

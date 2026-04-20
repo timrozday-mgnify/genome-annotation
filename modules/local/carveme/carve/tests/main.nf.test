@@ -1,0 +1,57 @@
+nextflow_process {
+    name "Test Process CARVEME_CARVE"
+    config "./nextflow.config"
+    script "../main.nf"
+    process "CARVEME_CARVE"
+
+    tag "modules"
+    tag "carveme"
+    tag "carveme_carve"
+
+    test("medium genome - E. coli K-12 protein fasta") {
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'medium' ],
+                    file("${projectDir}/tests/testdata/medium_precomputed/medium_genome.faa", checkIfExists: true)
+                ]
+                input[1] = []
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert process.out.model.size() == 1 },
+                { assert process.out.model.get(0).get(1) ==~ /.*\.xml$/ },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+
+    test("medium genome - E. coli K-12 protein fasta - stub") {
+        options "-stub"
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'medium' ],
+                    file("${projectDir}/tests/testdata/medium_precomputed/medium_genome.faa", checkIfExists: true)
+                ]
+                input[1] = []
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    process.out.findAll { key, val -> key == "versions" }
+                ).match() }
+            )
+        }
+    }
+}
