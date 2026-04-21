@@ -1,107 +1,240 @@
-<h1>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/images/nf-core-genomeannotation_logo_dark.png">
-    <img alt="nf-core/genomeannotation" src="docs/images/nf-core-genomeannotation_logo_light.png">
-  </picture>
-</h1>
+# genome-annotation
 
-[![GitHub Actions CI Status](https://github.com/nf-core/genomeannotation/actions/workflows/nf-test.yml/badge.svg)](https://github.com/nf-core/genomeannotation/actions/workflows/nf-test.yml)
-[![GitHub Actions Linting Status](https://github.com/nf-core/genomeannotation/actions/workflows/linting.yml/badge.svg)](https://github.com/nf-core/genomeannotation/actions/workflows/linting.yml)[![AWS CI](https://img.shields.io/badge/CI%20tests-full%20size-FF9900?labelColor=000000&logo=Amazon%20AWS)](https://nf-co.re/genomeannotation/results)[![Cite with Zenodo](http://img.shields.io/badge/DOI-10.5281/zenodo.XXXXXXX-1073c8?labelColor=000000)](https://doi.org/10.5281/zenodo.XXXXXXX)
+A Nextflow DSL2 pipeline for functional annotation of prokaryotic and microbial genomes. Starting from genome FASTA files, it predicts protein-coding sequences and annotates them against Pfam, KEGG (KOfam), and CAZy (dbCAN) databases. Optionally reconstructs genome-scale metabolic models using GapSeq and/or CarVeME.
+
+[![Nextflow](https://img.shields.io/badge/version-%E2%89%A524.10.5-green?style=flat&logo=nextflow&logoColor=white&color=%230DC09D)](https://www.nextflow.io/)
 [![nf-test](https://img.shields.io/badge/unit_tests-nf--test-337ab7.svg)](https://www.nf-test.com)
-
-[![Nextflow](https://img.shields.io/badge/version-%E2%89%A524.10.5-green?style=flat&logo=nextflow&logoColor=white&color=%230DC09D&link=https%3A%2F%2Fnextflow.io)](https://www.nextflow.io/)
-[![nf-core template version](https://img.shields.io/badge/nf--core_template-3.3.2-green?style=flat&logo=nfcore&logoColor=white&color=%2324B064&link=https%3A%2F%2Fnf-co.re)](https://github.com/nf-core/tools/releases/tag/3.3.2)
-[![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/en/latest/)
 [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/)
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg?labelColor=000000)](https://sylabs.io/docs/)
-[![Launch on Seqera Platform](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Seqera%20Platform-%234256e7)](https://cloud.seqera.io/launch?pipeline=https://github.com/nf-core/genomeannotation)
 
-[![Get help on Slack](http://img.shields.io/badge/slack-nf--core%20%23genomeannotation-4A154B?labelColor=000000&logo=slack)](https://nfcore.slack.com/channels/genomeannotation)[![Follow on Bluesky](https://img.shields.io/badge/bluesky-%40nf__core-1185fe?labelColor=000000&logo=bluesky)](https://bsky.app/profile/nf-co.re)[![Follow on Mastodon](https://img.shields.io/badge/mastodon-nf__core-6364ff?labelColor=FFFFFF&logo=mastodon)](https://mstdn.science/@nf_core)[![Watch on YouTube](http://img.shields.io/badge/youtube-nf--core-FF0000?labelColor=000000&logo=youtube)](https://www.youtube.com/c/nf-core)
+## Pipeline overview
 
-## Introduction
+```
+Genome FASTA(s)
+      │
+      ▼
+  SEQSTATS          ← count bases/sequences; branch small (<100 kb) vs large
+      │
+      ▼
+  PYRODIGAL         ← gene prediction (meta mode for small genomes, single for large)
+      │
+      ├──▶ HMMER_HMMSEARCH   ── Pfam domain annotation     ──▶ <sample>_<db>.domtbl.gz
+      │
+      ├──▶ RUNDBCAN           ── CAZyme annotation          ──▶ overview / HMM / substrate / DIAMOND TSVs
+      │
+      ├──▶ KOFAMSCAN          ── KEGG ortholog assignment   ──▶ <sample>_kofam.txt
+      │
+      └──▶ CARVEME_CARVE*     ── metabolic model (SBML)     ──▶ <sample>.xml
 
-**nf-core/genomeannotation** is a bioinformatics pipeline that ...
-
-<!-- TODO nf-core:
-   Complete this sentence with a 2-3 sentence summary of what types of data the pipeline ingests, a brief overview of the
-   major pipeline sections and the types of output it produces. You're giving an overview to someone new
-   to nf-core here, in 15-20 seconds. For an example, see https://github.com/nf-core/rnaseq/blob/master/README.md#introduction
--->
-
-<!-- TODO nf-core: Include a figure that guides the user through the major workflow steps. Many nf-core
-     workflows use the "tube map" design for that. See https://nf-co.re/docs/guidelines/graphic_design/workflow_diagrams#examples for examples.   -->
-<!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))2. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
-
-## Usage
-
-> [!NOTE]
-> If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/usage/installation) on how to set-up Nextflow. Make sure to [test your setup](https://nf-co.re/docs/usage/introduction#how-to-run-a-pipeline) with `-profile test` before running the workflow on actual data.
-
-<!-- TODO nf-core: Describe the minimum required steps to execute the pipeline, e.g. how to prepare samplesheets.
-     Explain what rows and columns represent. For instance (please edit as appropriate):
-
-First, prepare a samplesheet with your input data that looks as follows:
-
-`samplesheet.csv`:
-
-```csv
-sample,fastq_1,fastq_2
-CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
+Genome FASTA ──▶ GAPSEQ_DOALL* ── metabolic model (RDS + SBML)
 ```
 
-Each row represents a fastq file (single-end) or a pair of fastq files (paired end).
+\* Optional, enabled by `--run_carveme` / `--run_gapseq`.
 
--->
+## Quick start
 
-Now, you can run the pipeline using:
-
-<!-- TODO nf-core: update the following command to include all required parameters for a minimal example -->
+### 1. Install Nextflow
 
 ```bash
-nextflow run nf-core/genomeannotation \
-   -profile <docker/singularity/.../institute> \
-   --input samplesheet.csv \
-   --outdir <OUTDIR>
+curl -s https://get.nextflow.io | bash
 ```
 
-> [!WARNING]
-> Please provide pipeline parameters via the CLI or Nextflow `-params-file` option. Custom config files including those provided by the `-c` Nextflow option can be used to provide any configuration _**except for parameters**_; see [docs](https://nf-co.re/docs/usage/getting_started/configuration#custom-configuration-files).
+### 2. Prepare a samplesheet
 
-For more details and further functionality, please refer to the [usage documentation](https://nf-co.re/genomeannotation/usage) and the [parameter documentation](https://nf-co.re/genomeannotation/parameters).
+`samplesheet.csv`:
+```csv
+sample,fastx
+genome_A,/path/to/genome_A.fa
+genome_B,/path/to/genome_B.fa.gz
+```
 
-## Pipeline output
+Each row is one genome. The `fastx` column accepts uncompressed or gzip-compressed FASTA.
 
-To see the results of an example test run with a full size dataset refer to the [results](https://nf-co.re/genomeannotation/results) tab on the nf-core website pipeline page.
-For more details about the output files and reports, please refer to the
-[output documentation](https://nf-co.re/genomeannotation/output).
+### 3. Run
+
+Database paths can be passed on the command line or via a params file (recommended — see [Configuration](#configuration)):
+
+```bash
+nextflow run main.nf \
+    -profile docker \
+    --samplesheet samplesheet.csv \
+    --outdir results \
+    --databases.pfam.hmm /path/to/Pfam-A.hmm \
+    --databases.dbcan.files.db /path/to/dbcan_db/ \
+    --databases.kofam_chunked.chunk_1.files.ko_list /path/to/ko_list \
+    --databases.kofam_chunked.chunk_1.files.profiles /path/to/profiles/
+```
+
+## Databases
+
+| Database | Where to download | Param |
+|----------|-------------------|-------|
+| Pfam-A HMM | [InterPro FTP](https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/) — `Pfam-A.hmm.gz` | `params.databases.pfam.hmm` |
+| dbCAN v14+ | [dbCAN2 downloads](https://bcb.unl.edu/dbCAN2/download/Databases/) — full directory | `params.databases.dbcan.files.db` |
+| KOfam | [KEGG FTP](https://www.genome.jp/ftp/db/kofam/) — `profiles.tar.gz` + `ko_list` | `params.databases.kofam_chunked.*` |
+
+KOfam can be split into multiple chunks to parallelise annotation. Define as many `chunk_N` blocks as needed under `params.databases.kofam_chunked` (see [Configuration](#configuration)).
+
+### Metabolic modelling databases (optional)
+
+| Tool | Database | Param |
+|------|----------|-------|
+| GapSeq | [GapSeq data](https://github.com/jotech/gapseq) — run `gapseq fetch dat` | `params.databases.gapseq.path` |
+| CarVeME | BIGG universe model (bundled in container) | — |
+
+## Configuration
+
+The recommended approach is a params file:
+
+```nextflow
+// my_params.config
+params {
+    samplesheet = '/path/to/samplesheet.csv'
+    outdir      = '/path/to/results'
+
+    databases {
+        pfam {
+            hmm        = '/data/Pfam-A.hmm'
+            n_profiles = 24736   // update if using a non-standard Pfam release
+        }
+        dbcan {
+            files { db = '/data/dbcan/' }
+        }
+        kofam_chunked {
+            chunk_1 {
+                files {
+                    ko_list  = '/data/kofam/ko_list'
+                    profiles = '/data/kofam/profiles/'
+                }
+            }
+            // add chunk_2, chunk_3 … to parallelise across database partitions
+        }
+    }
+
+    run_gapseq  = false
+    run_carveme = false
+}
+```
+
+Run with:
+```bash
+nextflow run main.nf -profile docker -params-file my_params.config
+```
+
+## Key parameters
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `--samplesheet` | — | Path to input CSV samplesheet |
+| `--outdir` | `results` | Output directory |
+| `--prodigal_meta` | `false` | Force Pyrodigal meta mode for all genomes (useful for MAGs) |
+| `--pfam_chunksize` | `2 MB` | Protein FASTA chunk size for Pfam HMMER jobs |
+| `--kofam_chunksize` | `2 MB` | Protein FASTA chunk size for KOfam jobs |
+| `--dbcan_chunksize` | `1 MB` | Protein FASTA chunk size for dbCAN jobs |
+| `--run_gapseq` | `false` | Run GapSeq metabolic model reconstruction |
+| `--run_carveme` | `false` | Run CarVeME metabolic model reconstruction |
+| `--gapseq_medium` | — | Growth medium CSV for GapSeq (auto-predicted if unset) |
+| `--carveme_mediadb` | — | CarVeME media database file |
+
+## Execution profiles
+
+| Profile | Description |
+|---------|-------------|
+| `docker` | Docker (AMD64; applies `--platform linux/amd64` for Apple Silicon compatibility) |
+| `singularity` | Singularity/Apptainer |
+| `test` | Minimal test run using bundled mini databases (run `tests/scripts/make_mini_databases.sh` once first) |
+| `local` | Resource limits for a workstation |
+| `codon` | SLURM profile for the EMBL-EBI CODON HPC cluster |
+
+```bash
+# Test run
+nextflow run main.nf -profile test,docker --outdir test_results
+```
+
+## Output structure
+
+```
+results/
+└── <sample_id>/
+    ├── pyrodigal/
+    │   ├── <sample>.faa.gz               # predicted proteins
+    │   ├── <sample>.fna.gz               # predicted CDS nucleotides
+    │   └── <sample>.gff.gz               # gene coordinates (GFF3)
+    ├── pfam/
+    │   └── concatenated/
+    │       └── <sample>_<db>.domtbl.gz   # HMMER domain table
+    ├── dbcan/
+    │   └── concatenated/
+    │       ├── <sample>_dbcan_overview.tsv
+    │       ├── <sample>_dbcan_cazyme.tsv
+    │       ├── <sample>_dbcan_substrate.tsv
+    │       └── <sample>_dbcan_diamond.tsv
+    ├── kofam/
+    │   └── concatenated/
+    │       └── <sample>_kofam.txt
+    ├── gapseq/                           # present if --run_gapseq
+    │   ├── <sample>.RDS                  # gap-filled model (R object)
+    │   ├── <sample>.xml                  # gap-filled SBML model
+    │   ├── <sample>-draft.RDS
+    │   ├── <sample>-draft.xml
+    │   └── <sample>-medium.csv           # predicted growth medium
+    └── carveme/                          # present if --run_carveme
+        └── <sample>.xml                  # CarVeME SBML model
+```
+
+## Testing
+
+```bash
+# One-time: build mini test databases from full databases in ~/Downloads/
+bash tests/scripts/make_mini_databases.sh
+
+# Run all tests (all module + subworkflow + pipeline tests)
+nf-test test --profile +docker
+
+# Run only the end-to-end pipeline test
+nf-test test tests/default.nf.test --profile +docker
+
+# Run a specific module test
+nf-test test modules/local/seqstats/tests/main.nf.test --profile +docker
+```
+
+## Utility scripts
+
+### `scripts/inject_kofam_ga_thresholds.py`
+
+Injects KOfam score thresholds from a `ko_list` file into HMM profiles as HMMER3 GA (Gathering Threshold) lines. This enables use of `--cut_ga` with `hmmsearch` for automatic hit filtering, without a separate post-processing step.
+
+Both GA fields (full-sequence and domain) are set to the KOfam threshold value. No external dependencies — requires only Python 3.
+
+```bash
+python scripts/inject_kofam_ga_thresholds.py \
+    --ko-list /path/to/ko_list \
+    --profiles-dir /path/to/profiles/ \
+    --output-dir /path/to/profiles_with_ga/
+```
+
+Profiles for KOs with no defined threshold (marked `-` in `ko_list`) are copied unchanged. Use `--in-place` to modify the profiles directory directly rather than writing to a new location.
+
+```
+options:
+  --ko-list FILE          KOfam ko_list TSV file
+  --profiles-dir DIR      Directory of individual .hmm profile files
+  --output-dir DIR        Write modified profiles here (mutually exclusive with --in-place)
+  --in-place              Overwrite profiles in-place
+  --missing-threshold     {skip,warn,error}  behaviour for profiles with no ko_list entry (default: skip)
+```
+
+Run the unit tests with:
+```bash
+pytest scripts/tests/test_inject_kofam_ga_thresholds.py -v
+```
 
 ## Credits
 
-nf-core/genomeannotation was originally written by @timrozday-mgnify.
+Written by Tim Rozday ([@timrozday-mgnify](https://github.com/timrozday-mgnify)).
 
-We thank the following people for their extensive assistance in the development of this pipeline:
+Built on the [nf-core](https://nf-co.re) framework and community modules. Please cite the nf-core publication if you use this pipeline:
 
-<!-- TODO nf-core: If applicable, make list of people who have also contributed -->
+> Ewels PA, Peltzer A, Fillinger S, et al. **The nf-core framework for community-curated bioinformatics pipelines.** *Nat Biotechnol.* 2020;38:276–278. doi:[10.1038/s41587-020-0439-x](https://doi.org/10.1038/s41587-020-0439-x)
 
-## Contributions and Support
-
-If you would like to contribute to this pipeline, please see the [contributing guidelines](.github/CONTRIBUTING.md).
-
-For further information or help, don't hesitate to get in touch on the [Slack `#genomeannotation` channel](https://nfcore.slack.com/channels/genomeannotation) (you can join with [this invite](https://nf-co.re/join/slack)).
-
-## Citations
-
-<!-- TODO nf-core: Add citation for pipeline after first release. Uncomment lines below and update Zenodo doi and badge at the top of this file. -->
-<!-- If you use nf-core/genomeannotation for your analysis, please cite it using the following doi: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX) -->
-
-<!-- TODO nf-core: Add bibliography of tools and data used in your pipeline -->
-
-An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
-
-You can cite the `nf-core` publication as follows:
-
-> **The nf-core framework for community-curated bioinformatics pipelines.**
->
-> Philip Ewels, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso & Sven Nahnsen.
->
-> _Nat Biotechnol._ 2020 Feb 13. doi: [10.1038/s41587-020-0439-x](https://dx.doi.org/10.1038/s41587-020-0439-x).
+Tool citations: [`CITATIONS.md`](CITATIONS.md).
