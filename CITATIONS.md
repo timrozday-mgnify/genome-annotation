@@ -10,13 +10,37 @@
 
 ## Pipeline tools
 
-- [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+- [Pyrodigal](https://doi.org/10.21105/joss.04296)
 
-> Andrews, S. (2010). FastQC: A Quality Control Tool for High Throughput Sequence Data [Online].
+  > Larralde M. Pyrodigal: Python bindings and interface to Prodigal, an efficient method for gene prediction in prokaryotes. Journal of Open Source Software. 2022;7(72):4296. doi: 10.21105/joss.04296.
 
-- [MultiQC](https://pubmed.ncbi.nlm.nih.gov/27312411/)
+- [HMMER](https://pubmed.ncbi.nlm.nih.gov/22039361/)
 
-> Ewels P, Magnusson M, Lundin S, Käller M. MultiQC: summarize analysis results for multiple tools and samples in a single report. Bioinformatics. 2016 Oct 1;32(19):3047-8. doi: 10.1093/bioinformatics/btw354. Epub 2016 Jun 16. PubMed PMID: 27312411; PubMed Central PMCID: PMC5039924.
+  > Eddy SR. Accelerated profile HMM searches. PLoS Comput Biol. 2011 Oct;7(10):e1002195. doi: 10.1371/journal.pcbi.1002195. PubMed PMID: 22039361; PubMed Central PMCID: PMC3197634.
+
+- [Pfam](https://pubmed.ncbi.nlm.nih.gov/33125078/)
+
+  > Mistry J, Chuguransky S, Williams L, Qureshi M, Salazar GA, Sonnhammer ELL, Tosatto SCE, Paladin L, Raj S, Richardson LJ, Finn RD, Bateman A. Pfam: The protein families database in 2021. Nucleic Acids Res. 2021 Jan 8;49(D1):D412-D419. doi: 10.1093/nar/gkaa913. PubMed PMID: 33125078; PubMed Central PMCID: PMC7779014.
+
+- [dbCAN3](https://pubmed.ncbi.nlm.nih.gov/37125649/)
+
+  > Zheng J, Ge Q, Yan Y, Zhang X, Huang L, Yin Y. dbCAN3: automated carbohydrate-active enzyme and substrate annotation. Nucleic Acids Res. 2023 Jul 5;51(W1):W115-W121. doi: 10.1093/nar/gkad328. PubMed PMID: 37125649; PubMed Central PMCID: PMC10320114.
+
+- [KOfamScan](https://pubmed.ncbi.nlm.nih.gov/31742321/)
+
+  > Aramaki T, Blanc-Mathieu R, Endo H, Ohkubo K, Kanehisa M, Goto S, Ogata H. KofamKOALA: KEGG Ortholog assignment based on profile HMM and adaptive score threshold. Bioinformatics. 2020 Apr 1;36(7):2251-2252. doi: 10.1093/bioinformatics/btz859. PubMed PMID: 31742321; PubMed Central PMCID: PMC7141845.
+
+- [gapseq](https://pubmed.ncbi.nlm.nih.gov/33691770/)
+
+  > Zimmermann J, Kaleta C, Waschina S. gapseq: informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models. Genome Biol. 2021 Mar 10;22(1):81. doi: 10.1186/s13059-021-02295-1. PubMed PMID: 33691770; PubMed Central PMCID: PMC7944641.
+
+- [CarVeME](https://pubmed.ncbi.nlm.nih.gov/30192979/)
+
+  > Machado D, Andrejev S, Tramontano M, Patil KR. Fast automated reconstruction of genome-scale metabolic models for microbial species and communities. Nucleic Acids Res. 2018 Sep 6;46(15):7542-7553. doi: 10.1093/nar/gky537. PubMed PMID: 30192979; PubMed Central PMCID: PMC6125660.
+
+- [mgnify-pipelines-toolkit](https://github.com/EBI-Metagenomics/mgnify-pipelines-toolkit) (seqstats)
+
+  > EBI Metagenomics. mgnify-pipelines-toolkit. GitHub repository. https://github.com/EBI-Metagenomics/mgnify-pipelines-toolkit
 
 ## Software packaging/containerisation tools
 
