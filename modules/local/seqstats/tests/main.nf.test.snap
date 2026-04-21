@@ -1,0 +1,30 @@
+{
+    "mini genome - fasta": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,5517a84684e529236df60526061d41e0"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T17:47:31.03834",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    },
+    "mini genome - fasta - stub": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,5517a84684e529236df60526061d41e0"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T17:47:34.808126",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    }
+}

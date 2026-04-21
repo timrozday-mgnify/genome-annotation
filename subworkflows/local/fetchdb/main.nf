@@ -23,7 +23,7 @@ workflow FETCHDB {
        .map { meta, cache_fp -> [meta, cache_fp] }
 
     FETCHUNZIP(download_ch)
-    downloaded_ch = FETCHUNZIP.out
+    downloaded_ch = FETCHUNZIP.out.db_dir
 
     emit:
     dbs = local_ch.mix(cache_ch).mix(downloaded_ch)

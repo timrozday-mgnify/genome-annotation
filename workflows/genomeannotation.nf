@@ -18,6 +18,9 @@ include { CONCATENATE as DBCAN_SUBSTRATE_CONCATENATE } from  '../modules/local/c
 include { CONCATENATE as DBCAN_DIAMOND_CONCATENATE } from  '../modules/local/concatenate/main'
 // include { CONCATENATE as KOFAM_TSV_CONCATENATE } from  '../modules/local/concatenate/main'
 include { CONCATENATE as KOFAM_TXT_CONCATENATE } from  '../modules/local/concatenate/main'
+include { GAPSEQ_DOWNLOAD }                        from '../modules/local/gapseq/download/main'
+include { GAPSEQ_DOALL }                           from '../modules/local/gapseq/doall/main'
+include { CARVEME_CARVE }                          from '../modules/local/carveme/carve/main'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,6 +30,7 @@ include { CONCATENATE as KOFAM_TXT_CONCATENATE } from  '../modules/local/concate
 
 workflow GENOMEANNOTATION {
     main:
+
     ch_versions = Channel.empty()
 
     // Parse samplesheet and fetch reads
@@ -74,6 +78,35 @@ workflow GENOMEANNOTATION {
         cdss = PYRODIGAL_SMALL.out.faa
             .mix(PYRODIGAL_LARGE.out.faa)
     }
+    // Metabolic modelling
+
+    // GapSeq — nucleotide FASTA input; runs its own gene calling internally
+    if (params.run_gapseq) {
+        if (params.databases.gapseq.path) {
+            ch_gapseq_db = Channel.value(file(params.databases.gapseq.path, checkIfExists: true))
+        } else {
+            GAPSEQ_DOWNLOAD()
+            ch_gapseq_db = GAPSEQ_DOWNLOAD.out.db
+        }
+
+        def gapseq_medium_file = params.gapseq_medium ? file(params.gapseq_medium, checkIfExists: true) : []
+
+        GAPSEQ_DOALL(
+            genome_contigs
+                .combine(ch_gapseq_db)
+                .map { meta, fasta, db -> tuple(meta, fasta, db, gapseq_medium_file) }
+        )
+    }
+
+    // CarVeME — protein FASTA from Pyrodigal (reuses pipeline intermediate)
+    if (params.run_carveme) {
+        ch_carveme_mediadb = params.carveme_mediadb
+            ? Channel.value(file(params.carveme_mediadb, checkIfExists: true))
+            : Channel.value([])
+
+        CARVEME_CARVE(cdss, ch_carveme_mediadb)
+    }
+
     // Annotate CDSs
 
     // Pfam
@@ -97,7 +130,7 @@ workflow GENOMEANNOTATION {
         .map { meta, seqs ->
             return [
                 meta, 
-                file(params.databases.pfam.files.profiles), 
+                file(params.databases.pfam.hmm), 
                 params.databases.pfam.n_profiles, 
                 seqs, 
                 false, true, true
@@ -219,6 +252,9 @@ workflow GENOMEANNOTATION {
     dbcan_diamond_annotations = DBCAN_DIAMOND_CONCATENATE.out.concatenated_file
     // kofam_tsv_annotations = KOFAM_TSV_CONCATENATE.out.concatenated_file
     kofam_txt_annotations = KOFAM_TXT_CONCATENATE.out.concatenated_file
+    gapseq_model_rds = params.run_gapseq  ? GAPSEQ_DOALL.out.model_rds  : Channel.empty()
+    gapseq_model_xml = params.run_gapseq  ? GAPSEQ_DOALL.out.model_xml  : Channel.empty()
+    carveme_model    = params.run_carveme ? CARVEME_CARVE.out.model      : Channel.empty()
     versions = ch_versions                 // channel: [ path(versions.yml) ]
 }
 

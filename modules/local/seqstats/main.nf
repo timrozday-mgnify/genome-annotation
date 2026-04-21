@@ -4,7 +4,7 @@ process SEQSTATS {
 
     container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
         ? 'https://depot.galaxyproject.org/singularity/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'
-        : 'biocontainers/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'}"
+        : 'quay.io/biocontainers/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'}"
 
     input:
     tuple val(meta), path(seqs)
@@ -18,10 +18,8 @@ process SEQSTATS {
 
     def in_cmd = "-i \"${seqs}\""
 
-    def script = file("${moduleDir}/bin/seq_stats.py")
-
     """
-    python ${script} ${args} ${in_cmd} -o "stats.json" $args
+    seq_stats.py ${args} ${in_cmd} -o "stats.json"
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

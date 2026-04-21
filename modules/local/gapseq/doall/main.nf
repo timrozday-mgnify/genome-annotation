@@ -31,7 +31,8 @@ process GAPSEQ_DOALL {
     def prefix      = task.ext.prefix ?: "${meta.id}"
     def medium_cmd  = (medium instanceof List) ? "" : "-m ${medium}"
     """
-    cp -L ${genome} ${prefix}.fa
+    cp -L ${genome} ${prefix}.tmp.fa
+    mv ${prefix}.tmp.fa ${prefix}.fa
 
     gapseq doall \\
         -f ./ \\

@@ -4,7 +4,7 @@ process CONCATENATE {
 
     container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
         ? 'https://depot.galaxyproject.org/singularity/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'
-        : 'biocontainers/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'}"
+        : 'quay.io/biocontainers/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'}"
 
     input:
     tuple val(meta), val(out_fn), path(files, stageAs: "input_files/?/*")

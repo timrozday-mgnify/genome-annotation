@@ -4,7 +4,7 @@ process CHUNKFASTX {
 
     container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
         ? 'https://depot.galaxyproject.org/singularity/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'
-        : 'biocontainers/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'}"
+        : 'quay.io/biocontainers/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'}"
 
     input:
     tuple val(meta), path(reads)
@@ -25,11 +25,9 @@ process CHUNKFASTX {
 
     def reads_cmd = "-i \"${reads}\""
 
-    def script = file("${moduleDir}/bin/chunk_fastx.py")
-
     """
     mkdir -p chunked
-    python ${script} ${args} ${reads_cmd} -o "chunked/${out_fn}"
+    chunk_fastx.py ${args} ${reads_cmd} -o "chunked/${out_fn}"
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

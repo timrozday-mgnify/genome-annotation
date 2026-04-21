@@ -430,11 +430,11 @@
                 ]
             }
         ],
+        "timestamp": "2025-05-20T11:27:12.142209882",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "24.10.2"
-        },
-        "timestamp": "2025-05-20T11:27:12.142209882"
+        }
     },
     "sample-size > chunk-size should match snapshot": {
         "content": [
@@ -515,11 +515,11 @@
                 ]
             }
         ],
+        "timestamp": "2025-05-20T11:24:25.986302717",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "24.10.2"
-        },
-        "timestamp": "2025-05-20T11:24:25.986302717"
+        }
     },
     "single-end mini sample should match snapshot": {
         "content": [
@@ -576,11 +576,11 @@
                 ]
             }
         ],
+        "timestamp": "2025-05-20T11:25:24.976309194",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "24.10.2"
-        },
-        "timestamp": "2025-05-20T11:25:24.976309194"
+        }
     },
     "sample-size < chunk-size should match snapshot": {
         "content": [
@@ -617,10 +617,38 @@
                 ]
             }
         ],
+        "timestamp": "2025-05-20T11:26:42.378089435",
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "24.10.2"
-        },
-        "timestamp": "2025-05-20T11:26:42.378089435"
+        }
+    },
+    "mini genome fasta - stub": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,0dd1106950cd06c3dcb41f6c5c46a30d"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T16:49:14.832732",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    },
+    "mini genome fasta - split into multiple chunks": {
+        "content": [
+            {
+                "versions": [
+                    "versions.yml:md5,324e5a814b9a7c0f11e55bebff67382c"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T16:49:10.831122",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
     }
 }

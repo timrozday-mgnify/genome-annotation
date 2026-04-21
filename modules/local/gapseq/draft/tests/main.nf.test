@@ -14,9 +14,9 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id: 'test' ],
-                    file("${projectDir}/assets/mini_genome-all-Reactions.tbl",  checkIfExists: true),
-                    file("${projectDir}/assets/mini_genome-Transporter.tbl",     checkIfExists: true),
-                    file("${projectDir}/assets/mini_genome-all-Pathways.tbl",    checkIfExists: true)
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-all-Reactions.tbl",  checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-Transporter.tbl",     checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-all-Pathways.tbl",    checkIfExists: true)
                 ]
                 """
             }
@@ -42,9 +42,9 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id: 'test' ],
-                    file("${projectDir}/assets/mini_genome-all-Reactions.tbl",  checkIfExists: true),
-                    file("${projectDir}/assets/mini_genome-Transporter.tbl",     checkIfExists: true),
-                    file("${projectDir}/assets/mini_genome-all-Pathways.tbl",    checkIfExists: true)
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-all-Reactions.tbl",  checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-Transporter.tbl",     checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-all-Pathways.tbl",    checkIfExists: true)
                 ]
                 """
             }

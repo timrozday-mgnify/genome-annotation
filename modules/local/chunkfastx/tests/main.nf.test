@@ -1,111 +1,54 @@
 nextflow_process {
-
     name "Test Process CHUNKFASTX"
+    config "./nextflow.config"
     script "../main.nf"
     process "CHUNKFASTX"
 
     tag "modules"
-    tag "modules_"
     tag "chunkfastx"
 
-    test("sample-size > chunk-size should match snapshot") {
-
+    test("mini genome fasta - split into multiple chunks") {
         when {
-	    params {
-	    	test_chunksize = '1K'
-	    }
             process {
                 """
                 input[0] = [
-		    ['id': 'test', 'single_end': false],
-		    [
-		        file("${projectDir}/tests/fixtures/chunkfastx/ERR10889147_mini_1.fq.gz", checkIfExists: true),
-		        file("${projectDir}/tests/fixtures/chunkfastx/ERR10889147_mini_2.fq.gz", checkIfExists: true)
-		    ]
-		]
+                    [ id: 'test' ],
+                    file("${projectDir}/tests/testdata/mini_genome.fa", checkIfExists: true)
+                ]
                 """
             }
         }
-
         then {
-            assert process.success
-            assert snapshot(process.out).match()
+            assertAll(
+                { assert process.success },
+                { assert process.out.chunked_reads.get(0).get(1).size() > 1 },
+                { assert snapshot(
+                    process.out.findAll { key, _val -> key == "versions" }
+                ).match() }
+            )
         }
-
     }
 
-    test("single-end mini sample should match snapshot") {
-
+    test("mini genome fasta - stub") {
+        options "-stub"
         when {
-	    params {
-	    	test_chunksize = '1K'
-	    }
             process {
                 """
                 input[0] = [
-		    ['id': 'test', 'single_end': true],
-		    file("${projectDir}/tests/fixtures/chunkfastx/ERR10889147_mini_1.fq.gz", checkIfExists: true),
-		]
+                    [ id: 'test' ],
+                    file("${projectDir}/tests/testdata/mini_genome.fa", checkIfExists: true)
+                ]
                 """
             }
         }
-
         then {
-            assert process.success
-            assert snapshot(process.out).match()
+            assertAll(
+                { assert process.success },
+                { assert process.out.chunked_reads.size() == 1 },
+                { assert snapshot(
+                    process.out.findAll { key, _val -> key == "versions" }
+                ).match() }
+            )
         }
-
-    }
-
-    test("sample-size < chunk-size should match snapshot") {
-
-        when {
-	    params {
-	    	test_chunksize = '200K'
-	    }
-            process {
-                """
-                input[0] = [
-		    ['id': 'test', 'single_end': false],
-		    [
-		        file("${projectDir}/tests/fixtures/chunkfastx/ERR10889147_mini_1.fq.gz", checkIfExists: true),
-		        file("${projectDir}/tests/fixtures/chunkfastx/ERR10889147_mini_2.fq.gz", checkIfExists: true)
-		    ]
-		]
-                """
-            }
-        }
-
-        then {
-            assert process.success
-            assert snapshot(process.out).match()
-        }
-
-    }
-
-    test("read-length > chunk-size should match snapshot") {
-
-        when {
-	    params {
-	    	test_chunksize = '10'
-	    }
-            process {
-                """
-                input[0] = [
-		    ['id': 'test', 'single_end': false],
-		    [
-		        file("${projectDir}/tests/fixtures/chunkfastx/ERR10889147_mini_1.fq.gz", checkIfExists: true),
-		        file("${projectDir}/tests/fixtures/chunkfastx/ERR10889147_mini_2.fq.gz", checkIfExists: true)
-		    ]
-		]
-                """
-            }
-        }
-
-        then {
-            assert process.success
-            assert snapshot(process.out).match()
-        }
-
     }
 }

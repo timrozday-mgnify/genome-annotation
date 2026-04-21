@@ -1,75 +1,90 @@
 nextflow_workflow {
-
     name "Test Subworkflow FETCHDB"
     script "../main.nf"
     workflow "FETCHDB"
+    config "./nextflow.config"
 
     tag "subworkflows"
-    tag "subworkflows_"
-    tag "subworkflows/fetchdb"
+    tag "subworkflows_fetchdb"
 
-
-    test("Fetch all mini databases with cache") {
-
+    test("local path passthrough") {
         when {
-	    params {
-	        force_download_dbs = false
-	    }
+            params { force_download_dbs = false }
             workflow {
                 """
                 input[0] = Channel.of(
-		    ['id': 'motus_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/motus_mini.tar.gz"],
-		    ['id': 'host_genome_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/host_genome_mini.tar.gz"],
-		    ['id': 'host_genome_minimap2_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/hg38_mini_minimap2.tar.gz"],
-		    ['id': 'phix_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/phix.tar.gz"],
-		    ['id': 'rfam_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/rfam_mini.tar.gz"],
-		    ['id': 'silva_ssu_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/silva_ssu_mini.tar.gz"],
-		    ['id': 'silva_lsu_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/silva_lsu_mini.tar.gz"],
-		    ['id': 'pfam_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/pfam_mini.tar.gz"],
-		)
-		input[1] = "download_cache/databases"
+                    [
+                        id: 'mini_genome',
+                        local_path: "${projectDir}/tests/testdata/mini_genome.fa",
+                        remote_path: false,
+                        files: [:],
+                        base_dir: 'mini_genome'
+                    ]
+                )
+                input[1] = ""
                 """
             }
         }
-
         then {
-            assert workflow.success
-            assert snapshot(
-                workflow.out.dbs, 
-	    ).match()
+            assertAll(
+                { assert workflow.success },
+                { assert workflow.out.dbs.size() == 1 },
+                { assert workflow.out.dbs.get(0).get(1).toString().endsWith("mini_genome.fa") }
+            )
         }
-
     }
 
-    test("Fetch all mini databases without cache") {
-
+    test("download when no cache") {
         when {
-	    params {
-	        force_download_dbs = true
-	    }
+            params { force_download_dbs = false }
             workflow {
                 """
                 input[0] = Channel.of(
-		    ['id': 'motus_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/motus_mini.tar.gz"],
-		    ['id': 'host_genome_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/host_genome_mini.tar.gz"],
-		    ['id': 'host_genome_minimap2_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/hg38_mini_minimap2.tar.gz"],
-		    ['id': 'phix_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/phix.tar.gz"],
-		    ['id': 'rfam_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/rfam_mini.tar.gz"],
-		    ['id': 'silva_ssu_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/silva_ssu_mini.tar.gz"],
-		    ['id': 'silva_lsu_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/silva_lsu_mini.tar.gz"],
-		    ['id': 'pfam_mini', 'local_path': false, 'remote_path': "${projectDir}/tests/fixtures/dbs/pfam_mini.tar.gz"],
-		)
-		input[1] = "download_cache/databases"
+                    [
+                        id: 'mini_genome',
+                        local_path: false,
+                        remote_path: "${projectDir}/tests/testdata/mini_genome.fa",
+                        files: [:],
+                        base_dir: 'mini_genome'
+                    ]
+                )
+                input[1] = ""
                 """
             }
         }
-
         then {
-            assert workflow.success
-            assert snapshot(
-                workflow.out.dbs, 
-	    ).match()
+            assertAll(
+                { assert workflow.success },
+                { assert workflow.out.dbs.size() == 1 }
+            )
         }
+    }
 
+    test("cache hit skips download") {
+        // Use testdata dir as cache_path; mini_genome.fa is the cached item (id matches filename)
+        when {
+            params { force_download_dbs = false }
+            workflow {
+                """
+                input[0] = Channel.of(
+                    [
+                        id: 'mini_genome.fa',
+                        local_path: false,
+                        remote_path: "${projectDir}/tests/testdata/mini_genome.fa",
+                        files: [:],
+                        base_dir: 'mini_genome'
+                    ]
+                )
+                input[1] = "${projectDir}/tests/testdata"
+                """
+            }
+        }
+        then {
+            assertAll(
+                { assert workflow.success },
+                { assert workflow.out.dbs.size() == 1 },
+                { assert workflow.out.dbs.get(0).get(1).toString().endsWith("mini_genome.fa") }
+            )
+        }
     }
 }

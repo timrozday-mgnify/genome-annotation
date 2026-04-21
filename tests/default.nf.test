@@ -1,11 +1,9 @@
 nextflow_pipeline {
-
     name "Test pipeline"
     script "../main.nf"
     tag "pipeline"
 
-    test("-profile test") {
-
+    test("mini genome - default annotation") {
         when {
             params {
                 outdir = "$outputDir"
@@ -13,22 +11,40 @@ nextflow_pipeline {
         }
 
         then {
-            // stable_name: All files + folders in ${params.outdir}/ with a stable name
-            def stable_name = getAllFilesFromDir(params.outdir, relative: true, includeDir: true, ignore: ['pipeline_info/*.{html,json,txt}'])
-            // stable_path: All files in ${params.outdir}/ with stable content
-            def stable_path = getAllFilesFromDir(params.outdir, ignoreFile: 'tests/.nftignore')
+            def all_files = getAllFilesFromDir(
+                "$outputDir", relative: true, includeDir: false,
+                ignore: ['pipeline_info/**']
+            ).sort()
+            def binary_exts = ['.gz', '.RDS', '.dmnd'] as Set
+            def text_files = all_files.findAll { f -> binary_exts.every { ext -> !f.endsWith(ext) } }
+
             assertAll(
-                { assert workflow.success},
+                { assert workflow.success },
+
+                // 1. Directory structure — all file and folder names relative to outdir
                 { assert snapshot(
-                    // Number of successful tasks
-                    workflow.trace.succeeded().size(),
-                    // pipeline versions.yml file for multiqc from which Nextflow version is removed because we test pipelines on multiple Nextflow versions
-                    removeNextflowVersion("$outputDir/pipeline_info/nf_core_genomeannotation_software_mqc_versions.yml"),
-                    // All stable path name, with a relative path
-                    stable_name,
-                    // All files with stable contents
-                    stable_path
-                ).match() }
+                    getAllFilesFromDir("$outputDir", relative: true, includeDir: true,
+                        ignore: ['pipeline_info/**']).sort()
+                ).match("directory_structure") },
+
+                // 2. File sizes — all files (for .gz this is the compressed size)
+                { assert snapshot(
+                    all_files.collect { f -> [f, path("$outputDir/$f").size()] }
+                ).match("file_sizes") },
+
+                // 3. Line counts — text files only (.gz excluded; binary content)
+                { assert snapshot(
+                    text_files.collect { f ->
+                        [f, path("$outputDir/$f").readLines().size()]
+                    }
+                ).match("line_counts") },
+
+                // 4. MD5 checksums — text files only (.gz md5 varies with gzip timestamp)
+                { assert snapshot(
+                    text_files.collect { f ->
+                        [f, path("$outputDir/$f").md5]
+                    }
+                ).match("file_md5s") }
             )
         }
     }

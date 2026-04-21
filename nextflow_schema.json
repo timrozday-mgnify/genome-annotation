@@ -228,6 +228,39 @@
             }
         }
     },
+        "metabolic_modelling_options": {
+            "title": "Metabolic modelling options",
+            "type": "object",
+            "fa_icon": "fas fa-project-diagram",
+            "description": "Options for optional genome-scale metabolic model reconstruction.",
+            "properties": {
+                "run_gapseq": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Run GapSeq DOALL to reconstruct a genome-scale metabolic model from the genome FASTA.",
+                    "fa_icon": "fas fa-play"
+                },
+                "gapseq_medium": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Path to a medium CSV file for GapSeq. Leave unset to let GapSeq auto-predict the growth medium.",
+                    "fa_icon": "fas fa-flask"
+                },
+                "run_carveme": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Run CarVeME to reconstruct a genome-scale metabolic model from the Pyrodigal protein FASTA.",
+                    "fa_icon": "fas fa-play"
+                },
+                "carveme_mediadb": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Path to a custom CarVeME media database TSV. Leave unset to use the database bundled in the container.",
+                    "fa_icon": "fas fa-database"
+                }
+            }
+        }
+    },
     "allOf": [
         {
             "$ref": "#/$defs/input_output_options"
@@ -240,6 +273,9 @@
         },
         {
             "$ref": "#/$defs/generic_options"
+        },
+        {
+            "$ref": "#/$defs/metabolic_modelling_options"
         }
     ]
 }

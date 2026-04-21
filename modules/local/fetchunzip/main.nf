@@ -4,7 +4,7 @@ process FETCHUNZIP {
 
     container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
         ? 'https://depot.galaxyproject.org/singularity/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'
-        : 'biocontainers/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'}"
+        : 'quay.io/biocontainers/mgnify-pipelines-toolkit:0.1.1--pyhdfd78af_0'}"
 
     publishDir "${params.databases.cache_path}", mode: 'copy'
     errorStrategy 'retry'
@@ -13,7 +13,7 @@ process FETCHUNZIP {
     tuple val(meta), val(dir_name), path(fp)
 
     output:
-    tuple val(meta), path(dir_name)
+    tuple val(meta), path(dir_name), emit: db_dir
 
     script:
     if (fp.name[-7..-1] == '.tar.gz') {

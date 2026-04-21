@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>dbCAN3 server</title>
+
+    
+    
+
+    <link rel="stylesheet" href="static/css/base.css" />
+    <link rel="stylesheet" href="static/css/jquery.ui/jquery-ui.css" />
+    <link rel="stylesheet" href="static/css/jquery.qtip/jquery.qtip.css" />
+    <link rel="stylesheet" href="static/css/jquery.datatable/jquery.dataTable.css" />
+    <link rel="stylesheet" href="static/css/jquery.datatable/jquery.dataTable.jQueryUI.css" />
+    
+	
+	<style type="text/css" media="screen">
+      .dataTables_info { padding-top: 0; }
+      .dataTables_paginate { padding-top: 0; }
+      .css_right { float: right; }
+      #example_wrapper .fg-toolbar { font-size: 0.8em }
+      #theme_links span { float: left; padding: 2px 10px; }
+    </style>
+
+    
+    
+
+    <style type="text/css" media="screen">
+    
+    
+    </style>
+
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="static/js/jquery.qtip.js"></script>
+    <script type="text/javascript" src="static/js/jquery.corner.js"></script>
+    <script type="text/javascript" src="static/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="static/js/jquery.dataTables.ColVis.js"></script>
+ 	
+
+	<!-- jinfang zheng added -->
+	
+	<script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="static/snap.svg-min.js"></script>	
+	<link rel="stylesheet" href="static/css/Semantic-UI/semantic.min.css" />
+	<script type="text/javascript" src="static/js/semantic.min.js"></script>
+
+    <script type="text/javascript">
+      var $J = jQuery.noConflict()
+      $J(document).ready(function() {
+        $J(".corner").corner("5px");
+        $J("div#tabs").tabs().find( ".ui-tabs-nav" ).sortable({ axis: "x" });
+
+        if ($J("input#id_keyword").val() == "") {
+          $J("input#id_keyword").val($J("input#id_keyword").attr("title"));
+          $J("input#id_keyword").focus(function () {
+              if ($J(this).val() == $J(this).attr("title"))
+                  $J(this).val("");
+          }).blur(function () {
+              if ($J(this).val() == "")
+                  $J(this).val($J(this).attr("title"));
+          });
+        }
+      });
+    </script>
+
+    
+    
+
+  </head>
+
+  <body>
+    <header class="shadow corner" id="pane">
+
+     
+      <div id="head">
+        <a href="index.php"><img src="static/images/dbCAN_LOGOv3.png" alt="logo" width="100%" height="100%" /></a>
+      </div>
+
+      <div id="nav">
+	      <ul id="nav">
+	        <li class="left"><a href="index.php">Home</a></li>
+	        <li class="middle"><a href="blast.php">Annotate</a></li>	        
+	        <li class="middle"><a href="https://github.com/linnabrown/run_dbcan"><font color="yellow">GitHub</font></a></li>
+		<li class="middle"><a href="browse_download.php">Download</a></li>
+		<li class="middle"><a href="blastation.php?jobid=20221121163906">Example result</a></li>
+	        <li class="middle"><a href="help.php">Help</a></li>
+	        <li class="right"><a href="about.php">About us</a></li><!--runoff error causes this line to be pushed off the line when all elements are included-->
+	        <!-- <li class="middle"><a href="http://dbcan.unl.edu/dbcan"><font color="yellow">AWS mirror site</font></a></li> -->
+		<li class="middle"><a href="http://dbcan-hcc.unl.edu">Anvil mirror site</a></li>
+	      </ul>
+	        <p align="right"><b><span style="color:#b30000;">Cite us:</span><a href="https://doi.org/10.1093/nar/gkad328">dbCAN3</a> | <a href="https://doi.org/10.1093/nar/gky418">dbCAN2</a> | <a href="https://doi.org/10.1093/nar/gks479">dbCAN</a></b></li><!--runoff error causes this line to be pushed off the line when all elements are included-->
+      </div>
+      <div class="feedback-message">
+    <p> To help us improve our service, please <a href="feedback_form.php">click here</a> to provide your feedback.</p>
+</div>
+
+<style>
+    .feedback-message {
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f7f7f7;
+        text-align: center;
+        margin-bottom: 20px;
+   }
+
+    .feedback-message p {
+        font-size: 16px;
+        color: #555;
+   }
+
+    .feedback-message a {
+        color: #0056b3;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .feedback-message a:hover {
+        text-decoration: underline;
+    }
+</style>
+      
+
+      
+
+<div id="main">
+
+<div class="section">
+<h2>What is dbCAN3 </h2>
+
+<p>
+<a href="index.php" style="color:#0056b3; text-decoration:underline;">dbCAN3 server</a> is a web server for <a href="blast.php"><b>automated <u>C</u>arbohydrate-active enzyme <u>AN</u>notation</b></a>, funded by the NSF (<a href="https://nsf.gov/awardsearch/showAward?AWD_ID=1933521" style="color:#0056b3; text-decoration:underline;">DBI-1933521</a>) and NIH (<a href="https://reporter.nih.gov/search/8pfR3_iHGEytobw-sNqcRA/project-details/10099567" style="color:#0056b3; text-decoration:underline;">R01GM140370</a>). Similar resources on the web include <a target="_blank" href="https://www.cazy.org" style="color:#0056b3; text-decoration:underline;">CAZy</a>, <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/20696711" style="color:#0056b3; text-decoration:underline;">CAT (obsolete)</a>, and <a href="https://cupp.info/" style="color:#0056b3; text-decoration:underline;">CUPP</a>. dbCAN3 server is an updated version of<a href="https://bcb.unl.edu/dbCAN/" style="color:#0056b3; text-decoration:underline;"> dbCAN (obsolete) </a> and <a href="http://bcb.unl.edu/dbCAN2_obsolete/" style="color:#0056b3; text-decoration:underline;"> dbCAN2 (obsolete) </a>, and has the following <b><u>new features (thanks to dbCAN users all over the world for suggestions)</b></u>:
+</p>
+
+<ul>
+  <li>dbCAN3 server allows users predict glycan substrates for CAZymes by searching against <a href="https://bcb.unl.edu/dbCAN_sub/" style="color:#0056b3; text-decoration:underline;">dbCAN-sub</a>, and for CAZyme gene clusters (CGCs) by using two approaches: searching against PULs of <a href="https://bcb.unl.edu/dbCAN_PUL/home" style="color:#0056b3; text-decoration:underline;">dbCAN-PUL</a> and <a href="https://bcb.unl.edu/dbCAN_sub" style="color:#0056b3; text-decoration:underline;">dbCAN-sub</a> majority voting </li>
+  <li>dbCAN3 server, like dbCAN2, allows submission of nucleotide sequences: prokaryotic genomes (fna file) or metagenome assembled genomes (MAGs); for eukaryotic genomes, please still submit protein seqs (faa file)</li>
+  <li>dbCAN3 server, like dbCAN2, integrates three state-of-the-art tools/databases for automated CAZyme annotation:
+	<ol>
+		<li><a href="https://hmmer.org/" style="color:#0056b3; text-decoration:underline;">HMMER</a> search for CAZyme family annotation vs. <a href="https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/" style="color:#0056b3; text-decoration:underline;">dbCAN CAZyme domain HMM database</a></li>
+		<li><a href="https://github.com/bbuchfink/diamond" style="color:#0056b3; text-decoration:underline;">DIAMOND</a> search for BLAST hits in the <a target="_blank" href="https://www.cazy.org" style="color:#0056b3; text-decoration:underline;">CAZy database</a></li>
+		<li><a href="https://hmmer.org/" style="color:#0056b3; text-decoration:underline;">HMMER</a> search for CAZyme subfamily annotation vs. <a href="https://bcb.unl.edu/dbCAN_sub" style="color:#0056b3; text-decoration:underline;">dbCAN-sub</a> HMM database of CAZyme subfamilies (derived from <a href="https://github.com/yinlabniu/eCAMI" style="color:#0056b3; text-decoration:underline;">eCAMI</a> classification of CAZyDB families)</li>
+	</ol>
+  </li>
+  <li>dbCAN3 server can identify transcription factors (TFs), transporters (TCs), signal transduction proteins (STPs), and further CAZyme gene clusters (CGCs) using <a href="https://bcb.unl.edu/dbCAN2/download/" style="color:#0056b3; text-decoration:underline;">CGC-Finder</a> if users submit faa+gff files or fna file</li>
+  <li>dbCAN3 server combines the results from the three tools and allows visualization of detailed results as tables/graphs</li>
+</ul>
+
+<p><a href="help.php" style="color:#0056b3; text-decoration:underline;">dbCAN3 server</a> will be updated once a year to use the most updated CAZy database, dbCAN HMMdb and dbCAN-sub HMMdb</p>
+</div>
+
+<div class="section">
+<h2>News</h2>
+<ul>
+  <li><span style="color:#b30000;">8/26/2025</span>: dbCAN HMMdb v14 is released (based on CAZyDB 7/10/2025). Now the HMMdb contains 875 CAZyme HMMs (514 family HMMs + 3 bacterial cellulosome HMMs + 2 fungal cellulosome HMMs + 356 subfamily HMMs). The CAZyDB for Diamond search is also updated, containing in total 4,098,879 fasta sequences (including JGI fungal genomes of CAZyDB). See <a href="https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/readme.txt" style="color:#0056b3; text-decoration:underline;">readme</a> for details.
+  <li>8/14/2024: dbCAN HMMdb v13 is released (based on CAZyDB 7/09/2024). Now the HMMdb contains 826 CAZyme HMMs (503 family HMMs + 3 bacterial cellulosome HMMs + 2 fungal cellulosome HMMs + 318 subfamily HMMs). The CAZyDB for Diamond search is also updated, containing in total 3,613,704 fasta sequences (including JGI fungal genomes of CAZyDB). See <a href="https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/readme.txt" style="color:#0056b3; text-decoration:underline;">readme</a> for details.
+  <li>8/2/2023: dbCAN HMMdb v12 is released (based on CAZyDB 7/26/2023). Now the HMMdb contains 783 CAZyme HMMs (470 family HMMs + 3 bacterial cellulosome HMMs + 2 fungal cellulosome HMMs + 308 subfamily HMMs). The CAZyDB for Diamond search is also updated, containing in total 2,816,770 fasta sequences. See <a href="https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/readme.txt" style="color:#0056b3; text-decoration:underline;">readme</a> for details.
+  <li>05/01/2023: dbCAN3 paper is published at <a href="https://doi.org/10.1093/nar/gkad328" style="color:#0056b3; text-decoration:underline;">Nucleic Acids Research</a> featuring substrate prediction
+<li><span style="color:#b30000;">02/11/2023</span>: dbCAN2 is updated to dbCAN3 with glycan substrate prediction functions: 1. <span style="color:#b30000;">CAZyme substrate prediction </span>based on <a href="https://bcb.unl.edu/dbCAN_sub/" style="color:#0056b3; text-decoration:underline;"> dbCAN-sub </a>; 2. <span style="color:#b30000;">CGC substrate prediction </span>based on dbCAN-PUL searching and dbCAN-sub majority voting. For CGC substrate prediction, please see our <a href="https://academic.oup.com/nar/article/51/D1/D557/6833251" style="color:#0056b3; text-decoration:underline;"> dbCAN-seq update paper </a> for details. With these new functions (esp. the dbCAN-sub search), dbCAN3 is now slower to get the result back to you. Please be patience!
+  <li>8/9/2022: dbCAN HMMdb v11 is released (based on CAZyDB 8/7/2022). Now the HMMdb contains 699 CAZyme HMMs (452 family HMMs + 3 cellulosome HMMs + 244 subfamily HMMs). The CAZyDB for Diamond search is also updated, containing in total 2,428,817 fasta sequences. See <a href="https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/readme.txt" style="color:#0056b3; text-decoration:underline;">readme</a> for details.
+  <li>06/29/2022: <a href="../dbCAN_sub/" style="color:#0056b3; text-decoration:underline;">dbCAN-sub</a> (HMMdb from eCAMI subfams and allows EC and substrate inferences) is now deployed on dbCAN meta server and replaces eCAMI (consumes too much RAM and too slow).</li>
+  <li>12/21/2021: updated <a href="https://github.com/linnabrown/run_dbcan" style="color:#0056b3; text-decoration:underline;">run_dbcan python package</a> to V3.0.1. Major updates include: (1) replaced Hotpep with <a href="https://academic.oup.com/bioinformatics/article/36/7/2068/5651014" style="color:#0056b3; text-decoration:underline;">eCAMI</a> (recommended by <a href="https://doi.org/10.6084/m9.figshare.14370836.v1" style="color:#0056b3; text-decoration:underline;">an evaluation study</a>); (2) added EC number in the overview output file (inferred by <a href="https://github.com/yinlabniu/eCAMI" style="color:#0056b3; text-decoration:underline;">eCAMI</a>); (3) formated cgc.out to make it more readable. The web server has been updated accordingly.</a>
+  <li>10/03/2021: updated CAZyDB for Diamond search. Now this file contains 2,161,786 fasta sequences. The old CAZyDB fasta file CAZyDB.07292021.fa was deleted in the download folder.See <a href="https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/readme.txt" style="color:#0056b3; text-decoration:underline;">readme</a> for details.
+  <li>8/17/2021: dbCAN HMMdb v10 is released (based on CAZyDB 7/26/2020). Now the HMMdb contains 692 CAZyme HMMs (445 family HMMs + 3 cellulosome HMMs + 244 subfamily HMMs). The CAZyDB for Diamond search is also updated, containing in total 1,776,583 fasta sequences. See <a href="https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/readme.txt" style="color:#0056b3; text-decoration:underline;">readme</a> for details.
+  <li>04/28/2021: We received an NIH R01 award to continue the development of dbCAN family tools</li>
+  <li>8/04/2020: dbCAN HMMdb v9 is released (based on CAZyDB 7/30/2020). Now the HMMdb contains 681 CAZyme HMMs (434 family HMMs + 3 cellulosome HMMs + 244 subfamily HMMs). The CAZyDB for Diamond search is also updated, containing in total 1,716,043 fasta sequences. See <a href="https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/readme.txt" style="color:#0056b3; text-decoration:underline;">readme</a> for details.
+  <li>04/21/2020: dbCAN2 Hotpep PPR patterns updated to most recent release of CAZyDB (2019). Also missing group EC# files for families added in.
+  <li>10/07/2019&nbsp;&nbsp;<a href="https://pypi.org/project/run-dbcan/#files" style="color:#0056b3; text-decoration:underline;">run_dbcan python package</a>&nbsp;&nbsp; is released. You should not only use <span style="color:#c2185b;">pip install run-dbcan==2.0.0</span> to download it, but also install Miniconda or Anaconda as well to install dependencies packages(<span style="color:#c2185b;">conda install -c bioconda diamond hmmer=3.1b2 prodigal fraggenescan</span>). And then use only one command to download and compress all the related databases from Download section. Read more on <a href="https://github.com/linnabrown/run_dbcan" style="color:#0056b3; text-decoration:underline;">run_dbcan2</a>.
+  <li>/08/2019: dbCAN HMMdb v8 is released (based on CAZyDB 7/26/2019). Now the HMMdb contains 641 CAZyme HMMs (421 family HMMs + 3 cellulosome HMMs + 217 subfamily HMMs). The CAZyDB for Diamond search is also updated, containing in total 1,386,849 fasta sequences. See <a href="https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/readme.txt" style="color:#0056b3; text-decoration:underline;">readme</a> for details.
+  <li>4/01/2019: dbCAN2 has a <a href="https://hub.docker.com/r/haidyi/run_dbcan" style="color:#0056b3; text-decoration:underline;">docker</a> version written by Haidong Yi.
+  <li>3/19/2019: dbCAN2 web server has moved to UNL and has a new <a href="https://bcb.unl.edu/dbCAN2/" style="color:#0056b3; text-decoration:underline;">URL</a>
+  <li>1/20/2019: dbCAN2 standalone package is available on <a href="https://github.com/linnabrown/run_dbcan" style="color:#0056b3; text-decoration:underline;">github</a>; if you prefer to still use the old hmmscan way, the data are available in the <a href="https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/" style="color:#0056b3; text-decoration:underline;">download page</a>
+  <li>8/25/2018: dbCAN HMMdb v7 is released (based on CAZyDB 7/31/2018): HMMs of 15 new families were added (AA14, AA15, CBM82, CBM83, GH146, GH147, GH148, GH149, GH150, GH151, GH152, GH153, GT105, GT106, PL28), GT2 family HMM now is replaced with 8 Pfam HMMs (GT2_Chitin_synth_1, GT2_Chitin_synth_2, GT2_Glycos_transf_2, GT2_Glyco_tranf_2_2, GT2_Glyco_tranf_2_3, GT2_Glyco_tranf_2_4, GT2_Glyco_tranf_2_5, GT2_Glyco_trans_2_3)
+  <li>5/2/2018: dbCAN2 meta server paper is accepted to publish at <a href="https://doi.org/10.1093/nar/gky418" style="color:#0056b3; text-decoration:underline;">Nucleic Acids Research</a>
+  <li>8/15/2017: Tanner and Le Huang begin to work on dbCAN2 meta server
+  <li>7/1/2017: <a href="https://niu.edu/biology/about/faculty/yin/index.shtml" style="color:#0056b3; text-decoration:underline;">Yanbin</a> is awarded the NSF CAREER grant for CAZyme bioinformatics research
+</div>
+
+<!--
+<div class="section">
+<h2>Data statistics</h2>
+<img src="static/images/statistics.png" />
+</div>
+-->
+
+<!--
+<div class="section">
+<h2>Cite us</h2>
+<p>Yin Y*, Mao X*, Yang JC, Chen X, Mao F and Xu Y, dbCAN: a web resource for automated carbohydrate-active enzyme annotation, Nucleic Acids Res. 2012 Jul;40(Web Server issue):W445-51
+</div>
+-->
+
+</div>
+<div class="section" style="font-size:1.1em;height:150px">
+    <aside id="visit" style="height:90px;width:180px;text-align:center">
+        <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?d=Kla74Sadi2SvhIQkPleB90P8marR1RxgF-X3yCjcOQE&cl=ffffff&w=a"></script>
+    </aside>
+</div>
+
+
+    </header>
+
+    
+    <footer id="foot">
+      <div id="copyright">
+        <p>
+          Copyright 2012-now &copy; <a href="https://bcb.unl.edu" style="color:#0056b3; text-decoration:underline;">YIN LAB</a>, <a href="https://www.unl.edu" style="color:#0056b3; text-decoration:underline;">UNL</a>. All rights reserved.
+          Designed by Tanner Yohe and Le Huang.
+		  Updated by Jingfang Zheng and Qiwei Ge.
+          Maintained by <a href="https://bcb.unl.edu/dbCAN2/about.php" target="_blank" style="color:#0056b3; text-decoration:underline;">Yanbin Yin.</a>
+        </p>
+      </div>
+    </footer>
+    
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-22976986-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

@@ -14,8 +14,8 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id: 'test' ],
-                    file("${projectDir}/assets/mini_genome-draft.RDS",  checkIfExists: true),
-                    file("${projectDir}/assets/mini_genome-medium.csv", checkIfExists: true)
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-draft.RDS",  checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-medium.csv", checkIfExists: true)
                 ]
                 """
             }
@@ -41,8 +41,8 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id: 'test' ],
-                    file("${projectDir}/assets/mini_genome-draft.RDS",  checkIfExists: true),
-                    file("${projectDir}/assets/mini_genome-medium.csv", checkIfExists: true)
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-draft.RDS",  checkIfExists: true),
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-medium.csv", checkIfExists: true)
                 ]
                 """
             }

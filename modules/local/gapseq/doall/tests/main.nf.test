@@ -44,7 +44,7 @@ nextflow_process {
                     [ id: 'test' ],
                     file("${projectDir}/tests/testdata/mini_genome.fa",   checkIfExists: true),
                     file("${projectDir}/tests/testdata/mini_gapseq_db",   checkIfExists: true),
-                    file("${projectDir}/assets/mini_genome-medium.csv",   checkIfExists: true)
+                    file("${projectDir}/tests/testdata/mini_precomputed/mini_genome-medium.csv",   checkIfExists: true)
                 ]
                 """
             }
