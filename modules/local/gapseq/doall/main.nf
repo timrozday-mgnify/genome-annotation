@@ -34,9 +34,11 @@ process GAPSEQ_DOALL {
     cp -L ${genome} ${prefix}.tmp.fa
     mv ${prefix}.tmp.fa ${prefix}.fa
 
+    cp -rL ${db} ./gapseq_db_local
+
     gapseq doall \\
         -f ./ \\
-        -D ${db} \\
+        -D ./gapseq_db_local \\
         -K ${task.cpus} \\
         ${medium_cmd} \\
         ${args} \\

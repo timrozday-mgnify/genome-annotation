@@ -25,9 +25,11 @@ process GAPSEQ_FIND {
     """
     cp -L ${genome} ${prefix}.fa
 
+    cp -rL ${db} ./gapseq_db_local
+
     gapseq find \\
         -f ./ \\
-        -D ${db} \\
+        -D ./gapseq_db_local \\
         -K ${task.cpus} \\
         ${args} \\
         ${prefix}.fa
