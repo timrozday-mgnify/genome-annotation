@@ -34,6 +34,8 @@ process GAPSEQ_FIND {
         ${args} \\
         ${prefix}.fa
 
+    rm -Rf ./gapseq_db_local
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         gapseq: \$(cd /opt/gapseq && git describe --tags 2>/dev/null | sed 's/^v//')
