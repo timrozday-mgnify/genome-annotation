@@ -259,6 +259,38 @@
                     "fa_icon": "fas fa-database"
                 }
             }
+        },
+        "annotation_options": {
+            "title": "Annotation options",
+            "type": "object",
+            "fa_icon": "fas fa-dna",
+            "description": "Toggle individual annotation steps on or off.",
+            "properties": {
+                "run_pyrodigal": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Run Pyrodigal gene prediction. Set to false to skip gene calling and all CDS annotation.",
+                    "fa_icon": "fas fa-play"
+                },
+                "run_pfam": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Run Pfam domain annotation with HMMER hmmsearch.",
+                    "fa_icon": "fas fa-play"
+                },
+                "run_dbcan": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Run dbCAN3 CAZyme annotation.",
+                    "fa_icon": "fas fa-play"
+                },
+                "run_kofam": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Run KOfamScan KEGG ortholog assignment.",
+                    "fa_icon": "fas fa-play"
+                }
+            }
         }
     },
     "allOf": [
@@ -276,6 +308,9 @@
         },
         {
             "$ref": "#/$defs/metabolic_modelling_options"
+        },
+        {
+            "$ref": "#/$defs/annotation_options"
         }
     ]
 }
