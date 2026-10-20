@@ -119,4 +119,3 @@ if __name__ == '__main__':
 
     if not out_file is None:
         out_file.close()
-

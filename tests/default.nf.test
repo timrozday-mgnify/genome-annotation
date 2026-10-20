@@ -44,7 +44,18 @@ nextflow_pipeline {
                     text_files.collect { f ->
                         [f, path("$outputDir/$f").md5]
                     }
-                ).match("file_md5s") }
+                ).match("file_md5s") },
+
+                // 5. Software versions. `pipeline_info/**` is excluded above because
+                // the timeline/report/trace/dag files carry a run timestamp, so this
+                // one is named explicitly. Snapshotted by content with the pipeline's
+                // own version line removed — that line moves with every release.
+                { assert snapshot(
+                    path("$outputDir/pipeline_info/genomeannotation_software_versions.yml")
+                        .readLines()
+                        .findAll { line -> !line.contains('genomeannotation') && !line.contains('Nextflow') }
+                        .sort()
+                ).match("software_versions") }
             )
         }
     }
