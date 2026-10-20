@@ -23,7 +23,7 @@ input:
         pattern: "*-draft.RDS"
     - medium:
         type: file
-        description: Culture medium CSV file (columns: metabolite ID, name, max flux)
+        description: "Culture medium CSV file (columns: metabolite ID, name, max flux)"
         pattern: "*.csv"
 output:
   model_rds:
