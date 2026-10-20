@@ -36,10 +36,11 @@ workflow GENOMEANNOTATION {
     // Parse samplesheet and fetch reads
     samplesheet = Channel.fromList(samplesheetToList(params.samplesheet, "${workflow.projectDir}/assets/schema_input.json"))
 
+    // universe: optional CarVeME universe (e.g. archaea); unset -> the bacterial default
     genome_contigs = samplesheet.map {
-        sample, fasta ->
+        sample, fasta, universe ->
         [
-            ['id': sample],
+            ['id': sample] + (universe ? ['universe': universe] : [:]),
             file(fasta)
         ]
     }

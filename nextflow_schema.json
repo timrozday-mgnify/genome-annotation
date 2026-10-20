@@ -226,8 +226,7 @@
                     "hidden": true
                 }
             }
-        }
-    },
+        },
         "metabolic_modelling_options": {
             "title": "Metabolic modelling options",
             "type": "object",
