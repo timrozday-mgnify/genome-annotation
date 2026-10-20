@@ -78,6 +78,7 @@ jobs:
           - "latest-everything"
     env:
       NXF_ANSI_LOG: false
+      NXF_VERSION: ${{ matrix.NXF_VER }}
       TOTAL_SHARDS: ${{ needs.nf-test-changes.outputs.total_shards }}
 
     steps:
