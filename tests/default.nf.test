@@ -6,6 +6,14 @@ nextflow_pipeline {
     test("mini genome - default annotation") {
         when {
             params {
+                // The checked-in testdata/samplesheet.csv holds an absolute path from
+                // the machine that generated it; write one resolved against this checkout.
+                // Beside outputDir, not in it, so it stays out of the directory snapshot
+                // (metaDir is still null while this block runs).
+                def sheet = new File(new File("$outputDir").parentFile, "samplesheet.csv")
+                sheet.parentFile.mkdirs()
+                sheet.text = "sample,fastx\nmini_genome,${projectDir}/tests/testdata/mini_genome.fa\n"
+                input = sheet.path
                 outdir = "$outputDir"
             }
         }
