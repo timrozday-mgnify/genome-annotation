@@ -255,7 +255,22 @@ workflow GENOMEANNOTATION {
         )
     }
 
+    //
+    // Collate the tool versions every module emitted into one file. The channel was
+    // being assembled and then dropped: `softwareVersionsToYAML` was imported but
+    // never called, so no run recorded what it ran with.
+    //
+    softwareVersionsToYAML(ch_versions)
+        .collectFile(
+            storeDir: "${params.outdir}/pipeline_info",
+            name: 'genomeannotation_software_versions.yml',
+            sort: true,
+            newLine: true,
+        )
+        .set { ch_collated_versions }
+
     emit:
+    software_versions           = ch_collated_versions
     cds_locations               = cdss
     pfam_annotations            = params.run_pfam   ? PFAM_CONCATENATE.out.concatenated_file             : Channel.empty()
     dbcan_overview_annotations  = params.run_dbcan  ? DBCAN_OVERVIEW_CONCATENATE.out.concatenated_file   : Channel.empty()
