@@ -49,6 +49,8 @@ genome_B,/path/to/genome_B.fa.gz
 ```
 
 Each row is one genome. The `fastx` column accepts uncompressed or gzip-compressed FASTA.
+An optional `universe` column sets the CarVeME universe per genome (`bacteria`, the
+default, `grampos`, `gramneg` or `archaea` — use `archaea` for methanogens).
 
 ### 3. Run
 
