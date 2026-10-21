@@ -25,6 +25,11 @@ nextflow_pipeline {
             ).sort()
             def binary_exts = ['.gz', '.RDS', '.dmnd'] as Set
             def text_files = all_files.findAll { f -> binary_exts.every { ext -> !f.endsWith(ext) } }
+            // Content differs between gapseq image builds (the Dockerfile's conda
+            // versions are unpinned) and between runs for carveme's model and the pfam
+            // domtbl. These keep their name and line-count checks, not size or md5.
+            def volatile = [~/gapseq\/.*\.(RDS|xml|tbl)$/, ~/carveme\/.*\.xml$/, ~/\.domtbl\.gz$/]
+            def stable = { f -> !volatile.any { re -> f =~ re } }
 
             assertAll(
                 { assert workflow.success },
@@ -35,9 +40,9 @@ nextflow_pipeline {
                         ignore: ['pipeline_info/**']).sort()
                 ).match("directory_structure") },
 
-                // 2. File sizes — all files (for .gz this is the compressed size)
+                // 2. File sizes — stable files (for .gz this is the compressed size)
                 { assert snapshot(
-                    all_files.collect { f -> [f, path("$outputDir/$f").size()] }
+                    all_files.findAll(stable).collect { f -> [f, path("$outputDir/$f").size()] }
                 ).match("file_sizes") },
 
                 // 3. Line counts — text files only (.gz excluded; binary content)
@@ -47,9 +52,9 @@ nextflow_pipeline {
                     }
                 ).match("line_counts") },
 
-                // 4. MD5 checksums — text files only (.gz md5 varies with gzip timestamp)
+                // 4. MD5 checksums — stable text files (.gz md5 varies with gzip timestamp)
                 { assert snapshot(
-                    text_files.collect { f ->
+                    text_files.findAll(stable).collect { f ->
                         [f, path("$outputDir/$f").md5]
                     }
                 ).match("file_md5s") },
