@@ -62,7 +62,7 @@ runs:
         nf-test test \
           --profile=+${{ inputs.profile }} \
           $(if [ -n "${{ inputs.tags }}" ]; then echo "--tag ${{ inputs.tags }}"; fi) \
-          --update-snapshot \
+          --ci \
           --changed-since HEAD^ \
           --verbose \
           --tap=test.tap \
@@ -70,11 +70,6 @@ runs:
 
           # Save the absolute path of the test.tap file to the output
           echo "tap_file_path=$(realpath test.tap)" >> $GITHUB_OUTPUT
-
-    - name: "TEMP: print recorded pipeline snapshot"
-      if: always()
-      shell: bash
-      run: echo "SNAPSTART"; cat tests/default.nf.test.snap; echo "SNAPEND"
 
     - name: Generate test summary
       if: always()
