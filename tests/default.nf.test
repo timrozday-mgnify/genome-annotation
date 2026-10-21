@@ -28,8 +28,8 @@ nextflow_pipeline {
             // Content differs between gapseq image builds (the Dockerfile's conda
             // versions are unpinned) and between runs for carveme's model and the pfam
             // domtbl. These keep their name and line-count checks, not size or md5.
-            def volatile = [~/gapseq\/.*\.(RDS|xml|tbl)$/, ~/carveme\/.*\.xml$/, ~/\.domtbl\.gz$/]
-            def stable = { f -> !volatile.any { re -> f =~ re } }
+            def varying = [~/gapseq\/.*\.(RDS|xml|tbl)$/, ~/carveme\/.*\.xml$/, ~/\.domtbl\.gz$/]
+            def stable = { f -> !varying.any { re -> f =~ re } }
 
             assertAll(
                 { assert workflow.success },
