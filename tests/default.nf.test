@@ -30,6 +30,8 @@ nextflow_pipeline {
             // domtbl. These keep their name and line-count checks, not size or md5.
             def varying = [~/gapseq\/.*\.(RDS|xml|tbl)$/, ~/carveme\/.*\.xml$/, ~/\.domtbl\.gz$/]
             def stable = { f -> !varying.any { re -> f =~ re } }
+            // gapseq's model differs in length between runs of the same image.
+            def countable = { f -> !(f =~ ~/gapseq\/.*\.xml$/) }
 
             assertAll(
                 { assert workflow.success },
@@ -47,7 +49,7 @@ nextflow_pipeline {
 
                 // 3. Line counts — text files only (.gz excluded; binary content)
                 { assert snapshot(
-                    text_files.collect { f ->
+                    text_files.findAll(countable).collect { f ->
                         [f, path("$outputDir/$f").readLines().size()]
                     }
                 ).match("line_counts") },
