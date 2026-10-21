@@ -51,5 +51,3 @@ if __name__ == '__main__':
 
     with open(args.output_fp, 'wt') as f:
         json.dump({'base_count': base_count, 'seq_count': seq_count}, f)
-
-

@@ -1,0 +1,38 @@
+Changes in component 'nf-core/pyrodigal'
+'modules/nf-core/pyrodigal/environment.yml' is unchanged
+'modules/nf-core/pyrodigal/meta.yml' is unchanged
+Changes in 'pyrodigal/main.nf':
+--- modules/nf-core/pyrodigal/main.nf
++++ modules/nf-core/pyrodigal/main.nf
+@@ -5,10 +5,10 @@
+     conda "${moduleDir}/environment.yml"
+     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+         'https://depot.galaxyproject.org/singularity/mulled-v2-2fe9a8ce513c91df34b43a6610df94c3a2eb3bd0:da1134ad604a59a6f439bdcc3f6df690eba47e9a-0':
+-        'biocontainers/mulled-v2-2fe9a8ce513c91df34b43a6610df94c3a2eb3bd0:da1134ad604a59a6f439bdcc3f6df690eba47e9a-0' }"
++        'quay.io/biocontainers/mulled-v2-2fe9a8ce513c91df34b43a6610df94c3a2eb3bd0:da1134ad604a59a6f439bdcc3f6df690eba47e9a-0' }"
+ 
+     input:
+-    tuple val(meta), path(fasta)
++    tuple val(meta), path(fasta, stageAs: "input/*")
+     val(output_format)
+ 
+     output:
+@@ -37,7 +37,13 @@
+         -a ${prefix}.faa \\
+         -s ${prefix}.score
+ 
+-    pigz -nmf ${prefix}*
++    for fp in ${prefix}* ; do
++      if [[ \$fp =~ \\.gz\$ ]]; then
++        echo "\$fp already gzipped"
++      else
++        pigz -nmf \$fp
++      fi
++    done
+ 
+     cat <<-END_VERSIONS > versions.yml
+     "${task.process}":
+
+'modules/nf-core/pyrodigal/tests/main.nf.test.snap' is unchanged
+'modules/nf-core/pyrodigal/tests/main.nf.test' is unchanged
+************************************************************

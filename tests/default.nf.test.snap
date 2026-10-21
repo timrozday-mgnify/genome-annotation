@@ -85,20 +85,12 @@
                     9427
                 ],
                 [
-                    "mini_genome/gapseq/mini_genome-draft.xml",
-                    7016
-                ],
-                [
                     "mini_genome/gapseq/mini_genome-medium.csv",
                     40
                 ],
                 [
                     "mini_genome/gapseq/mini_genome.gff",
                     157
-                ],
-                [
-                    "mini_genome/gapseq/mini_genome.xml",
-                    22981
                 ],
                 [
                     "mini_genome/gapseq/versions.yml",
@@ -114,19 +106,15 @@
                 ]
             ]
         ],
-        "timestamp": "2026-04-21T06:23:41.526799",
+        "timestamp": "2026-10-21T13:56:22.987314635",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nf-test": "0.9.5",
+            "nextflow": "24.10.5"
         }
     },
     "file_sizes": {
         "content": [
             [
-                [
-                    "mini_genome/carveme/mini_genome.xml",
-                    2264062
-                ],
                 [
                     "mini_genome/carveme/versions.yml",
                     53
@@ -148,32 +136,8 @@
                     116
                 ],
                 [
-                    "mini_genome/gapseq/mini_genome-Transporter.tbl",
-                    205871
-                ],
-                [
-                    "mini_genome/gapseq/mini_genome-all-Pathways.tbl",
-                    149281
-                ],
-                [
-                    "mini_genome/gapseq/mini_genome-all-Reactions.tbl",
-                    1501356
-                ],
-                [
-                    "mini_genome/gapseq/mini_genome-draft.RDS",
-                    77393
-                ],
-                [
-                    "mini_genome/gapseq/mini_genome-draft.xml",
-                    524346
-                ],
-                [
                     "mini_genome/gapseq/mini_genome-medium.csv",
                     859
-                ],
-                [
-                    "mini_genome/gapseq/mini_genome.RDS",
-                    188216
                 ],
                 [
                     "mini_genome/gapseq/mini_genome.faa.gz",
@@ -184,20 +148,12 @@
                     34935
                 ],
                 [
-                    "mini_genome/gapseq/mini_genome.xml",
-                    1697170
-                ],
-                [
                     "mini_genome/gapseq/versions.yml",
                     46
                 ],
                 [
                     "mini_genome/kofam/concatenated/mini_genome_kofam.txt",
                     288
-                ],
-                [
-                    "mini_genome/pfam/concatenated/mini_genome_null.domtbl.gz",
-                    508
                 ],
                 [
                     "mini_genome/pyrodigal/mini_genome.faa.gz",
@@ -221,19 +177,27 @@
                 ]
             ]
         ],
-        "timestamp": "2026-04-22T09:57:03.575059",
+        "timestamp": "2026-10-21T13:56:22.882364857",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nf-test": "0.9.5",
+            "nextflow": "24.10.5"
+        }
+    },
+    "software_versions": {
+        "content": [
+            [
+                "Workflow:"
+            ]
+        ],
+        "timestamp": "2026-10-21T13:56:23.057758207",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "24.10.5"
         }
     },
     "file_md5s": {
         "content": [
             [
-                [
-                    "mini_genome/carveme/mini_genome.xml",
-                    "4ae9e5352118f14bfd2afe89d09efa1f"
-                ],
                 [
                     "mini_genome/carveme/versions.yml",
                     "1f140d85274ab058a9aafd6f1f0a57bf"
@@ -255,32 +219,12 @@
                     "7ce7b6536845ffa8907b3f3fb2b77a1b"
                 ],
                 [
-                    "mini_genome/gapseq/mini_genome-Transporter.tbl",
-                    "3ab8a5e8beb26d9650e1efdfb601a2c8"
-                ],
-                [
-                    "mini_genome/gapseq/mini_genome-all-Pathways.tbl",
-                    "489740b125a05a14c4d2ac357ebb4ba6"
-                ],
-                [
-                    "mini_genome/gapseq/mini_genome-all-Reactions.tbl",
-                    "d0343463d51cdf7e56d904d3aba82bbb"
-                ],
-                [
-                    "mini_genome/gapseq/mini_genome-draft.xml",
-                    "156f7efbcadeadbbd952cce3c09cefa2"
-                ],
-                [
                     "mini_genome/gapseq/mini_genome-medium.csv",
                     "df75d65834bc125b19d54f0cebc6f4b9"
                 ],
                 [
                     "mini_genome/gapseq/mini_genome.gff",
                     "d684789302f5b829261d1beb6a776daa"
-                ],
-                [
-                    "mini_genome/gapseq/mini_genome.xml",
-                    "90b14d9740d3374b331d239d3bcc1e06"
                 ],
                 [
                     "mini_genome/gapseq/versions.yml",
@@ -296,10 +240,10 @@
                 ]
             ]
         ],
-        "timestamp": "2026-04-22T09:57:03.676925",
+        "timestamp": "2026-10-21T13:56:23.049481456",
         "meta": {
-            "nf-test": "0.9.4",
-            "nextflow": "25.10.4"
+            "nf-test": "0.9.5",
+            "nextflow": "24.10.5"
         }
     }
 }

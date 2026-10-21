@@ -6,6 +6,14 @@ nextflow_pipeline {
     test("mini genome - default annotation") {
         when {
             params {
+                // The checked-in testdata/samplesheet.csv holds an absolute path from
+                // the machine that generated it; write one resolved against this checkout.
+                // Beside outputDir, not in it, so it stays out of the directory snapshot
+                // (metaDir is still null while this block runs).
+                def sheet = new File(new File("$outputDir").parentFile, "samplesheet.csv")
+                sheet.parentFile.mkdirs()
+                sheet.text = "sample,fastx\nmini_genome,${projectDir}/tests/testdata/mini_genome.fa\n"
+                input = sheet.path
                 outdir = "$outputDir"
             }
         }
@@ -17,6 +25,13 @@ nextflow_pipeline {
             ).sort()
             def binary_exts = ['.gz', '.RDS', '.dmnd'] as Set
             def text_files = all_files.findAll { f -> binary_exts.every { ext -> !f.endsWith(ext) } }
+            // Content differs between gapseq image builds (the Dockerfile's conda
+            // versions are unpinned) and between runs for carveme's model and the pfam
+            // domtbl. These keep their name and line-count checks, not size or md5.
+            def varying = [~/gapseq\/.*\.(RDS|xml|tbl)$/, ~/carveme\/.*\.xml$/, ~/\.domtbl\.gz$/]
+            def stable = { f -> !varying.any { re -> f =~ re } }
+            // gapseq's models (final and draft) differ in length between runs of the same image.
+            def countable = { f -> !(f =~ ~/gapseq\/.*\.xml$/) }
 
             assertAll(
                 { assert workflow.success },
@@ -27,24 +42,35 @@ nextflow_pipeline {
                         ignore: ['pipeline_info/**']).sort()
                 ).match("directory_structure") },
 
-                // 2. File sizes — all files (for .gz this is the compressed size)
+                // 2. File sizes — stable files (for .gz this is the compressed size)
                 { assert snapshot(
-                    all_files.collect { f -> [f, path("$outputDir/$f").size()] }
+                    all_files.findAll(stable).collect { f -> [f, path("$outputDir/$f").size()] }
                 ).match("file_sizes") },
 
                 // 3. Line counts — text files only (.gz excluded; binary content)
                 { assert snapshot(
-                    text_files.collect { f ->
+                    text_files.findAll(countable).collect { f ->
                         [f, path("$outputDir/$f").readLines().size()]
                     }
                 ).match("line_counts") },
 
-                // 4. MD5 checksums — text files only (.gz md5 varies with gzip timestamp)
+                // 4. MD5 checksums — stable text files (.gz md5 varies with gzip timestamp)
                 { assert snapshot(
-                    text_files.collect { f ->
+                    text_files.findAll(stable).collect { f ->
                         [f, path("$outputDir/$f").md5]
                     }
-                ).match("file_md5s") }
+                ).match("file_md5s") },
+
+                // 5. Software versions. `pipeline_info/**` is excluded above because
+                // the timeline/report/trace/dag files carry a run timestamp, so this
+                // one is named explicitly. Snapshotted by content with the pipeline's
+                // own version line removed — that line moves with every release.
+                { assert snapshot(
+                    path("$outputDir/pipeline_info/genomeannotation_software_versions.yml")
+                        .readLines()
+                        .findAll { line -> !line.contains('genomeannotation') && !line.contains('Nextflow') }
+                        .sort()
+                ).match("software_versions") }
             )
         }
     }

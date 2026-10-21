@@ -2,7 +2,8 @@
 
 A Nextflow DSL2 pipeline for functional annotation of prokaryotic and microbial genomes. Starting from genome FASTA files, it predicts protein-coding sequences and annotates them against Pfam, KEGG (KOfam), and CAZy (dbCAN) databases. Optionally reconstructs genome-scale metabolic models using GapSeq and/or CarVeME.
 
-[![Nextflow](https://img.shields.io/badge/version-%E2%89%A524.10.5-green?style=flat&logo=nextflow&logoColor=white&color=%230DC09D)](https://www.nextflow.io/)
+[![nf-core template version](https://img.shields.io/badge/nf--core_template-3.3.2-green?style=flat&logo=nfcore&logoColor=white&color=%2324B064&link=https%3A%2F%2Fnf-co.re)](https://github.com/nf-core/tools/releases/tag/3.3.2)
+[![Nextflow](https://img.shields.io/badge/version-%E2%89%A524.10.5-green?style=flat&logo=nextflow&logoColor=white&color=%230DC09D&link=https%3A%2F%2Fnextflow.io)](https://www.nextflow.io/)
 [![nf-test](https://img.shields.io/badge/unit_tests-nf--test-337ab7.svg)](https://www.nf-test.com)
 [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/)
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg?labelColor=000000)](https://sylabs.io/docs/)
@@ -42,6 +43,7 @@ curl -s https://get.nextflow.io | bash
 ### 2. Prepare a samplesheet
 
 `samplesheet.csv`:
+
 ```csv
 sample,fastx
 genome_A,/path/to/genome_A.fa
@@ -69,20 +71,20 @@ nextflow run main.nf \
 
 ## Databases
 
-| Database | Where to download | Param |
-|----------|-------------------|-------|
-| Pfam-A HMM | [InterPro FTP](https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/) — `Pfam-A.hmm.gz` | `params.databases.pfam.hmm` |
-| dbCAN v14+ | [dbCAN2 downloads](https://bcb.unl.edu/dbCAN2/download/Databases/) — full directory | `params.databases.dbcan.files.db` |
-| KOfam | [KEGG FTP](https://www.genome.jp/ftp/db/kofam/) — `profiles.tar.gz` + `ko_list` | `params.databases.kofam_chunked.*` |
+| Database   | Where to download                                                                           | Param                              |
+| ---------- | ------------------------------------------------------------------------------------------- | ---------------------------------- |
+| Pfam-A HMM | [InterPro FTP](https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/) — `Pfam-A.hmm.gz` | `params.databases.pfam.hmm`        |
+| dbCAN v14+ | [dbCAN2 downloads](https://bcb.unl.edu/dbCAN2/download/Databases/) — full directory         | `params.databases.dbcan.files.db`  |
+| KOfam      | [KEGG FTP](https://www.genome.jp/ftp/db/kofam/) — `profiles.tar.gz` + `ko_list`             | `params.databases.kofam_chunked.*` |
 
 KOfam can be split into multiple chunks to parallelise annotation. Define as many `chunk_N` blocks as needed under `params.databases.kofam_chunked` (see [Configuration](#configuration)).
 
 ### Metabolic modelling databases (optional)
 
-| Tool | Database | Param |
-|------|----------|-------|
-| GapSeq | [GapSeq data](https://github.com/jotech/gapseq) — run `gapseq fetch dat` | `params.databases.gapseq.path` |
-| CarVeME | BIGG universe model (bundled in container) | — |
+| Tool    | Database                                                                 | Param                          |
+| ------- | ------------------------------------------------------------------------ | ------------------------------ |
+| GapSeq  | [GapSeq data](https://github.com/jotech/gapseq) — run `gapseq fetch dat` | `params.databases.gapseq.path` |
+| CarVeME | BIGG universe model (bundled in container)                               | —                              |
 
 ## Configuration
 
@@ -119,34 +121,35 @@ params {
 ```
 
 Run with:
+
 ```bash
 nextflow run main.nf -profile docker -params-file my_params.config
 ```
 
 ## Key parameters
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `--samplesheet` | — | Path to input CSV samplesheet |
-| `--outdir` | `results` | Output directory |
-| `--prodigal_meta` | `false` | Force Pyrodigal meta mode for all genomes (useful for MAGs) |
-| `--pfam_chunksize` | `2 MB` | Protein FASTA chunk size for Pfam HMMER jobs |
-| `--kofam_chunksize` | `2 MB` | Protein FASTA chunk size for KOfam jobs |
-| `--dbcan_chunksize` | `1 MB` | Protein FASTA chunk size for dbCAN jobs |
-| `--run_gapseq` | `false` | Run GapSeq metabolic model reconstruction |
-| `--run_carveme` | `false` | Run CarVeME metabolic model reconstruction |
-| `--gapseq_medium` | — | Growth medium CSV for GapSeq (auto-predicted if unset) |
-| `--carveme_mediadb` | — | CarVeME media database file |
+| Parameter           | Default   | Description                                                 |
+| ------------------- | --------- | ----------------------------------------------------------- |
+| `--samplesheet`     | —         | Path to input CSV samplesheet                               |
+| `--outdir`          | `results` | Output directory                                            |
+| `--prodigal_meta`   | `false`   | Force Pyrodigal meta mode for all genomes (useful for MAGs) |
+| `--pfam_chunksize`  | `2 MB`    | Protein FASTA chunk size for Pfam HMMER jobs                |
+| `--kofam_chunksize` | `2 MB`    | Protein FASTA chunk size for KOfam jobs                     |
+| `--dbcan_chunksize` | `1 MB`    | Protein FASTA chunk size for dbCAN jobs                     |
+| `--run_gapseq`      | `false`   | Run GapSeq metabolic model reconstruction                   |
+| `--run_carveme`     | `false`   | Run CarVeME metabolic model reconstruction                  |
+| `--gapseq_medium`   | —         | Growth medium CSV for GapSeq (auto-predicted if unset)      |
+| `--carveme_mediadb` | —         | CarVeME media database file                                 |
 
 ## Execution profiles
 
-| Profile | Description |
-|---------|-------------|
-| `docker` | Docker (AMD64; applies `--platform linux/amd64` for Apple Silicon compatibility) |
-| `singularity` | Singularity/Apptainer |
-| `test` | Minimal test run using bundled mini databases (run `tests/scripts/make_mini_databases.sh` once first) |
-| `local` | Resource limits for a workstation |
-| `codon` | SLURM profile for the EMBL-EBI CODON HPC cluster |
+| Profile       | Description                                                                                           |
+| ------------- | ----------------------------------------------------------------------------------------------------- |
+| `docker`      | Docker (AMD64; applies `--platform linux/amd64` for Apple Silicon compatibility)                      |
+| `singularity` | Singularity/Apptainer                                                                                 |
+| `test`        | Minimal test run using bundled mini databases (run `tests/scripts/make_mini_databases.sh` once first) |
+| `local`       | Resource limits for a workstation                                                                     |
+| `codon`       | SLURM profile for the EMBL-EBI CODON HPC cluster                                                      |
 
 ```bash
 # Test run
@@ -227,6 +230,7 @@ options:
 ```
 
 Run the unit tests with:
+
 ```bash
 pytest scripts/tests/test_inject_kofam_ga_thresholds.py -v
 ```
@@ -237,6 +241,6 @@ Written by Tim Rozday ([@timrozday-mgnify](https://github.com/timrozday-mgnify))
 
 Built on the [nf-core](https://nf-co.re) framework and community modules. Please cite the nf-core publication if you use this pipeline:
 
-> Ewels PA, Peltzer A, Fillinger S, et al. **The nf-core framework for community-curated bioinformatics pipelines.** *Nat Biotechnol.* 2020;38:276–278. doi:[10.1038/s41587-020-0439-x](https://doi.org/10.1038/s41587-020-0439-x)
+> Ewels PA, Peltzer A, Fillinger S, et al. **The nf-core framework for community-curated bioinformatics pipelines.** _Nat Biotechnol._ 2020;38:276–278. doi:[10.1038/s41587-020-0439-x](https://doi.org/10.1038/s41587-020-0439-x)
 
 Tool citations: [`CITATIONS.md`](CITATIONS.md).
